@@ -1,0 +1,19 @@
+Extractor validation sheet
+==========================
+For each row, read the report and write what it STATES for each slot.
+Write 'not stated' if the report does not mention the slot. Do not judge
+whether the report is medically right; only record what the text says.
+
+pathology: benign / malignant / not stated
+birads: 2 / 3 / 4A / 4B / 4C / 5 / 6 / not stated
+orientation: parallel / not parallel / not stated
+margins: regular (circumscribed / well-defined / smooth) / partially regular (microlobulated / angular / partially circumscribed) / irregular (indistinct / spiculated / poorly defined) / not stated
+shape: oval / round / irregular / not stated
+echogenicity: hypoechoic / slightly hypoechoic / isoechoic / hyperechoic / heterogeneous / complex cystic and solid / anechoic / not stated
+calcification: absent / present / not stated
+
+Copy the words the report uses (e.g. 'low echogenicity', 'no calcific foci',
+'microlobulated'); any wording is fine, the scorer folds synonyms together.
+A report may be garbled or repeat itself: still record what it states, or
+'not stated' if a slot is absent or unreadable.
+Do not open the _key.json file until you have finished.

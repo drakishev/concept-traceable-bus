@@ -1,0 +1,248 @@
+{
+  "split_file": "data/unified_v5/test_buscot_only.jsonl",
+  "n_records": 825,
+  "n_unmatched": 48,
+  "styles": {
+    "A": {
+      "pathology": {
+        "with_ground_truth": 825,
+        "extraction_rate": 1.0,
+        "accuracy": 1.0,
+        "correct": 825,
+        "wrong": 0,
+        "not_extracted": 0
+      },
+      "birads": {
+        "with_ground_truth": 824,
+        "extraction_rate": 1.0,
+        "accuracy": 1.0,
+        "correct": 824,
+        "wrong": 0,
+        "not_extracted": 0
+      },
+      "margins": {
+        "with_ground_truth": 824,
+        "extraction_rate": 1.0,
+        "accuracy": 1.0,
+        "correct": 824,
+        "wrong": 0,
+        "not_extracted": 0
+      },
+      "echogenicity": {
+        "with_ground_truth": 823,
+        "extraction_rate": 1.0,
+        "accuracy": 1.0,
+        "correct": 823,
+        "wrong": 0,
+        "not_extracted": 0
+      },
+      "calcification": {
+        "with_ground_truth": 824,
+        "extraction_rate": 1.0,
+        "accuracy": 1.0,
+        "correct": 824,
+        "wrong": 0,
+        "not_extracted": 0
+      },
+      "shape": {
+        "with_ground_truth": 824,
+        "extraction_rate": 1.0,
+        "accuracy": 1.0,
+        "correct": 824,
+        "wrong": 0,
+        "not_extracted": 0
+      },
+      "orientation": {
+        "with_ground_truth": 825,
+        "extraction_rate": 1.0,
+        "accuracy": 1.0,
+        "correct": 825,
+        "wrong": 0,
+        "not_extracted": 0
+      }
+    },
+    "B": {
+      "pathology": {
+        "with_ground_truth": 825,
+        "extraction_rate": 1.0,
+        "accuracy": 1.0,
+        "correct": 825,
+        "wrong": 0,
+        "not_extracted": 0
+      },
+      "birads": {
+        "with_ground_truth": 824,
+        "extraction_rate": 1.0,
+        "accuracy": 1.0,
+        "correct": 824,
+        "wrong": 0,
+        "not_extracted": 0
+      },
+      "margins": {
+        "with_ground_truth": 824,
+        "extraction_rate": 1.0,
+        "accuracy": 1.0,
+        "correct": 824,
+        "wrong": 0,
+        "not_extracted": 0
+      },
+      "echogenicity": {
+        "with_ground_truth": 823,
+        "extraction_rate": 1.0,
+        "accuracy": 1.0,
+        "correct": 823,
+        "wrong": 0,
+        "not_extracted": 0
+      },
+      "calcification": {
+        "with_ground_truth": 824,
+        "extraction_rate": 1.0,
+        "accuracy": 1.0,
+        "correct": 824,
+        "wrong": 0,
+        "not_extracted": 0
+      },
+      "shape": {
+        "with_ground_truth": 824,
+        "extraction_rate": 1.0,
+        "accuracy": 1.0,
+        "correct": 824,
+        "wrong": 0,
+        "not_extracted": 0
+      },
+      "orientation": {
+        "with_ground_truth": 825,
+        "extraction_rate": 1.0,
+        "accuracy": 1.0,
+        "correct": 825,
+        "wrong": 0,
+        "not_extracted": 0
+      }
+    },
+    "C": {
+      "pathology": {
+        "with_ground_truth": 825,
+        "extraction_rate": 1.0,
+        "accuracy": 1.0,
+        "correct": 825,
+        "wrong": 0,
+        "not_extracted": 0
+      },
+      "birads": {
+        "with_ground_truth": 824,
+        "extraction_rate": 1.0,
+        "accuracy": 1.0,
+        "correct": 824,
+        "wrong": 0,
+        "not_extracted": 0
+      },
+      "margins": {
+        "with_ground_truth": 824,
+        "extraction_rate": 1.0,
+        "accuracy": 1.0,
+        "correct": 824,
+        "wrong": 0,
+        "not_extracted": 0
+      },
+      "echogenicity": {
+        "with_ground_truth": 823,
+        "extraction_rate": 1.0,
+        "accuracy": 1.0,
+        "correct": 823,
+        "wrong": 0,
+        "not_extracted": 0
+      },
+      "calcification": {
+        "with_ground_truth": 824,
+        "extraction_rate": 1.0,
+        "accuracy": 1.0,
+        "correct": 824,
+        "wrong": 0,
+        "not_extracted": 0
+      },
+      "shape": {
+        "with_ground_truth": 824,
+        "extraction_rate": 1.0,
+        "accuracy": 1.0,
+        "correct": 824,
+        "wrong": 0,
+        "not_extracted": 0
+      },
+      "orientation": {
+        "with_ground_truth": 825,
+        "extraction_rate": 1.0,
+        "accuracy": 1.0,
+        "correct": 825,
+        "wrong": 0,
+        "not_extracted": 0
+      }
+    },
+    "D": {
+      "pathology": {
+        "with_ground_truth": 825,
+        "extraction_rate": 1.0,
+        "accuracy": 1.0,
+        "correct": 825,
+        "wrong": 0,
+        "not_extracted": 0
+      },
+      "birads": {
+        "with_ground_truth": 824,
+        "extraction_rate": 1.0,
+        "accuracy": 1.0,
+        "correct": 824,
+        "wrong": 0,
+        "not_extracted": 0
+      },
+      "margins": {
+        "with_ground_truth": 824,
+        "extraction_rate": 1.0,
+        "accuracy": 1.0,
+        "correct": 824,
+        "wrong": 0,
+        "not_extracted": 0
+      },
+      "echogenicity": {
+        "with_ground_truth": 823,
+        "extraction_rate": 1.0,
+        "accuracy": 1.0,
+        "correct": 823,
+        "wrong": 0,
+        "not_extracted": 0
+      },
+      "calcification": {
+        "with_ground_truth": 824,
+        "extraction_rate": 1.0,
+        "accuracy": 1.0,
+        "correct": 824,
+        "wrong": 0,
+        "not_extracted": 0
+      },
+      "shape": {
+        "with_ground_truth": 824,
+        "extraction_rate": 1.0,
+        "accuracy": 1.0,
+        "correct": 824,
+        "wrong": 0,
+        "not_extracted": 0
+      },
+      "orientation": {
+        "with_ground_truth": 825,
+        "extraction_rate": 1.0,
+        "accuracy": 1.0,
+        "correct": 825,
+        "wrong": 0,
+        "not_extracted": 0
+      }
+    }
+  },
+  "example_mismatches": {
+    "pathology": [],
+    "birads": [],
+    "margins": [],
+    "echogenicity": [],
+    "calcification": [],
+    "shape": [],
+    "orientation": []
+  }
+}

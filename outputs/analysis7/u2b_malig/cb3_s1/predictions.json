@@ -1,0 +1,1766 @@
+[
+  {
+    "id": "u2b_722",
+    "pred": 0,
+    "prob_malignant": 0.47063788771629333,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_723",
+    "pred": 0,
+    "prob_malignant": 0.4092051386833191,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_724",
+    "pred": 0,
+    "prob_malignant": 0.4560496509075165,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_725",
+    "pred": 1,
+    "prob_malignant": 0.5638287663459778,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_726",
+    "pred": 1,
+    "prob_malignant": 0.5515912175178528,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_727",
+    "pred": 1,
+    "prob_malignant": 0.6521724462509155,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_728",
+    "pred": 1,
+    "prob_malignant": 0.6771442890167236,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_729",
+    "pred": 1,
+    "prob_malignant": 0.5562411546707153,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_730",
+    "pred": 1,
+    "prob_malignant": 0.6324737668037415,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_731",
+    "pred": 0,
+    "prob_malignant": 0.4760894775390625,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_732",
+    "pred": 0,
+    "prob_malignant": 0.48702871799468994,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_733",
+    "pred": 1,
+    "prob_malignant": 0.5549834966659546,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_734",
+    "pred": 1,
+    "prob_malignant": 0.5526254177093506,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_735",
+    "pred": 1,
+    "prob_malignant": 0.6008573770523071,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_736",
+    "pred": 1,
+    "prob_malignant": 0.6078630685806274,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_737",
+    "pred": 0,
+    "prob_malignant": 0.4638848602771759,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_738",
+    "pred": 0,
+    "prob_malignant": 0.46768471598625183,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_739",
+    "pred": 0,
+    "prob_malignant": 0.43938618898391724,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_740",
+    "pred": 0,
+    "prob_malignant": 0.4151500165462494,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_741",
+    "pred": 1,
+    "prob_malignant": 0.5773594379425049,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_742",
+    "pred": 1,
+    "prob_malignant": 0.6776275634765625,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_743",
+    "pred": 0,
+    "prob_malignant": 0.49062731862068176,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_744",
+    "pred": 1,
+    "prob_malignant": 0.6459888815879822,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_745",
+    "pred": 1,
+    "prob_malignant": 0.5547670125961304,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_746",
+    "pred": 1,
+    "prob_malignant": 0.586762011051178,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_747",
+    "pred": 1,
+    "prob_malignant": 0.6675330400466919,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_748",
+    "pred": 0,
+    "prob_malignant": 0.4748895764350891,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_749",
+    "pred": 1,
+    "prob_malignant": 0.5104278326034546,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_750",
+    "pred": 1,
+    "prob_malignant": 0.6421209573745728,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_751",
+    "pred": 1,
+    "prob_malignant": 0.7177985906600952,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_752",
+    "pred": 0,
+    "prob_malignant": 0.4207552373409271,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_753",
+    "pred": 0,
+    "prob_malignant": 0.34454429149627686,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_754",
+    "pred": 0,
+    "prob_malignant": 0.4091029465198517,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_755",
+    "pred": 0,
+    "prob_malignant": 0.39994463324546814,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_756",
+    "pred": 0,
+    "prob_malignant": 0.41223329305648804,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_757",
+    "pred": 0,
+    "prob_malignant": 0.4421057105064392,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_758",
+    "pred": 0,
+    "prob_malignant": 0.4256279468536377,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_759",
+    "pred": 0,
+    "prob_malignant": 0.3627382814884186,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_760",
+    "pred": 0,
+    "prob_malignant": 0.3419581353664398,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_761",
+    "pred": 0,
+    "prob_malignant": 0.4316074848175049,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_762",
+    "pred": 0,
+    "prob_malignant": 0.3960874378681183,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_763",
+    "pred": 0,
+    "prob_malignant": 0.3960874378681183,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_764",
+    "pred": 0,
+    "prob_malignant": 0.31321319937705994,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_765",
+    "pred": 0,
+    "prob_malignant": 0.38297754526138306,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_766",
+    "pred": 0,
+    "prob_malignant": 0.4241063892841339,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_767",
+    "pred": 0,
+    "prob_malignant": 0.46221086382865906,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_768",
+    "pred": 0,
+    "prob_malignant": 0.4690442681312561,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_769",
+    "pred": 0,
+    "prob_malignant": 0.49703219532966614,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_770",
+    "pred": 0,
+    "prob_malignant": 0.38856154680252075,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_771",
+    "pred": 0,
+    "prob_malignant": 0.4255400598049164,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_772",
+    "pred": 0,
+    "prob_malignant": 0.4507584869861603,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_773",
+    "pred": 0,
+    "prob_malignant": 0.37335094809532166,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_774",
+    "pred": 0,
+    "prob_malignant": 0.4062994718551636,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_775",
+    "pred": 0,
+    "prob_malignant": 0.34988439083099365,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_776",
+    "pred": 0,
+    "prob_malignant": 0.30796384811401367,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_777",
+    "pred": 0,
+    "prob_malignant": 0.33456093072891235,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_778",
+    "pred": 0,
+    "prob_malignant": 0.33456093072891235,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_779",
+    "pred": 0,
+    "prob_malignant": 0.2802478075027466,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_780",
+    "pred": 0,
+    "prob_malignant": 0.2931358516216278,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_781",
+    "pred": 0,
+    "prob_malignant": 0.3639456331729889,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_782",
+    "pred": 0,
+    "prob_malignant": 0.39668211340904236,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_783",
+    "pred": 1,
+    "prob_malignant": 0.5082710385322571,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_784",
+    "pred": 0,
+    "prob_malignant": 0.3672148585319519,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_785",
+    "pred": 0,
+    "prob_malignant": 0.3392384350299835,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_786",
+    "pred": 0,
+    "prob_malignant": 0.33981555700302124,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_787",
+    "pred": 0,
+    "prob_malignant": 0.29781296849250793,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_788",
+    "pred": 0,
+    "prob_malignant": 0.30905064940452576,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_789",
+    "pred": 0,
+    "prob_malignant": 0.25844714045524597,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_790",
+    "pred": 1,
+    "prob_malignant": 0.5725457072257996,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_791",
+    "pred": 1,
+    "prob_malignant": 0.7009962797164917,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_792",
+    "pred": 1,
+    "prob_malignant": 0.681662917137146,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_793",
+    "pred": 1,
+    "prob_malignant": 0.6864656805992126,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_794",
+    "pred": 1,
+    "prob_malignant": 0.7420057058334351,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_795",
+    "pred": 1,
+    "prob_malignant": 0.6805645227432251,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_796",
+    "pred": 1,
+    "prob_malignant": 0.6423052549362183,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_797",
+    "pred": 1,
+    "prob_malignant": 0.5309483408927917,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_798",
+    "pred": 1,
+    "prob_malignant": 0.5758224725723267,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_799",
+    "pred": 1,
+    "prob_malignant": 0.5453275442123413,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_800",
+    "pred": 1,
+    "prob_malignant": 0.712425172328949,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_801",
+    "pred": 1,
+    "prob_malignant": 0.734622061252594,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_802",
+    "pred": 1,
+    "prob_malignant": 0.578892171382904,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_803",
+    "pred": 1,
+    "prob_malignant": 0.5213362574577332,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_804",
+    "pred": 1,
+    "prob_malignant": 0.523218035697937,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_805",
+    "pred": 0,
+    "prob_malignant": 0.19269344210624695,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_806",
+    "pred": 0,
+    "prob_malignant": 0.22014005482196808,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_807",
+    "pred": 1,
+    "prob_malignant": 0.5414174795150757,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_808",
+    "pred": 0,
+    "prob_malignant": 0.4624916911125183,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_809",
+    "pred": 0,
+    "prob_malignant": 0.35917848348617554,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_810",
+    "pred": 0,
+    "prob_malignant": 0.4259229898452759,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_811",
+    "pred": 1,
+    "prob_malignant": 0.6408188939094543,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_812",
+    "pred": 1,
+    "prob_malignant": 0.6641047596931458,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_813",
+    "pred": 0,
+    "prob_malignant": 0.42280760407447815,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_814",
+    "pred": 0,
+    "prob_malignant": 0.4060894846916199,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_815",
+    "pred": 0,
+    "prob_malignant": 0.390481561422348,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_816",
+    "pred": 0,
+    "prob_malignant": 0.3673025369644165,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_817",
+    "pred": 0,
+    "prob_malignant": 0.25942423939704895,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_818",
+    "pred": 0,
+    "prob_malignant": 0.3687056303024292,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_819",
+    "pred": 0,
+    "prob_malignant": 0.25352561473846436,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_820",
+    "pred": 1,
+    "prob_malignant": 0.7175692319869995,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_821",
+    "pred": 1,
+    "prob_malignant": 0.7407240867614746,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_822",
+    "pred": 1,
+    "prob_malignant": 0.6702125072479248,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_823",
+    "pred": 1,
+    "prob_malignant": 0.8006659150123596,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_824",
+    "pred": 1,
+    "prob_malignant": 0.5648024678230286,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_825",
+    "pred": 1,
+    "prob_malignant": 0.5949212312698364,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_826",
+    "pred": 1,
+    "prob_malignant": 0.6366468667984009,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_827",
+    "pred": 0,
+    "prob_malignant": 0.391676127910614,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_828",
+    "pred": 1,
+    "prob_malignant": 0.6814563870429993,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_829",
+    "pred": 0,
+    "prob_malignant": 0.43462666869163513,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_830",
+    "pred": 1,
+    "prob_malignant": 0.5605511665344238,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_831",
+    "pred": 1,
+    "prob_malignant": 0.5960966944694519,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_832",
+    "pred": 0,
+    "prob_malignant": 0.4727240800857544,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_833",
+    "pred": 0,
+    "prob_malignant": 0.33944499492645264,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_834",
+    "pred": 1,
+    "prob_malignant": 0.5724610090255737,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_835",
+    "pred": 0,
+    "prob_malignant": 0.31244876980781555,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_836",
+    "pred": 0,
+    "prob_malignant": 0.33875593543052673,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_837",
+    "pred": 0,
+    "prob_malignant": 0.3802236020565033,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_838",
+    "pred": 0,
+    "prob_malignant": 0.3043898642063141,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_839",
+    "pred": 0,
+    "prob_malignant": 0.32951849699020386,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_840",
+    "pred": 0,
+    "prob_malignant": 0.3535926043987274,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_841",
+    "pred": 0,
+    "prob_malignant": 0.30435991287231445,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_842",
+    "pred": 0,
+    "prob_malignant": 0.22138386964797974,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_843",
+    "pred": 0,
+    "prob_malignant": 0.23198595643043518,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_844",
+    "pred": 0,
+    "prob_malignant": 0.28771013021469116,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_845",
+    "pred": 0,
+    "prob_malignant": 0.3257150948047638,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_846",
+    "pred": 0,
+    "prob_malignant": 0.4215327203273773,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_847",
+    "pred": 0,
+    "prob_malignant": 0.49039626121520996,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_848",
+    "pred": 0,
+    "prob_malignant": 0.4350137412548065,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_849",
+    "pred": 0,
+    "prob_malignant": 0.4086736738681793,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_850",
+    "pred": 0,
+    "prob_malignant": 0.49885717034339905,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_851",
+    "pred": 0,
+    "prob_malignant": 0.4973989725112915,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_852",
+    "pred": 1,
+    "prob_malignant": 0.5429452061653137,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_853",
+    "pred": 1,
+    "prob_malignant": 0.559278130531311,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_854",
+    "pred": 1,
+    "prob_malignant": 0.5909879803657532,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_855",
+    "pred": 1,
+    "prob_malignant": 0.5667779445648193,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_856",
+    "pred": 1,
+    "prob_malignant": 0.6411689519882202,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_857",
+    "pred": 1,
+    "prob_malignant": 0.5111815929412842,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_858",
+    "pred": 0,
+    "prob_malignant": 0.4532986879348755,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_859",
+    "pred": 0,
+    "prob_malignant": 0.491059273481369,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_860",
+    "pred": 1,
+    "prob_malignant": 0.5477268099784851,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_861",
+    "pred": 1,
+    "prob_malignant": 0.7219153642654419,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_862",
+    "pred": 1,
+    "prob_malignant": 0.6236042380332947,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_863",
+    "pred": 1,
+    "prob_malignant": 0.589188277721405,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_864",
+    "pred": 1,
+    "prob_malignant": 0.5440500974655151,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_865",
+    "pred": 1,
+    "prob_malignant": 0.6081947684288025,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_866",
+    "pred": 1,
+    "prob_malignant": 0.5275635719299316,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_867",
+    "pred": 0,
+    "prob_malignant": 0.47295549511909485,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_868",
+    "pred": 1,
+    "prob_malignant": 0.5533676147460938,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_869",
+    "pred": 1,
+    "prob_malignant": 0.6449200510978699,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_870",
+    "pred": 1,
+    "prob_malignant": 0.5978471636772156,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_871",
+    "pred": 1,
+    "prob_malignant": 0.5841169953346252,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_872",
+    "pred": 1,
+    "prob_malignant": 0.5626015663146973,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_873",
+    "pred": 0,
+    "prob_malignant": 0.49690261483192444,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_874",
+    "pred": 0,
+    "prob_malignant": 0.491956502199173,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_875",
+    "pred": 1,
+    "prob_malignant": 0.5172349214553833,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_876",
+    "pred": 0,
+    "prob_malignant": 0.4197915196418762,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_877",
+    "pred": 0,
+    "prob_malignant": 0.42540302872657776,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_878",
+    "pred": 0,
+    "prob_malignant": 0.36003637313842773,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_879",
+    "pred": 0,
+    "prob_malignant": 0.3472272753715515,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_880",
+    "pred": 0,
+    "prob_malignant": 0.34194180369377136,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_881",
+    "pred": 0,
+    "prob_malignant": 0.3466931879520416,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_882",
+    "pred": 0,
+    "prob_malignant": 0.2905590236186981,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_883",
+    "pred": 0,
+    "prob_malignant": 0.3438365161418915,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_884",
+    "pred": 0,
+    "prob_malignant": 0.2778471112251282,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_885",
+    "pred": 0,
+    "prob_malignant": 0.2927466332912445,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_886",
+    "pred": 0,
+    "prob_malignant": 0.18749947845935822,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_887",
+    "pred": 0,
+    "prob_malignant": 0.20661357045173645,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_888",
+    "pred": 0,
+    "prob_malignant": 0.21268266439437866,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_889",
+    "pred": 0,
+    "prob_malignant": 0.22041262686252594,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_890",
+    "pred": 0,
+    "prob_malignant": 0.24269592761993408,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_891",
+    "pred": 0,
+    "prob_malignant": 0.4062343239784241,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_892",
+    "pred": 0,
+    "prob_malignant": 0.38658830523490906,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_894",
+    "pred": 0,
+    "prob_malignant": 0.3151598870754242,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_896",
+    "pred": 0,
+    "prob_malignant": 0.18494586646556854,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_898",
+    "pred": 0,
+    "prob_malignant": 0.21531942486763,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_905",
+    "pred": 0,
+    "prob_malignant": 0.3982260227203369,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_908",
+    "pred": 0,
+    "prob_malignant": 0.38664114475250244,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_910",
+    "pred": 0,
+    "prob_malignant": 0.22279302775859833,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_916",
+    "pred": 0,
+    "prob_malignant": 0.46702149510383606,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_920",
+    "pred": 0,
+    "prob_malignant": 0.45170924067497253,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_921",
+    "pred": 0,
+    "prob_malignant": 0.3841754198074341,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_926",
+    "pred": 0,
+    "prob_malignant": 0.17509424686431885,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_930",
+    "pred": 1,
+    "prob_malignant": 0.7013351321220398,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_934",
+    "pred": 1,
+    "prob_malignant": 0.824943482875824,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_936",
+    "pred": 0,
+    "prob_malignant": 0.2381468117237091,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_937",
+    "pred": 0,
+    "prob_malignant": 0.4325673580169678,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_940",
+    "pred": 1,
+    "prob_malignant": 0.8490186929702759,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_941",
+    "pred": 0,
+    "prob_malignant": 0.3111758232116699,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_943",
+    "pred": 0,
+    "prob_malignant": 0.221023291349411,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_944",
+    "pred": 1,
+    "prob_malignant": 0.6980540752410889,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_945",
+    "pred": 1,
+    "prob_malignant": 0.6190766096115112,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_947",
+    "pred": 0,
+    "prob_malignant": 0.24855390191078186,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_950",
+    "pred": 0,
+    "prob_malignant": 0.22507087886333466,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_951",
+    "pred": 0,
+    "prob_malignant": 0.49578341841697693,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_955",
+    "pred": 0,
+    "prob_malignant": 0.30931293964385986,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_957",
+    "pred": 0,
+    "prob_malignant": 0.19738541543483734,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_958",
+    "pred": 0,
+    "prob_malignant": 0.1304367333650589,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_961",
+    "pred": 0,
+    "prob_malignant": 0.17938439548015594,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_963",
+    "pred": 0,
+    "prob_malignant": 0.3423296809196472,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_964",
+    "pred": 0,
+    "prob_malignant": 0.44105473160743713,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_965",
+    "pred": 0,
+    "prob_malignant": 0.17602290213108063,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_966",
+    "pred": 0,
+    "prob_malignant": 0.11323051899671555,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_968",
+    "pred": 0,
+    "prob_malignant": 0.48234960436820984,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_970",
+    "pred": 0,
+    "prob_malignant": 0.3169429302215576,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_971",
+    "pred": 0,
+    "prob_malignant": 0.4922688901424408,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_974",
+    "pred": 0,
+    "prob_malignant": 0.2677456736564636,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_975",
+    "pred": 0,
+    "prob_malignant": 0.4406731426715851,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_976",
+    "pred": 0,
+    "prob_malignant": 0.3226414620876312,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_977",
+    "pred": 0,
+    "prob_malignant": 0.2478289157152176,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_978",
+    "pred": 0,
+    "prob_malignant": 0.24300768971443176,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_980",
+    "pred": 0,
+    "prob_malignant": 0.06825235486030579,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_981",
+    "pred": 0,
+    "prob_malignant": 0.21254612505435944,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_983",
+    "pred": 0,
+    "prob_malignant": 0.4736493229866028,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_984",
+    "pred": 1,
+    "prob_malignant": 0.5359211564064026,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_986",
+    "pred": 0,
+    "prob_malignant": 0.26946786046028137,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_988",
+    "pred": 1,
+    "prob_malignant": 0.5320250988006592,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_991",
+    "pred": 0,
+    "prob_malignant": 0.26402074098587036,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_992",
+    "pred": 1,
+    "prob_malignant": 0.7974795699119568,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_1726",
+    "pred": 0,
+    "prob_malignant": 0.43667298555374146,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_1730",
+    "pred": 1,
+    "prob_malignant": 0.540120005607605,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_1736",
+    "pred": 1,
+    "prob_malignant": 0.6728066205978394,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_1738",
+    "pred": 0,
+    "prob_malignant": 0.46719270944595337,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_1740",
+    "pred": 1,
+    "prob_malignant": 0.5479872822761536,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_1742",
+    "pred": 0,
+    "prob_malignant": 0.32195696234703064,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_1745",
+    "pred": 0,
+    "prob_malignant": 0.26237502694129944,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_1746",
+    "pred": 1,
+    "prob_malignant": 0.7146674990653992,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_1747",
+    "pred": 0,
+    "prob_malignant": 0.44061604142189026,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_1758",
+    "pred": 0,
+    "prob_malignant": 0.4191235601902008,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_1767",
+    "pred": 0,
+    "prob_malignant": 0.23955649137496948,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_1768",
+    "pred": 0,
+    "prob_malignant": 0.4668106436729431,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_1770",
+    "pred": 0,
+    "prob_malignant": 0.3043198585510254,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_1772",
+    "pred": 0,
+    "prob_malignant": 0.16974425315856934,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_1773",
+    "pred": 0,
+    "prob_malignant": 0.46841806173324585,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_1774",
+    "pred": 0,
+    "prob_malignant": 0.3342975080013275,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_1776",
+    "pred": 1,
+    "prob_malignant": 0.8303890824317932,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_1779",
+    "pred": 1,
+    "prob_malignant": 0.7989955544471741,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_1782",
+    "pred": 0,
+    "prob_malignant": 0.1889520287513733,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_1785",
+    "pred": 0,
+    "prob_malignant": 0.1772729903459549,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_1787",
+    "pred": 0,
+    "prob_malignant": 0.32335472106933594,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_1792",
+    "pred": 0,
+    "prob_malignant": 0.3564879894256592,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_1793",
+    "pred": 0,
+    "prob_malignant": 0.42171919345855713,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_1795",
+    "pred": 0,
+    "prob_malignant": 0.4775095582008362,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_1800",
+    "pred": 0,
+    "prob_malignant": 0.17085252702236176,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_1802",
+    "pred": 0,
+    "prob_malignant": 0.26410093903541565,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_1807",
+    "pred": 0,
+    "prob_malignant": 0.3682791292667389,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_1808",
+    "pred": 0,
+    "prob_malignant": 0.1863178163766861,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_1813",
+    "pred": 0,
+    "prob_malignant": 0.39373281598091125,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_1814",
+    "pred": 0,
+    "prob_malignant": 0.31303098797798157,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_1821",
+    "pred": 0,
+    "prob_malignant": 0.34816333651542664,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2834",
+    "pred": 0,
+    "prob_malignant": 0.3151598870754242,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2836",
+    "pred": 0,
+    "prob_malignant": 0.18494586646556854,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2838",
+    "pred": 0,
+    "prob_malignant": 0.21531942486763,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2845",
+    "pred": 0,
+    "prob_malignant": 0.3982260227203369,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2848",
+    "pred": 0,
+    "prob_malignant": 0.38664114475250244,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2850",
+    "pred": 0,
+    "prob_malignant": 0.22279302775859833,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2856",
+    "pred": 0,
+    "prob_malignant": 0.46702149510383606,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2860",
+    "pred": 0,
+    "prob_malignant": 0.45170924067497253,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2861",
+    "pred": 0,
+    "prob_malignant": 0.3841754198074341,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2866",
+    "pred": 0,
+    "prob_malignant": 0.17509424686431885,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2870",
+    "pred": 1,
+    "prob_malignant": 0.7013351321220398,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_2874",
+    "pred": 1,
+    "prob_malignant": 0.824943482875824,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_2876",
+    "pred": 0,
+    "prob_malignant": 0.2381468117237091,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2877",
+    "pred": 0,
+    "prob_malignant": 0.4325673580169678,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2880",
+    "pred": 1,
+    "prob_malignant": 0.8490186929702759,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_2881",
+    "pred": 0,
+    "prob_malignant": 0.3111758232116699,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2883",
+    "pred": 0,
+    "prob_malignant": 0.221023291349411,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2884",
+    "pred": 1,
+    "prob_malignant": 0.6980540752410889,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_2885",
+    "pred": 1,
+    "prob_malignant": 0.6190766096115112,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_2887",
+    "pred": 0,
+    "prob_malignant": 0.24855390191078186,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2890",
+    "pred": 0,
+    "prob_malignant": 0.22507087886333466,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2891",
+    "pred": 0,
+    "prob_malignant": 0.49578341841697693,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2895",
+    "pred": 0,
+    "prob_malignant": 0.30931293964385986,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2897",
+    "pred": 0,
+    "prob_malignant": 0.19738541543483734,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2898",
+    "pred": 0,
+    "prob_malignant": 0.1304367333650589,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2901",
+    "pred": 0,
+    "prob_malignant": 0.17938439548015594,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2903",
+    "pred": 0,
+    "prob_malignant": 0.3423296809196472,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2904",
+    "pred": 0,
+    "prob_malignant": 0.44105473160743713,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2905",
+    "pred": 0,
+    "prob_malignant": 0.17602290213108063,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2906",
+    "pred": 0,
+    "prob_malignant": 0.11323051899671555,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2908",
+    "pred": 0,
+    "prob_malignant": 0.48234960436820984,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2910",
+    "pred": 0,
+    "prob_malignant": 0.3169429302215576,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2911",
+    "pred": 0,
+    "prob_malignant": 0.4922688901424408,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2914",
+    "pred": 0,
+    "prob_malignant": 0.2677456736564636,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2915",
+    "pred": 0,
+    "prob_malignant": 0.4406731426715851,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2916",
+    "pred": 0,
+    "prob_malignant": 0.3226414620876312,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2917",
+    "pred": 0,
+    "prob_malignant": 0.2478289157152176,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2918",
+    "pred": 0,
+    "prob_malignant": 0.24300768971443176,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2920",
+    "pred": 0,
+    "prob_malignant": 0.06825235486030579,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2921",
+    "pred": 0,
+    "prob_malignant": 0.21254612505435944,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2923",
+    "pred": 0,
+    "prob_malignant": 0.4736493229866028,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2924",
+    "pred": 1,
+    "prob_malignant": 0.5359211564064026,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_2926",
+    "pred": 0,
+    "prob_malignant": 0.26946786046028137,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2928",
+    "pred": 1,
+    "prob_malignant": 0.5320250988006592,
+    "pred_label": "malignant"
+  },
+  {
+    "id": "u2b_2931",
+    "pred": 0,
+    "prob_malignant": 0.26402074098587036,
+    "pred_label": "benign"
+  },
+  {
+    "id": "u2b_2932",
+    "pred": 1,
+    "prob_malignant": 0.7974795699119568,
+    "pred_label": "malignant"
+  }
+]

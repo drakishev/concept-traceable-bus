@@ -1,0 +1,16 @@
+{
+  "n": 294,
+  "malignancy_f1": 0.42990654205607476,
+  "accuracy": 0.5850340136054422,
+  "sensitivity": 0.3709677419354839,
+  "specificity": 0.7411764705882353,
+  "precision": 0.5111111111111111,
+  "balanced_accuracy": 0.5560721062618597,
+  "confusion": {
+    "tp": 46,
+    "tn": 126,
+    "fp": 44,
+    "fn": 78
+  },
+  "checkpoint": "checkpoints/weekend/h_cb3_dinov2_s1/epoch=04-val/loss=0.0876.ckpt"
+}

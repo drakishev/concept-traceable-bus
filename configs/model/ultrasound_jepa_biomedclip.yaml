@@ -1,0 +1,28 @@
+model:
+  shared_embed_dim: 1024
+
+  # X-Encoder: UNI2-h
+  x_encoder_name: hf-hub:MahmoodLab/UNI2-h
+  x_encoder_embed_dim: 1536
+  x_encoder_image_size: 224
+  x_encoder_freeze: true
+
+  # Predictor
+  predictor_num_layers: 6
+  predictor_hidden_dim: 1024
+  predictor_num_heads: 16
+  predictor_mlp_ratio: 4.0
+  predictor_dropout: 0.1
+  predictor_use_cls_token: true
+
+  # Y-Encoder: BiomedCLIP text tower (CLIP-style, pre-aligned with images)
+  y_encoder_name: microsoft/BiomedCLIP-PubMedBERT_256-vit_base_patch16_224
+  y_encoder_embed_dim: 512          # CLIP text output dim
+  y_encoder_max_length: 256         # BiomedCLIP context window
+  y_encoder_freeze_base: false
+  y_encoder_lr_multiplier: 0.05
+
+  # Y-Decoder: BioMedLM
+  y_decoder_name: stanford-crfm/BioMedLM
+  y_decoder_max_length: 512
+  y_decoder_num_soft_prompt_tokens: 8

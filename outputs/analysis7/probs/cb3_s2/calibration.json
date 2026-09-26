@@ -1,0 +1,458 @@
+{
+  "target_sensitivity": 0.9,
+  "threshold_chosen_on_val": 0.240327,
+  "val": {
+    "n": 410,
+    "n_malignant": 176,
+    "prevalence": 0.4293,
+    "brier": 0.1936,
+    "reliability": {
+      "ece": 0.0387,
+      "bins": [
+        {
+          "lo": 0.0,
+          "hi": 0.1,
+          "n": 32,
+          "confidence": 0.0698,
+          "accuracy": 0.0312
+        },
+        {
+          "lo": 0.1,
+          "hi": 0.2,
+          "n": 61,
+          "confidence": 0.1515,
+          "accuracy": 0.2131
+        },
+        {
+          "lo": 0.2,
+          "hi": 0.3,
+          "n": 70,
+          "confidence": 0.2507,
+          "accuracy": 0.2857
+        },
+        {
+          "lo": 0.3,
+          "hi": 0.4,
+          "n": 52,
+          "confidence": 0.3517,
+          "accuracy": 0.3654
+        },
+        {
+          "lo": 0.4,
+          "hi": 0.5,
+          "n": 49,
+          "confidence": 0.4426,
+          "accuracy": 0.4898
+        },
+        {
+          "lo": 0.5,
+          "hi": 0.6,
+          "n": 49,
+          "confidence": 0.5487,
+          "accuracy": 0.5306
+        },
+        {
+          "lo": 0.6,
+          "hi": 0.7,
+          "n": 37,
+          "confidence": 0.6465,
+          "accuracy": 0.6216
+        },
+        {
+          "lo": 0.7,
+          "hi": 0.8,
+          "n": 28,
+          "confidence": 0.7606,
+          "accuracy": 0.7143
+        },
+        {
+          "lo": 0.8,
+          "hi": 0.9,
+          "n": 28,
+          "confidence": 0.8577,
+          "accuracy": 0.9286
+        },
+        {
+          "lo": 0.9,
+          "hi": 1.0,
+          "n": 4,
+          "confidence": 0.9229,
+          "accuracy": 1.0
+        }
+      ]
+    },
+    "argmax_threshold": {
+      "threshold": 0.5,
+      "sensitivity": 0.5625,
+      "specificity": 0.7991,
+      "ppv": 0.6781,
+      "npv": 0.7083,
+      "f1": 0.6149,
+      "missed_malignancies": 77,
+      "n_malignant": 176,
+      "confusion": {
+        "tp": 99,
+        "fp": 47,
+        "tn": 187,
+        "fn": 77
+      }
+    },
+    "sensitivity_0.90_threshold_from_val": {
+      "threshold": 0.240327,
+      "sensitivity": 0.8977,
+      "specificity": 0.4359,
+      "ppv": 0.5448,
+      "npv": 0.85,
+      "f1": 0.6781,
+      "missed_malignancies": 18,
+      "n_malignant": 176,
+      "confusion": {
+        "tp": 158,
+        "fp": 132,
+        "tn": 102,
+        "fn": 18
+      }
+    }
+  },
+  "internal_test": {
+    "n": 873,
+    "n_malignant": 391,
+    "prevalence": 0.4479,
+    "brier": 0.169,
+    "reliability": {
+      "ece": 0.0468,
+      "bins": [
+        {
+          "lo": 0.0,
+          "hi": 0.1,
+          "n": 90,
+          "confidence": 0.0704,
+          "accuracy": 0.0556
+        },
+        {
+          "lo": 0.1,
+          "hi": 0.2,
+          "n": 140,
+          "confidence": 0.1493,
+          "accuracy": 0.1
+        },
+        {
+          "lo": 0.2,
+          "hi": 0.3,
+          "n": 122,
+          "confidence": 0.2516,
+          "accuracy": 0.2705
+        },
+        {
+          "lo": 0.3,
+          "hi": 0.4,
+          "n": 96,
+          "confidence": 0.3508,
+          "accuracy": 0.4583
+        },
+        {
+          "lo": 0.4,
+          "hi": 0.5,
+          "n": 98,
+          "confidence": 0.4527,
+          "accuracy": 0.5
+        },
+        {
+          "lo": 0.5,
+          "hi": 0.6,
+          "n": 81,
+          "confidence": 0.5521,
+          "accuracy": 0.6296
+        },
+        {
+          "lo": 0.6,
+          "hi": 0.7,
+          "n": 80,
+          "confidence": 0.6508,
+          "accuracy": 0.6625
+        },
+        {
+          "lo": 0.7,
+          "hi": 0.8,
+          "n": 78,
+          "confidence": 0.7516,
+          "accuracy": 0.8333
+        },
+        {
+          "lo": 0.8,
+          "hi": 0.9,
+          "n": 75,
+          "confidence": 0.8435,
+          "accuracy": 0.8533
+        },
+        {
+          "lo": 0.9,
+          "hi": 1.0,
+          "n": 13,
+          "confidence": 0.9182,
+          "accuracy": 1.0
+        }
+      ]
+    },
+    "argmax_threshold": {
+      "threshold": 0.5,
+      "sensitivity": 0.6292,
+      "specificity": 0.832,
+      "ppv": 0.7523,
+      "npv": 0.7344,
+      "f1": 0.6852,
+      "missed_malignancies": 145,
+      "n_malignant": 391,
+      "confusion": {
+        "tp": 246,
+        "fp": 81,
+        "tn": 401,
+        "fn": 145
+      }
+    },
+    "sensitivity_0.90_threshold_from_val": {
+      "threshold": 0.240327,
+      "sensitivity": 0.9309,
+      "specificity": 0.5166,
+      "ppv": 0.6097,
+      "npv": 0.9022,
+      "f1": 0.7368,
+      "missed_malignancies": 27,
+      "n_malignant": 391,
+      "confusion": {
+        "tp": 364,
+        "fp": 233,
+        "tn": 249,
+        "fn": 27
+      }
+    }
+  },
+  "external": {
+    "u2bench": {
+      "n": 294,
+      "n_malignant": 124,
+      "prevalence": 0.4218,
+      "brier": 0.1754,
+      "reliability": {
+        "ece": 0.0852,
+        "bins": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "n": 6,
+            "confidence": 0.0705,
+            "accuracy": 0.3333
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "n": 35,
+            "confidence": 0.1577,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "n": 37,
+            "confidence": 0.2499,
+            "accuracy": 0.0811
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "n": 60,
+            "confidence": 0.3461,
+            "accuracy": 0.3833
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "n": 31,
+            "confidence": 0.4455,
+            "accuracy": 0.2903
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "n": 40,
+            "confidence": 0.5533,
+            "accuracy": 0.575
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "n": 30,
+            "confidence": 0.6585,
+            "accuracy": 0.7
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "n": 22,
+            "confidence": 0.7535,
+            "accuracy": 0.6818
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "n": 29,
+            "confidence": 0.8475,
+            "accuracy": 0.8276
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "n": 4,
+            "confidence": 0.901,
+            "accuracy": 1.0
+          }
+        ]
+      },
+      "argmax_threshold": {
+        "threshold": 0.5,
+        "sensitivity": 0.7016,
+        "specificity": 0.7765,
+        "ppv": 0.696,
+        "npv": 0.7811,
+        "f1": 0.6988,
+        "missed_malignancies": 37,
+        "n_malignant": 124,
+        "confusion": {
+          "tp": 87,
+          "fp": 38,
+          "tn": 132,
+          "fn": 37
+        }
+      },
+      "sensitivity_0.90_threshold_from_val": {
+        "threshold": 0.240327,
+        "sensitivity": 0.9839,
+        "specificity": 0.3059,
+        "ppv": 0.5083,
+        "npv": 0.963,
+        "f1": 0.6703,
+        "missed_malignancies": 2,
+        "n_malignant": 124,
+        "confusion": {
+          "tp": 122,
+          "fp": 118,
+          "tn": 52,
+          "fn": 2
+        }
+      }
+    },
+    "breast": {
+      "n": 252,
+      "n_malignant": 98,
+      "prevalence": 0.3889,
+      "brier": 0.1793,
+      "reliability": {
+        "ece": 0.103,
+        "bins": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "n": 8,
+            "confidence": 0.0784,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "n": 19,
+            "confidence": 0.1536,
+            "accuracy": 0.0526
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "n": 37,
+            "confidence": 0.254,
+            "accuracy": 0.1351
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "n": 28,
+            "confidence": 0.3521,
+            "accuracy": 0.1429
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "n": 43,
+            "confidence": 0.454,
+            "accuracy": 0.3721
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "n": 40,
+            "confidence": 0.5514,
+            "accuracy": 0.475
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "n": 35,
+            "confidence": 0.643,
+            "accuracy": 0.5143
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "n": 25,
+            "confidence": 0.746,
+            "accuracy": 0.76
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "n": 17,
+            "confidence": 0.8401,
+            "accuracy": 0.9412
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "n": 0,
+            "confidence": null,
+            "accuracy": null
+          }
+        ]
+      },
+      "argmax_threshold": {
+        "threshold": 0.5,
+        "sensitivity": 0.7347,
+        "specificity": 0.7078,
+        "ppv": 0.6154,
+        "npv": 0.8074,
+        "f1": 0.6698,
+        "missed_malignancies": 26,
+        "n_malignant": 98,
+        "confusion": {
+          "tp": 72,
+          "fp": 45,
+          "tn": 109,
+          "fn": 26
+        }
+      },
+      "sensitivity_0.90_threshold_from_val": {
+        "threshold": 0.240327,
+        "sensitivity": 0.9898,
+        "specificity": 0.2468,
+        "ppv": 0.4554,
+        "npv": 0.9744,
+        "f1": 0.6238,
+        "missed_malignancies": 1,
+        "n_malignant": 98,
+        "confusion": {
+          "tp": 97,
+          "fp": 116,
+          "tn": 38,
+          "fn": 1
+        }
+      }
+    }
+  }
+}

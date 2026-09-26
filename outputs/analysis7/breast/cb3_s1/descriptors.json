@@ -1,0 +1,201 @@
+{
+  "n": 252,
+  "pathology": {
+    "coverage": 1.0,
+    "n": 252,
+    "f1": 0.6561264822134387,
+    "accuracy": 0.6547619047619048,
+    "sensitivity": 0.8469387755102041,
+    "specificity": 0.5324675324675324,
+    "precision": 0.535483870967742,
+    "balanced_accuracy": 0.6897031539888683,
+    "confusion": {
+      "tp": 83,
+      "tn": 82,
+      "fp": 72,
+      "fn": 15
+    }
+  },
+  "birads": {
+    "n": 252,
+    "coverage": 1.0,
+    "exact_accuracy": 0.25396825396825395,
+    "adjacent_accuracy": 0.6865079365079365,
+    "risk_group": {
+      "n": 252,
+      "f1": 0.8421052631578947,
+      "accuracy": 0.7738095238095238,
+      "sensitivity": 0.8216216216216217,
+      "specificity": 0.6417910447761194,
+      "precision": 0.8636363636363636,
+      "balanced_accuracy": 0.7317063331988705,
+      "confusion": {
+        "tp": 152,
+        "tn": 43,
+        "fp": 24,
+        "fn": 33
+      }
+    },
+    "acc_4a_vs_4b": 0.23333333333333334,
+    "n_4a_4b": 90,
+    "confusion": {
+      "2": {
+        "4A": 10,
+        "2": 6,
+        "3": 11,
+        "4C": 2,
+        "4B": 1
+      },
+      "4B": {
+        "3": 10,
+        "4B": 4,
+        "4A": 23,
+        "4C": 8,
+        "5": 1
+      },
+      "4A": {
+        "3": 19,
+        "4A": 17,
+        "4B": 3,
+        "4C": 3,
+        "5": 1,
+        "2": 1
+      },
+      "3": {
+        "2": 3,
+        "4B": 2,
+        "4A": 7,
+        "3": 23,
+        "5": 1,
+        "4C": 1
+      },
+      "5": {
+        "4C": 31,
+        "4A": 10,
+        "3": 1,
+        "5": 1,
+        "4B": 3
+      },
+      "4C": {
+        "4A": 30,
+        "4C": 13,
+        "3": 2,
+        "4B": 2,
+        "5": 2
+      }
+    }
+  },
+  "shape": {
+    "n": 252,
+    "coverage": 1.0,
+    "accuracy_on_covered": 0.5198412698412699,
+    "accuracy_missing_wrong": 0.5198412698412699,
+    "gold_distribution": {
+      "irregular": 140,
+      "oval": 97,
+      "round": 15
+    },
+    "confusion": {
+      "irregular": {
+        "round": 61,
+        "irregular": 64,
+        "oval": 15
+      },
+      "oval": {
+        "oval": 61,
+        "round": 31,
+        "irregular": 5
+      },
+      "round": {
+        "oval": 8,
+        "round": 6,
+        "irregular": 1
+      }
+    }
+  },
+  "margin_circumscribed": {
+    "n": 252,
+    "coverage": 1.0,
+    "accuracy_on_covered": 0.7658730158730159,
+    "accuracy_missing_wrong": 0.7658730158730159,
+    "gold_distribution": {
+      "0": 137,
+      "1": 115
+    },
+    "confusion": {
+      "0": {
+        "0": 123,
+        "1": 14
+      },
+      "1": {
+        "1": 70,
+        "0": 45
+      }
+    }
+  },
+  "echogenicity": {
+    "n": 252,
+    "coverage": 1.0,
+    "accuracy_on_covered": 0.5634920634920635,
+    "accuracy_missing_wrong": 0.5634920634920635,
+    "gold_distribution": {
+      "heterogeneous": 57,
+      "hypoechoic": 148,
+      "hyperechoic": 9,
+      "complex cystic/solid": 11,
+      "isoechoic": 12,
+      "anechoic": 15
+    },
+    "confusion": {
+      "heterogeneous": {
+        "hypoechoic": 51,
+        "complex cystic/solid": 5,
+        "anechoic": 1
+      },
+      "hypoechoic": {
+        "hypoechoic": 134,
+        "anechoic": 7,
+        "complex cystic/solid": 7
+      },
+      "hyperechoic": {
+        "anechoic": 2,
+        "complex cystic/solid": 1,
+        "hypoechoic": 6
+      },
+      "complex cystic/solid": {
+        "complex cystic/solid": 2,
+        "hypoechoic": 8,
+        "anechoic": 1
+      },
+      "isoechoic": {
+        "hypoechoic": 12
+      },
+      "anechoic": {
+        "complex cystic/solid": 6,
+        "hypoechoic": 3,
+        "anechoic": 6
+      }
+    }
+  },
+  "calcification": {
+    "n": 252,
+    "coverage": 1.0,
+    "accuracy_on_covered": 0.8333333333333334,
+    "accuracy_missing_wrong": 0.8333333333333334,
+    "gold_distribution": {
+      "0": 225,
+      "1": 27
+    },
+    "confusion": {
+      "0": {
+        "0": 207,
+        "1": 18
+      },
+      "1": {
+        "0": 24,
+        "1": 3
+      }
+    }
+  },
+  "predictions": "outputs/analysis7/breast/cb3_s1/predictions.json"
+}

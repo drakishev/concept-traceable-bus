@@ -1,0 +1,206 @@
+{
+  "n_images": 80,
+  "checkpoint": "checkpoints/weekend/h_cb9_dinov2_s1/epoch=03-val/loss=0.0909.ckpt",
+  "flip": {
+    "n": 80,
+    "forced_label_adopted_rate": 0.7,
+    "any_descriptor_changed_rate": 0.2625,
+    "per_slot_change_rate": {
+      "orientation": 0.1375,
+      "margins": 0.025,
+      "shape": 0.025,
+      "echogenicity": 0.125,
+      "calcification": 0.0125
+    },
+    "per_slot_n": {
+      "orientation": 80,
+      "margins": 80,
+      "shape": 80,
+      "echogenicity": 80,
+      "calcification": 80
+    },
+    "baseline_fully_unparsed": 0,
+    "intervened_fully_unparsed": 0,
+    "intervened_unparsed_rate": 0.0,
+    "n_comparable": 80,
+    "any_descriptor_changed_rate_comparable": 0.2625
+  },
+  "control": {
+    "n": 80,
+    "forced_label_adopted_rate": 1.0,
+    "any_descriptor_changed_rate": 0.1625,
+    "per_slot_change_rate": {
+      "orientation": 0.05,
+      "margins": 0.0875,
+      "shape": 0.0875,
+      "echogenicity": 0.075,
+      "calcification": 0.025
+    },
+    "per_slot_n": {
+      "orientation": 80,
+      "margins": 80,
+      "shape": 80,
+      "echogenicity": 80,
+      "calcification": 80
+    },
+    "baseline_fully_unparsed": 0,
+    "intervened_fully_unparsed": 0,
+    "intervened_unparsed_rate": 0.0,
+    "n_comparable": 80,
+    "any_descriptor_changed_rate_comparable": 0.1625
+  },
+  "examples": [
+    {
+      "forced_pathology": "benign",
+      "baseline_label": "malignant",
+      "baseline_descriptors": {
+        "orientation": "not parallel",
+        "margins": "partiallyregular",
+        "shape": "round",
+        "echogenicity": "lowecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_descriptors": {
+        "orientation": "not parallel",
+        "margins": "partiallyregular",
+        "shape": "round",
+        "echogenicity": "lowecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_report": "The lesion is oriented not parallel to the skin surface. Microlobulated margins are observed with round morphology. The lesion demonstrates markedly hypoechoic characteristics and no calcific foci. These sonographic feat"
+    },
+    {
+      "forced_pathology": "malignant",
+      "baseline_label": "benign",
+      "baseline_descriptors": {
+        "orientation": "parallel",
+        "margins": "regular",
+        "shape": "oval",
+        "echogenicity": "lowecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_descriptors": {
+        "orientation": "parallel",
+        "margins": "regular",
+        "shape": "oval",
+        "echogenicity": "lowecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a ben"
+    },
+    {
+      "forced_pathology": "malignant",
+      "baseline_label": "benign",
+      "baseline_descriptors": {
+        "orientation": "parallel",
+        "margins": "regular",
+        "shape": "oval",
+        "echogenicity": "lowecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_descriptors": {
+        "orientation": "parallel",
+        "margins": "regular",
+        "shape": "oval",
+        "echogenicity": "lowecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a ben"
+    },
+    {
+      "forced_pathology": "malignant",
+      "baseline_label": "benign",
+      "baseline_descriptors": {
+        "orientation": "parallel",
+        "margins": "regular",
+        "shape": "oval",
+        "echogenicity": "noecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_descriptors": {
+        "orientation": "parallel",
+        "margins": "regular",
+        "shape": "oval",
+        "echogenicity": "lowecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a mal"
+    },
+    {
+      "forced_pathology": "malignant",
+      "baseline_label": "benign",
+      "baseline_descriptors": {
+        "orientation": "parallel",
+        "margins": "regular",
+        "shape": "oval",
+        "echogenicity": "lowecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_descriptors": {
+        "orientation": "parallel",
+        "margins": "regular",
+        "shape": "oval",
+        "echogenicity": "lowecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a ben"
+    },
+    {
+      "forced_pathology": "malignant",
+      "baseline_label": "benign",
+      "baseline_descriptors": {
+        "orientation": "not parallel",
+        "margins": "regular",
+        "shape": "oval",
+        "echogenicity": "noecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_descriptors": {
+        "orientation": "parallel",
+        "margins": "regular",
+        "shape": "oval",
+        "echogenicity": "lowecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a mal"
+    },
+    {
+      "forced_pathology": "malignant",
+      "baseline_label": "benign",
+      "baseline_descriptors": {
+        "orientation": "parallel",
+        "margins": "regular",
+        "shape": "oval",
+        "echogenicity": "slightlylowecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_descriptors": {
+        "orientation": "parallel",
+        "margins": "regular",
+        "shape": "oval",
+        "echogenicity": "lowecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a ben"
+    },
+    {
+      "forced_pathology": "malignant",
+      "baseline_label": "benign",
+      "baseline_descriptors": {
+        "orientation": "parallel",
+        "margins": "regular",
+        "shape": "oval",
+        "echogenicity": "lowecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_descriptors": {
+        "orientation": "parallel",
+        "margins": "regular",
+        "shape": "oval",
+        "echogenicity": "lowecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a mal"
+    }
+  ]
+}

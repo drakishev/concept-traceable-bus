@@ -1,0 +1,29 @@
+model:
+  name: qwen2vl_7b
+  hf_id: Qwen/Qwen2-VL-7B-Instruct
+  dtype: bfloat16
+  # sdpa = PyTorch built-in scaled dot-product attention (works on H200, no extra install)
+  # Switch to flash_attention_2 if you can install flash-attn matching torch+CUDA version
+  attn_implementation: sdpa
+
+lora:
+  enabled: true
+  rank: 64
+  alpha: 128
+  dropout: 0.05
+  bias: none
+  # Apply LoRA to all projection layers in both vision and language parts
+  target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj
+  task_type: CAUSAL_LM
+
+generation:
+  max_new_tokens: 512
+  temperature: 0.1
+  do_sample: false

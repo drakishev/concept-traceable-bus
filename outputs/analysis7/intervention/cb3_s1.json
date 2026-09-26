@@ -1,0 +1,88 @@
+{
+  "n_images": 80,
+  "agreement": {
+    "pathology": 0.85,
+    "risk": 0.7125,
+    "birads": 0.4017857142857143
+  },
+  "counts": {
+    "pathology": {
+      "agree": 136,
+      "total": 160,
+      "extracted": 158
+    },
+    "risk": {
+      "agree": 114,
+      "total": 160,
+      "extracted": 158
+    },
+    "birads": {
+      "agree": 225,
+      "total": 560,
+      "extracted": 518
+    }
+  },
+  "examples": [
+    {
+      "forced": "pathology=benign",
+      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has heterogeneouswith absence of calcific deposits. Based on these fea",
+      "match": true
+    },
+    {
+      "forced": "pathology=benign",
+      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features",
+      "match": true
+    },
+    {
+      "forced": "pathology=benign",
+      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these featur",
+      "match": true
+    },
+    {
+      "forced": "pathology=benign",
+      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features",
+      "match": true
+    },
+    {
+      "forced": "pathology=benign",
+      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based o",
+      "match": true
+    },
+    {
+      "forced": "pathology=benign",
+      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features",
+      "match": true
+    },
+    {
+      "forced": "pathology=benign",
+      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based o",
+      "match": true
+    },
+    {
+      "forced": "pathology=benign",
+      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features",
+      "match": true
+    },
+    {
+      "forced": "pathology=malignant",
+      "report": "<reasoning>This lesion is not parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these ",
+      "match": true
+    },
+    {
+      "forced": "pathology=malignant",
+      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these featur",
+      "match": false
+    },
+    {
+      "forced": "pathology=malignant",
+      "report": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these fe",
+      "match": true
+    },
+    {
+      "forced": "pathology=malignant",
+      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these featur",
+      "match": false
+    }
+  ],
+  "denominator_note": "2026-09-26: total = all reports generated under an override (n_images x classes); unextractable reports now count as not following the override (were excluded)."
+}

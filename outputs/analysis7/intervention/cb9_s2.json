@@ -1,0 +1,118 @@
+{
+  "n_images": 80,
+  "agreement": {
+    "pathology": 0.9375,
+    "risk": 0.59375,
+    "birads": 0.22678571428571428,
+    "margins": 0.4041666666666667,
+    "shape": 0.4041666666666667,
+    "orientation": 1.0,
+    "echogenicity": 0.4928571428571429,
+    "calcification": 0.19375
+  },
+  "counts": {
+    "pathology": {
+      "agree": 150,
+      "total": 160,
+      "extracted": 160
+    },
+    "risk": {
+      "agree": 95,
+      "total": 160,
+      "extracted": 160
+    },
+    "birads": {
+      "agree": 127,
+      "total": 560,
+      "extracted": 560
+    },
+    "margins": {
+      "agree": 97,
+      "total": 240,
+      "extracted": 240
+    },
+    "shape": {
+      "agree": 97,
+      "total": 240,
+      "extracted": 240
+    },
+    "orientation": {
+      "agree": 160,
+      "total": 160,
+      "extracted": 160
+    },
+    "echogenicity": {
+      "agree": 276,
+      "total": 560,
+      "extracted": 560
+    },
+    "calcification": {
+      "agree": 93,
+      "total": 480,
+      "extracted": 480
+    }
+  },
+  "examples": [
+    {
+      "forced": "pathology=benign",
+      "report": "<reasoning>This lesion is parallel, has microlobulated margins and round shape, This lesion has heterogeneouswith absence of calcific deposits. Based on these f",
+      "match": true
+    },
+    {
+      "forced": "pathology=benign",
+      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features",
+      "match": true
+    },
+    {
+      "forced": "pathology=benign",
+      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these featur",
+      "match": true
+    },
+    {
+      "forced": "pathology=benign",
+      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features",
+      "match": true
+    },
+    {
+      "forced": "pathology=benign",
+      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features",
+      "match": true
+    },
+    {
+      "forced": "pathology=benign",
+      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features",
+      "match": true
+    },
+    {
+      "forced": "pathology=benign",
+      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features",
+      "match": true
+    },
+    {
+      "forced": "pathology=benign",
+      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these featur",
+      "match": true
+    },
+    {
+      "forced": "pathology=malignant",
+      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these featur",
+      "match": true
+    },
+    {
+      "forced": "pathology=malignant",
+      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features",
+      "match": false
+    },
+    {
+      "forced": "pathology=malignant",
+      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these featur",
+      "match": true
+    },
+    {
+      "forced": "pathology=malignant",
+      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features",
+      "match": false
+    }
+  ],
+  "denominator_note": "2026-09-26: total = all reports generated under an override (n_images x classes); unextractable reports now count as not following the override (were excluded)."
+}

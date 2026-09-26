@@ -1,0 +1,192 @@
+{
+  "n": 252,
+  "pathology": {
+    "coverage": 1.0,
+    "n": 252,
+    "f1": 0.6948356807511736,
+    "accuracy": 0.7420634920634921,
+    "sensitivity": 0.7551020408163265,
+    "specificity": 0.7337662337662337,
+    "precision": 0.6434782608695652,
+    "balanced_accuracy": 0.7444341372912802,
+    "confusion": {
+      "tp": 74,
+      "tn": 113,
+      "fp": 41,
+      "fn": 24
+    }
+  },
+  "birads": {
+    "n": 252,
+    "coverage": 1.0,
+    "exact_accuracy": 0.25793650793650796,
+    "adjacent_accuracy": 0.7420634920634921,
+    "risk_group": {
+      "n": 252,
+      "f1": 0.7625,
+      "accuracy": 0.6984126984126984,
+      "sensitivity": 0.6594594594594595,
+      "specificity": 0.8059701492537313,
+      "precision": 0.9037037037037037,
+      "balanced_accuracy": 0.7327148043565954,
+      "confusion": {
+        "tp": 122,
+        "tn": 54,
+        "fp": 13,
+        "fn": 63
+      }
+    },
+    "acc_4a_vs_4b": 0.13333333333333333,
+    "n_4a_4b": 90,
+    "confusion": {
+      "2": {
+        "4A": 6,
+        "3": 19,
+        "4C": 2,
+        "2": 3
+      },
+      "4B": {
+        "3": 13,
+        "4A": 17,
+        "4C": 11,
+        "4B": 5
+      },
+      "4A": {
+        "4A": 7,
+        "3": 28,
+        "4B": 5,
+        "4C": 4
+      },
+      "3": {
+        "3": 31,
+        "4A": 3,
+        "4C": 2,
+        "2": 1
+      },
+      "5": {
+        "4B": 6,
+        "4C": 33,
+        "3": 3,
+        "5": 2,
+        "4A": 2
+      },
+      "4C": {
+        "3": 19,
+        "4C": 17,
+        "4A": 8,
+        "4B": 4,
+        "5": 1
+      }
+    }
+  },
+  "shape": {
+    "n": 252,
+    "coverage": 1.0,
+    "accuracy_on_covered": 0.6507936507936508,
+    "accuracy_missing_wrong": 0.6507936507936508,
+    "gold_distribution": {
+      "irregular": 140,
+      "oval": 97,
+      "round": 15
+    },
+    "confusion": {
+      "irregular": {
+        "round": 26,
+        "irregular": 82,
+        "oval": 32
+      },
+      "oval": {
+        "oval": 79,
+        "irregular": 10,
+        "round": 8
+      },
+      "round": {
+        "oval": 12,
+        "round": 3
+      }
+    }
+  },
+  "margin_circumscribed": {
+    "n": 252,
+    "coverage": 1.0,
+    "accuracy_on_covered": 0.7698412698412699,
+    "accuracy_missing_wrong": 0.7698412698412699,
+    "gold_distribution": {
+      "0": 137,
+      "1": 115
+    },
+    "confusion": {
+      "0": {
+        "0": 104,
+        "1": 33
+      },
+      "1": {
+        "1": 90,
+        "0": 25
+      }
+    }
+  },
+  "echogenicity": {
+    "n": 252,
+    "coverage": 1.0,
+    "accuracy_on_covered": 0.5873015873015873,
+    "accuracy_missing_wrong": 0.5873015873015873,
+    "gold_distribution": {
+      "heterogeneous": 57,
+      "hypoechoic": 148,
+      "hyperechoic": 9,
+      "complex cystic/solid": 11,
+      "isoechoic": 12,
+      "anechoic": 15
+    },
+    "confusion": {
+      "heterogeneous": {
+        "hypoechoic": 56,
+        "complex cystic/solid": 1
+      },
+      "hypoechoic": {
+        "hypoechoic": 141,
+        "anechoic": 5,
+        "complex cystic/solid": 2
+      },
+      "hyperechoic": {
+        "complex cystic/solid": 2,
+        "hypoechoic": 7
+      },
+      "complex cystic/solid": {
+        "complex cystic/solid": 1,
+        "hypoechoic": 9,
+        "anechoic": 1
+      },
+      "isoechoic": {
+        "hypoechoic": 12
+      },
+      "anechoic": {
+        "complex cystic/solid": 2,
+        "hypoechoic": 7,
+        "anechoic": 6
+      }
+    }
+  },
+  "calcification": {
+    "n": 252,
+    "coverage": 1.0,
+    "accuracy_on_covered": 0.8809523809523809,
+    "accuracy_missing_wrong": 0.8809523809523809,
+    "gold_distribution": {
+      "0": 225,
+      "1": 27
+    },
+    "confusion": {
+      "0": {
+        "0": 220,
+        "1": 5
+      },
+      "1": {
+        "0": 25,
+        "1": 2
+      }
+    }
+  },
+  "predictions": "outputs/analysis7/breast/cb3_s3/predictions.json"
+}

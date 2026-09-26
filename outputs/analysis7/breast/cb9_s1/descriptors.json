@@ -1,0 +1,197 @@
+{
+  "n": 252,
+  "pathology": {
+    "coverage": 1.0,
+    "n": 252,
+    "f1": 0.6470588235294119,
+    "accuracy": 0.6190476190476191,
+    "sensitivity": 0.8979591836734694,
+    "specificity": 0.44155844155844154,
+    "precision": 0.5057471264367817,
+    "balanced_accuracy": 0.6697588126159555,
+    "confusion": {
+      "tp": 88,
+      "tn": 68,
+      "fp": 86,
+      "fn": 10
+    }
+  },
+  "birads": {
+    "n": 252,
+    "coverage": 1.0,
+    "exact_accuracy": 0.2698412698412698,
+    "adjacent_accuracy": 0.7738095238095238,
+    "risk_group": {
+      "n": 252,
+      "f1": 0.8176470588235294,
+      "accuracy": 0.753968253968254,
+      "sensitivity": 0.7513513513513513,
+      "specificity": 0.7611940298507462,
+      "precision": 0.896774193548387,
+      "balanced_accuracy": 0.7562726906010488,
+      "confusion": {
+        "tp": 139,
+        "tn": 51,
+        "fp": 16,
+        "fn": 46
+      }
+    },
+    "acc_4a_vs_4b": 0.18888888888888888,
+    "n_4a_4b": 90,
+    "confusion": {
+      "2": {
+        "4B": 4,
+        "3": 16,
+        "2": 5,
+        "4C": 4,
+        "4A": 1
+      },
+      "4B": {
+        "3": 8,
+        "4A": 12,
+        "4C": 16,
+        "4B": 10
+      },
+      "4A": {
+        "3": 26,
+        "4B": 3,
+        "4C": 7,
+        "4A": 7,
+        "5": 1
+      },
+      "3": {
+        "3": 26,
+        "4A": 3,
+        "2": 4,
+        "4C": 3,
+        "4B": 1
+      },
+      "5": {
+        "4B": 5,
+        "4C": 36,
+        "3": 3,
+        "5": 1,
+        "4A": 1
+      },
+      "4C": {
+        "4C": 19,
+        "3": 8,
+        "4A": 10,
+        "4B": 9,
+        "5": 2,
+        "2": 1
+      }
+    }
+  },
+  "shape": {
+    "n": 252,
+    "coverage": 1.0,
+    "accuracy_on_covered": 0.6904761904761905,
+    "accuracy_missing_wrong": 0.6904761904761905,
+    "gold_distribution": {
+      "irregular": 140,
+      "oval": 97,
+      "round": 15
+    },
+    "confusion": {
+      "irregular": {
+        "irregular": 103,
+        "oval": 19,
+        "round": 18
+      },
+      "oval": {
+        "oval": 68,
+        "round": 14,
+        "irregular": 15
+      },
+      "round": {
+        "oval": 10,
+        "round": 3,
+        "irregular": 2
+      }
+    }
+  },
+  "margin_circumscribed": {
+    "n": 252,
+    "coverage": 1.0,
+    "accuracy_on_covered": 0.7857142857142857,
+    "accuracy_missing_wrong": 0.7857142857142857,
+    "gold_distribution": {
+      "0": 137,
+      "1": 115
+    },
+    "confusion": {
+      "0": {
+        "0": 117,
+        "1": 20
+      },
+      "1": {
+        "1": 81,
+        "0": 34
+      }
+    }
+  },
+  "echogenicity": {
+    "n": 252,
+    "coverage": 1.0,
+    "accuracy_on_covered": 0.5912698412698413,
+    "accuracy_missing_wrong": 0.5912698412698413,
+    "gold_distribution": {
+      "heterogeneous": 57,
+      "hypoechoic": 148,
+      "hyperechoic": 9,
+      "complex cystic/solid": 11,
+      "isoechoic": 12,
+      "anechoic": 15
+    },
+    "confusion": {
+      "heterogeneous": {
+        "hypoechoic": 53,
+        "complex cystic/solid": 3,
+        "anechoic": 1
+      },
+      "hypoechoic": {
+        "hypoechoic": 143,
+        "complex cystic/solid": 3,
+        "anechoic": 2
+      },
+      "hyperechoic": {
+        "hypoechoic": 7,
+        "complex cystic/solid": 2
+      },
+      "complex cystic/solid": {
+        "complex cystic/solid": 1,
+        "hypoechoic": 10
+      },
+      "isoechoic": {
+        "hypoechoic": 12
+      },
+      "anechoic": {
+        "anechoic": 5,
+        "hypoechoic": 8,
+        "complex cystic/solid": 2
+      }
+    }
+  },
+  "calcification": {
+    "n": 252,
+    "coverage": 1.0,
+    "accuracy_on_covered": 0.8849206349206349,
+    "accuracy_missing_wrong": 0.8849206349206349,
+    "gold_distribution": {
+      "0": 225,
+      "1": 27
+    },
+    "confusion": {
+      "0": {
+        "0": 219,
+        "1": 6
+      },
+      "1": {
+        "0": 23,
+        "1": 4
+      }
+    }
+  },
+  "predictions": "outputs/analysis7/breast/cb9_s1/predictions.json"
+}

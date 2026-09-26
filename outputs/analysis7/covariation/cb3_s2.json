@@ -1,0 +1,206 @@
+{
+  "n_images": 80,
+  "checkpoint": "checkpoints/weekend/h_cb3_dinov2_s2/epoch=04-val/loss=0.0929.ckpt",
+  "flip": {
+    "n": 80,
+    "forced_label_adopted_rate": 1.0,
+    "any_descriptor_changed_rate": 0.5375,
+    "per_slot_change_rate": {
+      "orientation": 0.3636,
+      "margins": 0.2468,
+      "shape": 0.2468,
+      "echogenicity": 0.25,
+      "calcification": 0.15
+    },
+    "per_slot_n": {
+      "orientation": 77,
+      "margins": 77,
+      "shape": 77,
+      "echogenicity": 80,
+      "calcification": 80
+    },
+    "baseline_fully_unparsed": 0,
+    "intervened_fully_unparsed": 0,
+    "intervened_unparsed_rate": 0.0,
+    "n_comparable": 80,
+    "any_descriptor_changed_rate_comparable": 0.5375
+  },
+  "control": {
+    "n": 80,
+    "forced_label_adopted_rate": 1.0,
+    "any_descriptor_changed_rate": 0.35,
+    "per_slot_change_rate": {
+      "orientation": 0.15,
+      "margins": 0.0875,
+      "shape": 0.0875,
+      "echogenicity": 0.125,
+      "calcification": 0.175
+    },
+    "per_slot_n": {
+      "orientation": 80,
+      "margins": 80,
+      "shape": 80,
+      "echogenicity": 80,
+      "calcification": 80
+    },
+    "baseline_fully_unparsed": 0,
+    "intervened_fully_unparsed": 0,
+    "intervened_unparsed_rate": 0.0,
+    "n_comparable": 80,
+    "any_descriptor_changed_rate_comparable": 0.35
+  },
+  "examples": [
+    {
+      "forced_pathology": "benign",
+      "baseline_label": "malignant",
+      "baseline_descriptors": {
+        "orientation": "not parallel",
+        "margins": "regular",
+        "shape": "oval",
+        "echogenicity": "lowecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_descriptors": {
+        "orientation": "parallel",
+        "margins": "regular",
+        "shape": "oval",
+        "echogenicity": "lowecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_report": "Orientation: parallel. Margins: circumscribed. Shape: oval. Echogenicity: low echogenicity. Calcification: absence of calcific deposits. BI-RADS: 3. Impression: benign lesion. <answer> 0 </answer>"
+    },
+    {
+      "forced_pathology": "malignant",
+      "baseline_label": "benign",
+      "baseline_descriptors": {
+        "orientation": "parallel",
+        "margins": "regular",
+        "shape": "oval",
+        "echogenicity": "lowecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_descriptors": {
+        "orientation": "parallel",
+        "margins": "regular",
+        "shape": "oval",
+        "echogenicity": "lowecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_report": "Orientation: parallel. Margins: circumscribed. Shape: oval. Echogenicity: low echogenicity. Calcification: absence of calcific deposits. BI-RADS: 3. Impression: malignant lesion. <answer> 1 </answer>"
+    },
+    {
+      "forced_pathology": "malignant",
+      "baseline_label": "benign",
+      "baseline_descriptors": {
+        "orientation": "parallel",
+        "margins": "regular",
+        "shape": "oval",
+        "echogenicity": "lowecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_descriptors": {
+        "orientation": "parallel",
+        "margins": "partiallyregular",
+        "shape": "round",
+        "echogenicity": "lowecho",
+        "calcification": "microcalcification"
+      },
+      "intervened_report": "Orientation: parallel. Margins: microlobulated. Shape: round. Echogenicity: low echogenicity. Calcification: fine calcific deposits. BI-RADS: 4B. Impression: malignant lesion. <answer> 1 </answer>"
+    },
+    {
+      "forced_pathology": "malignant",
+      "baseline_label": "benign",
+      "baseline_descriptors": {
+        "orientation": "parallel",
+        "margins": "regular",
+        "shape": "oval",
+        "echogenicity": "noecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_descriptors": {
+        "orientation": "parallel",
+        "margins": "regular",
+        "shape": "oval",
+        "echogenicity": "lowecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_report": "Orientation: parallel. Margins: circumscribed. Shape: oval. Echogenicity: low echogenicity. Calcification: absence of calcific deposits. BI-RADS: 3. Impression: malignant lesion. <answer> 1 </answer>"
+    },
+    {
+      "forced_pathology": "malignant",
+      "baseline_label": "benign",
+      "baseline_descriptors": {
+        "orientation": "parallel",
+        "margins": "regular",
+        "shape": "oval",
+        "echogenicity": "lowecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_descriptors": {
+        "orientation": "parallel",
+        "margins": "regular",
+        "shape": "oval",
+        "echogenicity": "lowecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_report": "Orientation: parallel. Margins: circumscribed. Shape: oval. Echogenicity: low echogenicity. Calcification: absence of calcific deposits. BI-RADS: 3. Impression: malignant lesion. <answer> 1 </answer>"
+    },
+    {
+      "forced_pathology": "malignant",
+      "baseline_label": "benign",
+      "baseline_descriptors": {
+        "orientation": "parallel",
+        "margins": "regular",
+        "shape": "oval",
+        "echogenicity": "noecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_descriptors": {
+        "orientation": "not parallel",
+        "margins": "regular",
+        "shape": "oval",
+        "echogenicity": "lowecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_report": "Orientation: not parallel. Margins: circumscribed. Shape: oval. Echogenicity: low echogenicity. Calcification: absence of calcific deposits. BI-RADS: 3. Impression: malignant lesion. <answer> 1 </answer>"
+    },
+    {
+      "forced_pathology": "malignant",
+      "baseline_label": "benign",
+      "baseline_descriptors": {
+        "orientation": "parallel",
+        "margins": "regular",
+        "shape": "oval",
+        "echogenicity": "lowecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_descriptors": {
+        "orientation": "parallel",
+        "margins": "regular",
+        "shape": "oval",
+        "echogenicity": "lowecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_report": "Orientation: parallel. Margins: circumscribed. Shape: oval. Echogenicity: low echogenicity. Calcification: absence of calcific deposits. BI-RADS: 3. Impression: malignant lesion. <answer> 1 </answer>"
+    },
+    {
+      "forced_pathology": "malignant",
+      "baseline_label": "benign",
+      "baseline_descriptors": {
+        "orientation": "parallel",
+        "margins": "regular",
+        "shape": "oval",
+        "echogenicity": "lowecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_descriptors": {
+        "orientation": "parallel",
+        "margins": "regular",
+        "shape": "oval",
+        "echogenicity": "lowecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_report": "Orientation: parallel. Margins: circumscribed. Shape: oval. Echogenicity: low echogenicity. Calcification: absence of calcific deposits. BI-RADS: 3. Impression: malignant lesion. <answer> 1 </answer>"
+    }
+  ]
+}

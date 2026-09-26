@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.ruff_cache/
+.pytest_cache/
+.venv/
+.env
+# datasets, model weights and logs are not distributed; only the checkpoint hashes are
+data/
+logs/
+checkpoints/*
+!checkpoints/SHA256SUMS
+# written by retraining (see README): the reported results stay in the tracked files
+outputs/published/
+outputs/analysis7/superseded/
+outputs/analysis7/u2bench_external.jsonl
