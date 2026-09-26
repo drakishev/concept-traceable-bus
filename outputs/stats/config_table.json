@@ -6,8 +6,8 @@
   "Predictor": "6 transformer layers, width 1024, 16 heads, MLP ratio 4.0, dropout 0.1",
   "Text encoder": "microsoft/BiomedCLIP-PubMedBERT_256-vit_base_patch16_224 (trainable, LR multiplier 0.05)",
   "Alignment objective": "bidirectional InfoNCE, temperature 0.07 (learnable)",
-  "Auxiliary concept heads": "pathology, risk, birads; loss weight 0.1",
-  "Concept bottleneck": "concept_dim 64; CB-3 heads: pathology, risk, birads; CB-9 heads: pathology, risk, birads, margins, shape, orientation, echogenicity, boundary, calcification",
+  "Auxiliary concept heads": "pathology, risk group, BI-RADS-like category; loss weight 0.1",
+  "Concept bottleneck": "concept_dim 64; CB-3 heads: pathology, risk group, BI-RADS-like category; CB-9 heads: pathology, risk group, BI-RADS-like category, margins, shape, orientation, echogenicity, boundary, calcification",
   "Decoder (encoder and bottleneck runs)": "stanford-crfm/BioMedLM (2.7B), full fine-tuning in Stage 2, 8 soft-prompt tokens, max length 512",
   "Decoder sweep anchor": "every sweep run starts Stage 2 from the Stage-1 checkpoint of CB-3 seed 1, so encoder, predictor, alignment and data are identical across sizes",
   "Stage 1: optimizer": "AdamW",
@@ -34,6 +34,6 @@
   "Decoder sweep sizes": "0.5b: Qwen2.5-0.5B-Instruct, 1.5b: Qwen2.5-1.5B-Instruct, 3b: Qwen2.5-3B-Instruct, 7b: Qwen2.5-7B-Instruct, 14b: Qwen2.5-14B-Instruct [batch_size=8], 32b: Qwen2.5-32B-Instruct [batch_size=2], 72b: Qwen2.5-72B-Instruct [batch_size=2]",
   "Decoder sweep quantization": "bf16 for 0.5B-32B; 72B: 4-bit NF4 base with double quantization, bf16 compute (QLoRA), gradient checkpointing",
   "Seeds": "[1, 2, 3] for all runs except the 14B/32B/72B decoders (seed 1)",
-  "Decoding": "beam search, 4 beams, max 256 new tokens, no sampling",
+  "Decoding": "beam search, 4 beams, max 256 new tokens, no sampling; generation stops at the end-of-sequence or the padding token (the token that closes every training target)",
   "VLM reference baselines": "LoRA r=64, alpha=128, dropout 0.05 on q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj; lr 0.0001 cosine, warm-up 100, weight decay 0.01, bf16, gradient checkpointing; 2 epochs, per-device batch qwen25vl_7b 2, qwen2vl_7b 2, internvl3_8b 1 with 8-step accumulation; best checkpoint by validation loss; seeds 42 (trainer default), 2 and 3, which fixed data order and dropout but not adapter initialization; greedy decoding, max 256 new tokens"
 }

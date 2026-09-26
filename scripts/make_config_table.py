@@ -27,7 +27,9 @@ MODEL_CFG = "configs/model/ultrasound_jepa_biomedclip.yaml"
 VLM_CFG = "configs/train/lora_sft.yaml"
 VLM_MODEL_CFG = "configs/model/qwen2vl_7b.yaml"
 #: Decoding parameters used by scripts/evaluate_jepa.py and evaluate_qwen.py.
-DECODING = {"num_beams": 4, "max_new_tokens": 256, "sampling": "none (greedy beam search)"}
+DECODING = {"num_beams": 4, "max_new_tokens": 256}
+#: Report-level names of the concept heads (the code uses the keys).
+HEAD_NAMES = {"birads": "BI-RADS-like category", "risk": "risk group"}
 
 
 def _tex(s: object) -> str:
@@ -56,7 +58,7 @@ def stage_rows(cfg, stage: str) -> list[tuple[str, str]]:
 
 
 def _heads(spec: str) -> str:
-    return spec.strip("[]").replace(",", ", ")
+    return ", ".join(HEAD_NAMES.get(h, h) for h in spec.strip("[]").split(","))
 
 
 def _sweep_sizes(qwen: list) -> str:
@@ -98,7 +100,8 @@ def build_rows() -> list[tuple[str, str]]:
          f"bidirectional InfoNCE, temperature {pre.train.temperature} "
          f"({'learnable' if pre.train.learnable_temperature else 'fixed'})"),
         ("Auxiliary concept heads",
-         f"{', '.join(pre.train.aux_heads)}; loss weight {pre.train.aux_loss_weight}"),
+         f"{', '.join(HEAD_NAMES.get(h, h) for h in pre.train.aux_heads)}; "
+         f"loss weight {pre.train.aux_loss_weight}"),
         ("Concept bottleneck", "concept_dim 64; CB-3 heads: " + _heads(b6.HEADS3)
          + "; CB-9 heads: " + _heads(b6.HEADS9)),
         ("Decoder (encoder and bottleneck runs)",
@@ -118,7 +121,8 @@ def build_rows() -> list[tuple[str, str]]:
         ("Seeds", f"{list(b6.SEEDS)} for all runs except the 14B/32B/72B decoders (seed 1)"),
         ("Decoding",
          f"beam search, {DECODING['num_beams']} beams, max {DECODING['max_new_tokens']} "
-         "new tokens, no sampling"),
+         "new tokens, no sampling; generation stops at the end-of-sequence or the padding "
+         "token (the token that closes every training target)"),
         ("VLM reference baselines",
          f"LoRA r={vlm_model.lora.rank}, alpha={vlm_model.lora.alpha}, "
          f"dropout {vlm_model.lora.dropout} on {vlm_targets}; lr {vb.LR:g} cosine, "
@@ -143,7 +147,8 @@ def main() -> None:
         "% batch-7 job definitions. Do not edit by hand.",
         # longtable: 37 rows of wrapped text do not fit on one page
         "{\\small",
-        "\\begin{longtable}{p{4.2cm}p{11.5cm}}",
+        "\\begin{longtable}{>{\\raggedright\\arraybackslash}p{4.2cm}"
+        ">{\\raggedright\\arraybackslash}p{11.5cm}}",
         "\\caption{Training and decoding configuration of every run reported in this paper.}",
         "\\label{tab:config}\\\\",
         "\\toprule", "Setting & Value \\\\", "\\midrule", "\\endfirsthead",

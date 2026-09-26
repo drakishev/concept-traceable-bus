@@ -122,8 +122,9 @@ def tab_decoders(n: dict) -> str:
         "$\\pm0.02$ margin (TOST). Over all 15 runs, malignancy F1 changes by "
         f"{dr['slope_per_decade']:+.4f} per tenfold increase in parameters (95\\% patient-cluster "
         f"bootstrap CI {dr['ci95_patient_bootstrap'][0]:+.4f} to "
-        f"{dr['ci95_patient_bootstrap'][1]:+.4f}), so the gain from 0.5B to 72B is at most "
-        f"{dr['ci95_patient_bootstrap'][1] * decades:.4f} F1 at the upper confidence bound.",
+        f"{dr['ci95_patient_bootstrap'][1]:+.4f}); if the trend is log-linear, the average gain "
+        f"from 0.5B to 72B is at most {dr['ci95_patient_bootstrap'][1] * decades:.4f} F1 at the "
+        "upper confidence bound. The bound does not apply to each size separately.",
         "tab:decoders", "lccccc",
         "Decoder & Seeds & Malignancy F1 & Risk-group F1 & Exact category & "
         "$\\Delta$ malignancy vs 0.5B [90\\% CI]", body, fit=True)
