@@ -1,6 +1,6 @@
 {
   "target_sensitivity": 0.9,
-  "threshold_chosen_on_val": 0.270361,
+  "threshold_chosen_on_val": 0.268087,
   "val": {
     "n": 410,
     "n_malignant": 176,
@@ -98,19 +98,19 @@
       }
     },
     "sensitivity_0.90_threshold_from_val": {
-      "threshold": 0.270361,
-      "sensitivity": 0.8977,
+      "threshold": 0.268087,
+      "sensitivity": 0.9034,
       "specificity": 0.3932,
-      "ppv": 0.5267,
-      "npv": 0.8364,
-      "f1": 0.6639,
-      "missed_malignancies": 18,
+      "ppv": 0.5282,
+      "npv": 0.844,
+      "f1": 0.6667,
+      "missed_malignancies": 17,
       "n_malignant": 176,
       "confusion": {
-        "tp": 158,
+        "tp": 159,
         "fp": 142,
         "tn": 92,
-        "fn": 18
+        "fn": 17
       }
     }
   },
@@ -211,18 +211,18 @@
       }
     },
     "sensitivity_0.90_threshold_from_val": {
-      "threshold": 0.270361,
+      "threshold": 0.268087,
       "sensitivity": 0.9335,
-      "specificity": 0.4502,
-      "ppv": 0.5794,
-      "npv": 0.893,
-      "f1": 0.715,
+      "specificity": 0.444,
+      "ppv": 0.5766,
+      "npv": 0.8917,
+      "f1": 0.7129,
       "missed_malignancies": 26,
       "n_malignant": 391,
       "confusion": {
         "tp": 365,
-        "fp": 265,
-        "tn": 217,
+        "fp": 268,
+        "tn": 214,
         "fn": 26
       }
     }
@@ -325,18 +325,18 @@
         }
       },
       "sensitivity_0.90_threshold_from_val": {
-        "threshold": 0.270361,
+        "threshold": 0.268087,
         "sensitivity": 0.879,
-        "specificity": 0.3,
-        "ppv": 0.4781,
-        "npv": 0.7727,
-        "f1": 0.6193,
+        "specificity": 0.2941,
+        "ppv": 0.476,
+        "npv": 0.7692,
+        "f1": 0.6176,
         "missed_malignancies": 15,
         "n_malignant": 124,
         "confusion": {
           "tp": 109,
-          "fp": 119,
-          "tn": 51,
+          "fp": 120,
+          "tn": 50,
           "fn": 15
         }
       }
@@ -438,7 +438,7 @@
         }
       },
       "sensitivity_0.90_threshold_from_val": {
-        "threshold": 0.270361,
+        "threshold": 0.268087,
         "sensitivity": 0.9184,
         "specificity": 0.2532,
         "ppv": 0.439,

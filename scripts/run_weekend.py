@@ -4,9 +4,11 @@ Runs a list of jobs back-to-back, unattended, continuing past any failure.
 Each job: optional Stage-1 pretrain (or reuse an existing checkpoint) -> Stage-2
 finetune -> eval -> slot metrics. Results are appended to a CSV after each job, so
 partial progress is never lost. Re-running skips jobs whose metrics already exist.
+A job is skipped only if eval_config.json records an evaluation of its current checkpoint
+(path, size, modification time) with the training preprocessing; a finished job (Stage-2
+DONE marker) whose evaluation is missing or stale is evaluated again without training.
 With EVAL_ONLY=1 nothing is trained: every job whose checkpoint exists is evaluated
-again unless its outputs already record an evaluation of that checkpoint with the
-training preprocessing (eval_config.json).
+again unless its evaluation is current.
 
 Usage (launch in tmux):
     export $(grep -v '^#' .env | xargs); export CUDA_VISIBLE_DEVICES=2
@@ -142,14 +144,15 @@ def append_result(row: dict) -> None:
 
 
 def evaluated_as_trained(eval_dir: str, ck: str) -> bool:
-    """True if eval_dir holds slot metrics of checkpoint `ck` generated with the
-    preprocessing of the config it was trained with."""
+    """True if eval_dir holds slot metrics of checkpoint `ck`, as it is now on disk (path,
+    size, modification time), generated with the preprocessing it was trained with."""
     from src.data.datasets.bus_cot_jepa import preprocess_mode_of
     cfg = Path(eval_dir, "eval_config.json")
     if not (cfg.exists() and Path(eval_dir, "slot_metrics.json").exists()):
         return False
-    e = json.loads(cfg.read_text())
-    return (e.get("checkpoint") == ck
+    e, st = json.loads(cfg.read_text()), Path(ck).stat()
+    return (e.get("checkpoint") == ck and e.get("checkpoint_size") == st.st_size
+            and e.get("checkpoint_mtime_ns") == st.st_mtime_ns
             and e.get("preprocess_mode") == preprocess_mode_of(FINETUNE_CFG))
 
 
@@ -188,11 +191,15 @@ def do_job(job: dict) -> dict:
             print(f"[SKIP] {name} (already evaluated with the training preprocessing)")
             return {"name": name, "status": "skip", **metrics_for(eval_dir)}
         return evaluate(name, ck, log, tmo, cuda, t0)
-    # A job is finished only if its checkpoint exists too: metrics alone can be
-    # bundled results (public release) with nothing trained on this machine.
-    if os.path.exists(f"{eval_dir}/slot_metrics.json") and best_ckpt(ft_out) is not None:
-        print(f"[SKIP] {name} (already has metrics and a checkpoint)")
+    # Metrics alone can be bundled results (public release) or belong to an earlier
+    # checkpoint, so they count only if they record the checkpoint now on disk.
+    ck = best_ckpt(ft_out)
+    if ck is not None and evaluated_as_trained(eval_dir, ck):
+        print(f"[SKIP] {name} (evaluation matches its checkpoint and preprocessing)")
         return {"name": name, "status": "skip", **metrics_for(eval_dir)}
+    if ck is not None and Path(ft_out, "DONE").exists():
+        print(f"[{name}] finished, but its evaluation is missing or stale: re-evaluating")
+        return evaluate(name, ck, log, tmo, cuda, t0)
 
     try:
         if job["type"] == "full":
@@ -233,6 +240,8 @@ def do_job(job: dict) -> dict:
             print(f"[{name}] finetune rc{rc} but checkpoint exists -> salvaging via eval")
         if ck is None:
             return {"name": name, "status": "no_ckpt", "seconds": int(time.time()-t0)}
+        if rc == 0:
+            Path(ft_out, "DONE").touch()  # a checkpoint file alone may be an intermediate epoch
 
         return evaluate(name, ck, log, tmo, cuda, t0)
     except Exception as e:  # never let one job kill the queue

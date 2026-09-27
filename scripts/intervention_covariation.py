@@ -28,11 +28,12 @@ from __future__ import annotations
 
 import argparse
 import json
+import random
 import sys
 from pathlib import Path
 
 import torch
-from torch.utils.data import DataLoader
+from torch.utils.data import DataLoader, Subset
 from tqdm import tqdm
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -57,6 +58,10 @@ def main() -> None:
     ap.add_argument("--train_config", required=True,
                     help="Stage-2 training config (its data.preprocess_mode is applied)")
     ap.add_argument("--n", type=int, default=80)
+    ap.add_argument("--sample_seed", type=int, default=0,
+                    help="the n images are a seeded random sample of the test set (the test "
+                         "file is ordered by source collection, so its first n are not "
+                         "representative)")
     # Match scripts/evaluate_jepa.py so co-variation is measured under the SAME
     # generation process as every other slot metric in the paper. With greedy
     # decoding at 128 tokens the 9-head model emits a prose surface form that the
@@ -76,6 +81,9 @@ def main() -> None:
     ds = BUSCoTJEPADataset(jsonl_path=args.test_jsonl, root_dir=Path("."),
                            image_size=224,
                            preprocess_mode=preprocess_mode_of(args.train_config))
+    ids = sorted(random.Random(args.sample_seed).sample(range(len(ds)), min(args.n, len(ds))))
+    sample = {"seed": args.sample_seed, "record_ids": [ds.records[i]["id"] for i in ids]}
+    ds = Subset(ds, ids)
     loader = DataLoader(ds, batch_size=args.batch_size, shuffle=False, num_workers=4)
 
     # counters, split by whether the intervention actually flips the baseline label
@@ -180,7 +188,7 @@ def main() -> None:
                 if t["comparable"] else None),
         }
 
-    res = {"n_images": seen, "checkpoint": args.checkpoint,
+    res = {"n_images": seen, "checkpoint": args.checkpoint, "sample": sample,
            "flip": rates("flip"), "control": rates("control"), "examples": examples}
     Path(args.output).parent.mkdir(parents=True, exist_ok=True)
     Path(args.output).write_text(json.dumps(res, indent=2, ensure_ascii=False))

@@ -117,7 +117,8 @@ VLM_DATA=v5 VLM_SEEDS=1,2,3 VLM_GPUS=5,6 \
 
 Qwen2.5-Instruct decoders end their reports with the padding token, not with their end-of-sequence token, so generation stops on either (`src/model/y_decoder.py`); the decoder-sweep reports in `outputs/` were generated this way.
 Each job trains Stage 1 and Stage 2 with early stopping on validation loss, keeps the best checkpoint, generates reports for the 873 official test records and writes `outputs/weekend/<run>/predictions.json`, replacing the bundled file (restore it with `git checkout outputs/`).
-A job (including a VLM baseline) is skipped only when both its metrics and its trained checkpoint or adapter exist, so bundled metrics never stand in for a model that was not trained here.
+A job is skipped only when its `eval_config.json` records an evaluation of the checkpoint now on disk (path, size, modification time) with the training preprocessing; a finished job (Stage-2 `DONE` marker) whose evaluation is missing or stale is evaluated again without training, and a VLM baseline is skipped only when `eval_record.json` records its trained adapter file (a trained adapter without a current evaluation is evaluated again, not retrained).
+Bundled metrics therefore never stand in for a model that was not trained, or was retrained, here.
 The results file then lists only the runs trained on your machine; statistics and tables are computed from it.
 The hashes of the checkpoints behind the article are in `checkpoints/SHA256SUMS`.
 
@@ -170,6 +171,8 @@ An earlier version of this code built the test data with a resize-only default; 
 ```bash
 EVAL_ONLY=1 POOL_GPUS=0,0,1,1 python scripts/run_weekend7.py
 ```
+
+The concept-intervention and co-variation analyses use a seeded random sample of 80 test images (`--sample_seed 0`, the same for every model); the record identifiers are stored in each output file.
 
 `outputs/submitted_preprocessing_check/` holds the submitted version's DINOv2 and UNI2-h checkpoints evaluated both ways on its 440-record test set (`scripts/evaluate_jepa.py --train_config` with a resize-only or the ultrasound configuration); the resize-only run reproduces the stored predictions in `outputs/weekend/x_dinov2/` and `outputs/eval_jepa_v2_mt_buscot/`.
 

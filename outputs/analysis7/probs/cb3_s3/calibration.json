@@ -1,6 +1,6 @@
 {
   "target_sensitivity": 0.9,
-  "threshold_chosen_on_val": 0.24715,
+  "threshold_chosen_on_val": 0.246302,
   "val": {
     "n": 410,
     "n_malignant": 176,
@@ -98,19 +98,19 @@
       }
     },
     "sensitivity_0.90_threshold_from_val": {
-      "threshold": 0.24715,
-      "sensitivity": 0.8977,
+      "threshold": 0.246302,
+      "sensitivity": 0.9034,
       "specificity": 0.3162,
-      "ppv": 0.4969,
-      "npv": 0.8043,
-      "f1": 0.6397,
-      "missed_malignancies": 18,
+      "ppv": 0.4984,
+      "npv": 0.8132,
+      "f1": 0.6424,
+      "missed_malignancies": 17,
       "n_malignant": 176,
       "confusion": {
-        "tp": 158,
+        "tp": 159,
         "fp": 160,
         "tn": 74,
-        "fn": 18
+        "fn": 17
       }
     }
   },
@@ -211,19 +211,19 @@
       }
     },
     "sensitivity_0.90_threshold_from_val": {
-      "threshold": 0.24715,
-      "sensitivity": 0.9156,
-      "specificity": 0.4378,
-      "ppv": 0.5692,
-      "npv": 0.8648,
-      "f1": 0.702,
-      "missed_malignancies": 33,
+      "threshold": 0.246302,
+      "sensitivity": 0.9182,
+      "specificity": 0.4357,
+      "ppv": 0.5689,
+      "npv": 0.8678,
+      "f1": 0.7025,
+      "missed_malignancies": 32,
       "n_malignant": 391,
       "confusion": {
-        "tp": 358,
-        "fp": 271,
-        "tn": 211,
-        "fn": 33
+        "tp": 359,
+        "fp": 272,
+        "tn": 210,
+        "fn": 32
       }
     }
   },
@@ -325,19 +325,19 @@
         }
       },
       "sensitivity_0.90_threshold_from_val": {
-        "threshold": 0.24715,
-        "sensitivity": 0.8871,
+        "threshold": 0.246302,
+        "sensitivity": 0.8952,
         "specificity": 0.1765,
-        "ppv": 0.44,
-        "npv": 0.6818,
-        "f1": 0.5882,
-        "missed_malignancies": 14,
+        "ppv": 0.4422,
+        "npv": 0.6977,
+        "f1": 0.592,
+        "missed_malignancies": 13,
         "n_malignant": 124,
         "confusion": {
-          "tp": 110,
+          "tp": 111,
           "fp": 140,
           "tn": 30,
-          "fn": 14
+          "fn": 13
         }
       }
     },
@@ -438,18 +438,18 @@
         }
       },
       "sensitivity_0.90_threshold_from_val": {
-        "threshold": 0.24715,
+        "threshold": 0.246302,
         "sensitivity": 0.949,
-        "specificity": 0.4545,
-        "ppv": 0.5254,
-        "npv": 0.9333,
-        "f1": 0.6764,
+        "specificity": 0.4481,
+        "ppv": 0.5225,
+        "npv": 0.9324,
+        "f1": 0.6739,
         "missed_malignancies": 5,
         "n_malignant": 98,
         "confusion": {
           "tp": 93,
-          "fp": 84,
-          "tn": 70,
+          "fp": 85,
+          "tn": 69,
           "fn": 5
         }
       }

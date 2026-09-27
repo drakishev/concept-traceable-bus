@@ -126,6 +126,36 @@ def excluded_seed() -> dict:
     return out
 
 
+def _constant(golds: list[str], pathology: list[str] | None = None) -> dict:
+    """Scores of an image-blind report that always states the same answer: malignant, high
+    risk, the most frequent category, and the more frequent of 4A and 4B on the 4A/4B
+    references (the endpoints' own definitions; F1 of the positive class)."""
+    from src.data.slot_labels import LOW_RISK_BIRADS
+    cats = Counter(g for g in golds if g)
+    n_high = sum(v for k, v in cats.items() if k not in LOW_RISK_BIRADS)
+    ab = {k: cats.get(k, 0) for k in ("4A", "4B")}
+    out = {"risk_f1_always_high": 2 * n_high / (sum(cats.values()) + n_high),
+           "exact_most_frequent": max(cats.values()) / sum(cats.values()),
+           "most_frequent_category": max(cats, key=cats.get),
+           "ab_more_frequent": max(ab.values()) / sum(ab.values()),
+           "ab_more_frequent_category": max(ab, key=ab.get)}
+    if pathology is not None:
+        n_mal = sum(x == "malignant" for x in pathology)
+        out["path_f1_always_malignant"] = 2 * n_mal / (len(pathology) + n_mal)
+    return out
+
+
+def constant_baselines() -> dict:
+    from src.evaluation.slots import extract_slots
+    test = [json.loads(line) for line in open("data/unified_v5/test_buscot_only.jsonl")]
+    golds = [extract_slots(r["conversations"][1]["content"]).get("birads") for r in test]
+    u2b = _j(A7 / "u2b_birads" / "cb3_s1" / "predictions_birads.json")
+    return {"source": "data/unified_v5/test_buscot_only.jsonl; outputs/analysis7/u2b_birads "
+                      "(gold categories, identical for every model)",
+            "internal": _constant(golds, [r["metadata"]["pathology"] for r in test]),
+            "u2bench_birads": _constant([p["gold"] for p in u2b])}
+
+
 def submitted_encoder_check() -> dict:
     """The submitted version's DINOv2 vs UNI2-h comparison (earlier split, 440 test records),
     re-evaluated from its two checkpoints (scripts/evaluate_jepa.py): with resize only, which
@@ -277,7 +307,9 @@ def per_model_analyses() -> dict:
             for src in ("concept_head", "generated_report"):
                 b = bi[src]
                 for k, v in (("exact", b["exact_accuracy"]), ("adjacent", b["adjacent_accuracy"]),
-                             ("risk_f1", b["risk_group"]["f1"]), ("ab", b["acc_4a_vs_4b"]),
+                             ("risk_f1", b["risk_group"]["f1"]),
+                             ("risk_balanced_accuracy", b["risk_group"]["balanced_accuracy"]),
+                             ("ab", b["acc_4a_vs_4b"]),
                              ("coverage", b["coverage"])):
                     u2bb.setdefault(src, {}).setdefault(k, []).append(v)
             pred = {p["id"]: p for p in json.load(open(A7 / "u2b_birads" / t /
@@ -360,6 +392,7 @@ def main() -> None:
            "main_table": main_table(), "comparisons": comparisons(),
            "label_consistency": label_consistency(), "excluded_seed": excluded_seed(),
            "submitted_encoder_check": submitted_encoder_check(),
+           "constant_baselines": constant_baselines(),
            "decoder": decoder(), "analyses": per_model_analyses(), "bleu": vlm_bleu(),
            "extractor_validation": {"source": "outputs/stats/extractor_validation_v5.json",
                                     "summary": ext.get("summary", ext)}}

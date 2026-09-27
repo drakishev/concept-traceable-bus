@@ -24,6 +24,10 @@ from PIL import Image
 from torch.utils.data import Dataset
 from torchvision import transforms
 
+# CLAHE runs on one small image per call inside DataLoader workers; OpenCV's default pool
+# (one thread per core, 224 here) in every worker exhausted the node's shared process limit.
+cv2.setNumThreads(1)
+
 # ── Image preprocessing utilities ──────────────────────────────────────────
 
 def _apply_clahe(img_rgb: np.ndarray, clip_limit: float = 2.0,

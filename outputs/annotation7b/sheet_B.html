@@ -389,12 +389,17 @@ function importCsv(file) {
   file.text().then(text => {
     const [head, ...body] = parseCsv(text).filter(r => r.length > 1);
     const col = Object.fromEntries(head.map((h, i) => [h, i]));
-    if (!("sample" in col)) throw new Error("no sample column");
-    const known = new Set(SHEET.rows.map(r => r.sample));
+    if (!("sample" in col) || !("report" in col)) throw new Error("not a reading-sheet CSV");
+    // Sample ids repeat across rounds (S001, ...): a file counts only if every report matches.
+    const reportOf = Object.fromEntries(SHEET.rows.map(r => [r.sample, r.report]));
+    const foreign = body.filter(r => reportOf[r[col.sample]] !== r[col.report]).length;
+    if (foreign) {
+      toast(`Not loaded: ${foreign} report(s) in this file differ from this sheet's reports.`);
+      return;
+    }
     let n = 0;
     for (const r of body) {
       const sample = r[col.sample];
-      if (!known.has(sample)) continue;
       const a = {};
       for (const s of slots) {
         const v = (r[col[s]] || "").trim();

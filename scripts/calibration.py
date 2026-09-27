@@ -24,6 +24,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 from pathlib import Path
 
 N_BINS = 10
@@ -75,11 +76,13 @@ def operating_point(p: list[float], y: list[int], thr: float) -> dict:
 
 
 def threshold_for_sensitivity(p: list[float], y: list[int], target: float) -> float:
-    """Largest threshold whose sensitivity on (p, y) is at least `target`."""
+    """Largest threshold whose sensitivity on (p, y) is at least `target`: the k-th highest
+    positive score with k = ceil(target * positives). Rounding k instead gave 158 of 176
+    (0.898) for a 0.90 target."""
     pos = sorted((pi for pi, yi in zip(p, y) if yi == 1), reverse=True)
     if not pos:
         return 0.5
-    k = max(1, int(round(target * len(pos))))
+    k = max(1, math.ceil(target * len(pos) - 1e-9))
     return pos[min(k, len(pos)) - 1]
 
 

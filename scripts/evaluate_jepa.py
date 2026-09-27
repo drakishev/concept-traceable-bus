@@ -132,7 +132,9 @@ def main() -> None:
 
     # ── Save outputs ───────────────────────────────────────────────────────────
     with open(output_dir / "eval_config.json", "w") as f:
-        json.dump({"checkpoint": args.checkpoint, "test_jsonl": args.test_jsonl,
+        st = Path(args.checkpoint).stat()
+        json.dump({"checkpoint": args.checkpoint, "checkpoint_size": st.st_size,
+                   "checkpoint_mtime_ns": st.st_mtime_ns, "test_jsonl": args.test_jsonl,
                    "train_config": args.train_config, "preprocess_mode": preprocess_mode,
                    "image_size": args.image_size, "max_new_tokens": args.max_new_tokens,
                    "num_beams": args.num_beams}, f, indent=2)

@@ -1,11 +1,12 @@
-"""End-to-end VLM baselines (the 'ceiling') on free GPUs, in parallel.
+"""End-to-end VLM reference baselines on free GPUs, in parallel.
 
 Each job: LoRA-SFT a generic image-text-to-text VLM on augmented_v2, then eval on
 the BUS-CoT test split via evaluate_qwen.py --generic + evaluate_slots.py. Results
 append to outputs/weekend_results.csv (same format as the JEPA sweep) so they drop
 straight into the master table.
 
-Runs on GPUs 0,1 (the JEPA pool uses 2-7). Continue-on-error; skip-if-metrics-exist.
+Runs on GPUs 0,1 (the JEPA pool uses 2-7). Continue-on-error; a run is skipped only if its
+metrics record the trained adapter now on disk (eval_record.json).
 Gated models (MedGemma, Llama-3.2-Vision) fail fast unless the HF account has
 accepted their licenses — re-run after acceptance.
 
@@ -96,6 +97,33 @@ def append_result(row: dict, lock: threading.Lock) -> None:
             w.writerow({k: row.get(k) for k in cols})
 
 
+def adapter_stamp(adapter: str) -> dict:
+    """Identity of a trained adapter file (a retrained adapter at the same path differs)."""
+    st = Path(adapter, "adapter_model.safetensors").stat()
+    return {"adapter": adapter, "adapter_size": st.st_size, "adapter_mtime_ns": st.st_mtime_ns}
+
+
+def evaluated(eval_dir: str, adapter: str) -> bool:
+    """True if eval_dir holds slot metrics recorded as coming from this adapter file."""
+    rec = Path(eval_dir, "eval_record.json")
+    return (rec.exists() and Path(eval_dir, "slot_metrics.json").exists()
+            and json.loads(rec.read_text()) == adapter_stamp(adapter))
+
+
+def evaluate(name: str, hf_id: str, adapter: str, eval_dir: str, log: Path, cuda: str,
+             t0: float) -> dict:
+    rc = run(f"{PY} scripts/evaluate_qwen.py --generic --hf_id {hf_id} --adapter {adapter} "
+             f"--test_jsonl {TEST} --output_dir {eval_dir}", log, cuda)
+    if rc != 0:
+        return {"name": name, "status": f"eval_fail_rc{rc}", "ckpt": adapter,
+                "seconds": int(time.time() - t0)}
+    run(f"{PY} scripts/evaluate_slots.py --predictions {eval_dir}/predictions.json "
+        f"--output_dir {eval_dir}", log, cuda)
+    Path(eval_dir, "eval_record.json").write_text(json.dumps(adapter_stamp(adapter), indent=2))
+    return {"name": name, "status": "ok", "ckpt": adapter, "seconds": int(time.time() - t0),
+            **metrics_for(eval_dir)}
+
+
 def do_job(job: dict, cuda: str) -> dict:
     # Seed 1 is the original run (trainer default seed 42, no suffix); VLM_SEEDS
     # adds replicate runs named <job>_s<seed> for a variance estimate.
@@ -108,12 +136,16 @@ def do_job(job: dict, cuda: str) -> dict:
     t0 = time.time()
 
     adapter = f"{out_dir}/final"
-    # Finished only if the trained adapter exists too: metrics alone can be bundled
-    # results (public release) with nothing trained on this machine.
+    # The final adapter is written only when training ends. Metrics count only if they
+    # record this adapter file: bundled results (public release) or metrics of an earlier
+    # adapter are re-evaluated, and a trained adapter is never trained again.
     trained = all(os.path.exists(f"{adapter}/{f}")
                   for f in ("adapter_config.json", "adapter_model.safetensors"))
-    if os.path.exists(f"{eval_dir}/slot_metrics.json") and trained:
+    if trained and evaluated(eval_dir, adapter):
         return {"name": name, "status": "skip", **metrics_for(eval_dir)}
+    if trained:
+        print(f"[{name}] evaluation missing or from another adapter: re-evaluating", flush=True)
+        return evaluate(name, hf_id, adapter, eval_dir, log, cuda, t0)
 
     # Resume from the latest HF Trainer checkpoint if one exists (freeze recovery).
     import glob as _glob
@@ -138,15 +170,7 @@ def do_job(job: dict, cuda: str) -> dict:
     if rc != 0:
         return {"name": name, "status": f"train_fail_rc{rc}", "seconds": int(time.time() - t0)}
 
-    rc = run(f"{PY} scripts/evaluate_qwen.py --generic --hf_id {hf_id} --adapter {adapter} "
-             f"--test_jsonl {TEST} --output_dir {eval_dir}", log, cuda)
-    if rc != 0:
-        return {"name": name, "status": f"eval_fail_rc{rc}", "ckpt": adapter,
-                "seconds": int(time.time() - t0)}
-    run(f"{PY} scripts/evaluate_slots.py --predictions {eval_dir}/predictions.json "
-        f"--output_dir {eval_dir}", log, cuda)
-    return {"name": name, "status": "ok", "ckpt": adapter, "seconds": int(time.time() - t0),
-            **metrics_for(eval_dir)}
+    return evaluate(name, hf_id, adapter, eval_dir, log, cuda, t0)
 
 
 def worker(gpu: str, q: "queue.Queue[dict]", lock: threading.Lock) -> None:

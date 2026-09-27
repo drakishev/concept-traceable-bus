@@ -1,21 +1,106 @@
 {
   "n_images": 80,
   "checkpoint": "checkpoints/weekend/h_cb3_dinov2_s2/epoch=04-val/loss=0.0929.ckpt",
+  "sample": {
+    "seed": 0,
+    "record_ids": [
+      "bus_cot_reasoning_test_00376",
+      "bus_cot_reasoning_test_00473",
+      "bus_cot_reasoning_test_00009",
+      "bus_cot_reasoning_test_00031",
+      "bus_cot_reasoning_test_00032",
+      "bus_cot_reasoning_test_00043",
+      "bus_cot_reasoning_test_00063",
+      "bus_cot_reasoning_test_00065",
+      "bus_cot_reasoning_test_00069",
+      "bus_cot_reasoning_test_00071",
+      "bus_cot_reasoning_test_00110",
+      "bus_cot_reasoning_test_00111",
+      "bus_cot_reasoning_test_00113",
+      "bus_cot_reasoning_test_00118",
+      "bus_cot_reasoning_test_00163",
+      "bus_cot_reasoning_test_00177",
+      "bus_cot_reasoning_test_00191",
+      "bus_cot_reasoning_test_00195",
+      "bus_cot_reasoning_test_00212",
+      "bus_cot_reasoning_test_00217",
+      "bus_cot_reasoning_test_00224",
+      "bus_cot_reasoning_test_00233",
+      "bus_cot_reasoning_test_00234",
+      "bus_cot_reasoning_test_00256",
+      "bus_cot_reasoning_test_00278",
+      "bus_cot_reasoning_test_00285",
+      "bus_cot_reasoning_test_00291",
+      "bus_cot_reasoning_test_00301",
+      "bus_cot_reasoning_test_00307",
+      "bus_cot_reasoning_test_00310",
+      "bus_cot_reasoning_test_00332",
+      "bus_cot_reasoning_test_00336",
+      "bus_cot_reasoning_test_00367",
+      "bus_cot_reasoning_test_00383",
+      "bus_cot_reasoning_test_00389",
+      "bus_cot_reasoning_test_00405",
+      "bus_cot_reasoning_test_00419",
+      "bus_cot_reasoning_test_00428",
+      "bus_cot_reasoning_test_00433",
+      "bus_cot_reasoning_test_00458",
+      "bus_cot_reasoning_test_00463",
+      "bus_cot_reasoning_test_00477",
+      "bus_cot_reasoning_test_00485",
+      "bus_cot_reasoning_test_00496",
+      "bus_cot_reasoning_test_00503",
+      "bus_cot_reasoning_test_00513",
+      "bus_cot_reasoning_test_00525",
+      "bus_cot_reasoning_test_00535",
+      "bus_cot_reasoning_test_00700",
+      "bus_cot_reasoning_test_00704",
+      "bus_cot_reasoning_test_00542",
+      "bus_cot_reasoning_test_00550",
+      "bus_cot_reasoning_test_00566",
+      "bus_cot_reasoning_test_00585",
+      "bus_cot_reasoning_test_00594",
+      "bus_cot_reasoning_test_00595",
+      "bus_cot_reasoning_test_00606",
+      "bus_cot_reasoning_test_00616",
+      "bus_cot_reasoning_test_00631",
+      "bus_cot_reasoning_test_00660",
+      "bus_cot_reasoning_test_00676",
+      "bus_cot_reasoning_test_00698",
+      "bus_cot_reasoning_test_00712",
+      "bus_cot_reasoning_test_00713",
+      "bus_cot_reasoning_test_00726",
+      "bus_cot_reasoning_test_00737",
+      "bus_cot_reasoning_test_00759",
+      "bus_cot_reasoning_test_00762",
+      "bus_cot_reasoning_test_00788",
+      "bus_cot_reasoning_test_00789",
+      "bus_cot_reasoning_test_00804",
+      "bus_cot_reasoning_test_00810",
+      "bus_cot_reasoning_test_00812",
+      "bus_cot_reasoning_test_00817",
+      "bus_cot_reasoning_test_00836",
+      "bus_cot_reasoning_test_00839",
+      "bus_cot_reasoning_test_00841",
+      "bus_cot_reasoning_test_00852",
+      "bus_cot_reasoning_test_00856",
+      "bus_cot_reasoning_test_00863"
+    ]
+  },
   "flip": {
     "n": 80,
     "forced_label_adopted_rate": 1.0,
-    "any_descriptor_changed_rate": 0.5375,
+    "any_descriptor_changed_rate": 0.6,
     "per_slot_change_rate": {
-      "orientation": 0.3636,
-      "margins": 0.2468,
-      "shape": 0.2468,
-      "echogenicity": 0.25,
-      "calcification": 0.15
+      "orientation": 0.3947,
+      "margins": 0.4342,
+      "shape": 0.4342,
+      "echogenicity": 0.175,
+      "calcification": 0.2125
     },
     "per_slot_n": {
-      "orientation": 77,
-      "margins": 77,
-      "shape": 77,
+      "orientation": 76,
+      "margins": 76,
+      "shape": 76,
       "echogenicity": 80,
       "calcification": 80
     },
@@ -23,18 +108,18 @@
     "intervened_fully_unparsed": 0,
     "intervened_unparsed_rate": 0.0,
     "n_comparable": 80,
-    "any_descriptor_changed_rate_comparable": 0.5375
+    "any_descriptor_changed_rate_comparable": 0.6
   },
   "control": {
     "n": 80,
     "forced_label_adopted_rate": 1.0,
-    "any_descriptor_changed_rate": 0.35,
+    "any_descriptor_changed_rate": 0.45,
     "per_slot_change_rate": {
-      "orientation": 0.15,
-      "margins": 0.0875,
-      "shape": 0.0875,
-      "echogenicity": 0.125,
-      "calcification": 0.175
+      "orientation": 0.2,
+      "margins": 0.1875,
+      "shape": 0.1875,
+      "echogenicity": 0.0875,
+      "calcification": 0.275
     },
     "per_slot_n": {
       "orientation": 80,
@@ -47,7 +132,7 @@
     "intervened_fully_unparsed": 0,
     "intervened_unparsed_rate": 0.0,
     "n_comparable": 80,
-    "any_descriptor_changed_rate_comparable": 0.35
+    "any_descriptor_changed_rate_comparable": 0.45
   },
   "examples": [
     {
@@ -55,10 +140,29 @@
       "baseline_label": "malignant",
       "baseline_descriptors": {
         "orientation": "not parallel",
-        "margins": "regular",
-        "shape": "oval",
+        "margins": "irregular",
+        "shape": "irregular",
         "echogenicity": "lowecho",
         "calcification": "nocalcification"
+      },
+      "intervened_descriptors": {
+        "orientation": null,
+        "margins": null,
+        "shape": null,
+        "echogenicity": "noecho",
+        "calcification": "nocalcification"
+      },
+      "intervened_report": " anechoic, no calcifications. BI-RADS 3. Impression: benign lesion. <answer> 0 </answer>"
+    },
+    {
+      "forced_pathology": "benign",
+      "baseline_label": "malignant",
+      "baseline_descriptors": {
+        "orientation": "not parallel",
+        "margins": "irregular",
+        "shape": "irregular",
+        "echogenicity": "lowecho",
+        "calcification": "microcalcification"
       },
       "intervened_descriptors": {
         "orientation": "parallel",
@@ -99,32 +203,13 @@
         "calcification": "nocalcification"
       },
       "intervened_descriptors": {
-        "orientation": "parallel",
-        "margins": "partiallyregular",
-        "shape": "round",
+        "orientation": "not parallel",
+        "margins": "irregular",
+        "shape": "irregular",
         "echogenicity": "lowecho",
         "calcification": "microcalcification"
       },
-      "intervened_report": "Orientation: parallel. Margins: microlobulated. Shape: round. Echogenicity: low echogenicity. Calcification: fine calcific deposits. BI-RADS: 4B. Impression: malignant lesion. <answer> 1 </answer>"
-    },
-    {
-      "forced_pathology": "malignant",
-      "baseline_label": "benign",
-      "baseline_descriptors": {
-        "orientation": "parallel",
-        "margins": "regular",
-        "shape": "oval",
-        "echogenicity": "noecho",
-        "calcification": "nocalcification"
-      },
-      "intervened_descriptors": {
-        "orientation": "parallel",
-        "margins": "regular",
-        "shape": "oval",
-        "echogenicity": "lowecho",
-        "calcification": "nocalcification"
-      },
-      "intervened_report": "Orientation: parallel. Margins: circumscribed. Shape: oval. Echogenicity: low echogenicity. Calcification: absence of calcific deposits. BI-RADS: 3. Impression: malignant lesion. <answer> 1 </answer>"
+      "intervened_report": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith punctuate microcalcifications. Based on these features, the lesion is classified as BIRADS 5. Thus this i"
     },
     {
       "forced_pathology": "malignant",
@@ -152,17 +237,17 @@
         "orientation": "parallel",
         "margins": "regular",
         "shape": "oval",
-        "echogenicity": "noecho",
+        "echogenicity": "lowecho",
         "calcification": "nocalcification"
       },
       "intervened_descriptors": {
-        "orientation": "not parallel",
+        "orientation": "parallel",
         "margins": "regular",
         "shape": "oval",
         "echogenicity": "lowecho",
         "calcification": "nocalcification"
       },
-      "intervened_report": "Orientation: not parallel. Margins: circumscribed. Shape: oval. Echogenicity: low echogenicity. Calcification: absence of calcific deposits. BI-RADS: 3. Impression: malignant lesion. <answer> 1 </answer>"
+      "intervened_report": "Orientation: parallel. Margins: circumscribed. Shape: oval. Echogenicity: low echogenicity. Calcification: absence of calcific deposits. BI-RADS: 3. Impression: malignant lesion. <answer> 1 </answer>"
     },
     {
       "forced_pathology": "malignant",

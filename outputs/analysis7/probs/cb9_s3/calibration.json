@@ -1,6 +1,6 @@
 {
   "target_sensitivity": 0.9,
-  "threshold_chosen_on_val": 0.220326,
+  "threshold_chosen_on_val": 0.219182,
   "val": {
     "n": 410,
     "n_malignant": 176,
@@ -98,19 +98,19 @@
       }
     },
     "sensitivity_0.90_threshold_from_val": {
-      "threshold": 0.220326,
-      "sensitivity": 0.8977,
+      "threshold": 0.219182,
+      "sensitivity": 0.9034,
       "specificity": 0.3974,
-      "ppv": 0.5284,
-      "npv": 0.8378,
-      "f1": 0.6653,
-      "missed_malignancies": 18,
+      "ppv": 0.53,
+      "npv": 0.8455,
+      "f1": 0.6681,
+      "missed_malignancies": 17,
       "n_malignant": 176,
       "confusion": {
-        "tp": 158,
+        "tp": 159,
         "fp": 141,
         "tn": 93,
-        "fn": 18
+        "fn": 17
       }
     }
   },
@@ -211,7 +211,7 @@
       }
     },
     "sensitivity_0.90_threshold_from_val": {
-      "threshold": 0.220326,
+      "threshold": 0.219182,
       "sensitivity": 0.9309,
       "specificity": 0.4876,
       "ppv": 0.5957,
@@ -325,7 +325,7 @@
         }
       },
       "sensitivity_0.90_threshold_from_val": {
-        "threshold": 0.220326,
+        "threshold": 0.219182,
         "sensitivity": 0.9677,
         "specificity": 0.0941,
         "ppv": 0.438,
@@ -438,7 +438,7 @@
         }
       },
       "sensitivity_0.90_threshold_from_val": {
-        "threshold": 0.220326,
+        "threshold": 0.219182,
         "sensitivity": 0.9796,
         "specificity": 0.2662,
         "ppv": 0.4593,

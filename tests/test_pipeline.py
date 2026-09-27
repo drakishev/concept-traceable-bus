@@ -201,3 +201,45 @@ def test_annotation_values_are_scoreable() -> None:
             got = _norm(value, slot)
             assert got != NOT_STATED, (slot, label)
             assert got in allowed.get(slot, {got}), (slot, label, got)
+
+
+def test_evaluation_record_tracks_checkpoint(tmp_path: Path, monkeypatch) -> None:
+    """Metrics count as current only for the checkpoint file they were computed from."""
+    sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
+    import run_weekend as rw
+
+    monkeypatch.setattr(rw, "FINETUNE_CFG", "configs/train/finetune_jepa_v5.yaml")
+
+    from src.data.datasets.bus_cot_jepa import preprocess_mode_of
+
+    ck = tmp_path / "model.ckpt"
+    ck.write_bytes(b"trained")
+    ev = tmp_path / "eval"
+    ev.mkdir()
+    (ev / "slot_metrics.json").write_text("{}")
+    st = ck.stat()
+    (ev / "eval_config.json").write_text(json.dumps({
+        "checkpoint": str(ck), "checkpoint_size": st.st_size,
+        "checkpoint_mtime_ns": st.st_mtime_ns,
+        "preprocess_mode": preprocess_mode_of(rw.FINETUNE_CFG)}))
+    assert rw.evaluated_as_trained(str(ev), str(ck))
+    ck.write_bytes(b"retrained at the same path")
+    assert not rw.evaluated_as_trained(str(ev), str(ck))
+
+
+def test_vlm_evaluation_record_tracks_adapter(tmp_path: Path) -> None:
+    """Bundled VLM metrics do not count for an adapter that was never evaluated."""
+    sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
+    import run_vlm_baselines as vlm
+
+    adapter = tmp_path / "final"
+    adapter.mkdir()
+    (adapter / "adapter_model.safetensors").write_bytes(b"trained")
+    ev = tmp_path / "eval"
+    ev.mkdir()
+    (ev / "slot_metrics.json").write_text("{}")
+    assert not vlm.evaluated(str(ev), str(adapter))  # bundled metrics, no record
+    (ev / "eval_record.json").write_text(json.dumps(vlm.adapter_stamp(str(adapter))))
+    assert vlm.evaluated(str(ev), str(adapter))
+    (adapter / "adapter_model.safetensors").write_bytes(b"replacement adapter")
+    assert not vlm.evaluated(str(ev), str(adapter))

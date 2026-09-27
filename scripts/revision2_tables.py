@@ -73,6 +73,10 @@ def tab_main(n: dict) -> str:
     body.append("Linear probe on frozen DINOv2-L features & n/a & "
                 f"{f3(probe['pathology']['f1'])} & {f3(probe['risk']['f1'])} & "
                 "n/a & n/a & n/a \\\\")
+    c = n["constant_baselines"]["internal"]
+    body.append("Image-blind constant answer & n/a & "
+                f"{f3(c['path_f1_always_malignant'])} & {f3(c['risk_f1_always_high'])} & "
+                f"{f3(c['exact_most_frequent'])} & {f3(c['ab_more_frequent'])} & n/a \\\\")
     body.append("\\midrule")
     body.append("\\multicolumn{7}{l}{\\emph{End-to-end VLM reference baselines "
                 "(LoRA; compute and tuning parity not established)}} \\\\")
@@ -90,7 +94,10 @@ def tab_main(n: dict) -> str:
         " in every run). ``Exact'' is exact accuracy over the seven BI-RADS-like categories and "
         "``4A vs 4B'' exact accuracy on references in category 4A or 4B (unextractable counts as "
         "wrong). AUROC is from the concept head's malignancy probability. The linear probe is "
-        "deterministic, so it has no seed spread.",
+        "deterministic, so it has no seed spread. The image-blind row scores a report that always "
+        "states malignant, high risk, category "
+        f"{n['constant_baselines']['internal']['most_frequent_category']} and, on the 4A/4B "
+        f"references, {n['constant_baselines']['internal']['ab_more_frequent_category']}.",
         "tab:main", "lcccccc",
         "Configuration & Seeds & Malignancy F1 & Risk-group F1 & Exact category & 4A vs 4B & "
         "AUROC", body, star=True, fit=True)
@@ -265,12 +272,23 @@ def tab_external_reports(n: dict) -> str:
            " & chance & "
            + " & ".join(f3(base[c]["chance_balanced_accuracy"]) for c in (*cols, "birads_exact"))
            + " & \\\\"]
+    ub = n["constant_baselines"]["u2bench_birads"]
+    blind_wins = all(
+        ub[b] > a[m]["u2b_birads"][src][k]["mean"]
+        for m in ("cb3", "cb9") for src in ("concept_head", "generated_report")
+        for k, b in (("exact", "exact_most_frequent"), ("ab", "ab_more_frequent"),
+                     ("risk_f1", "risk_f1_always_high")))
     lines = [
         "\\begin{table*}[h!]",
         "\\caption{External evaluation of the generated report, not only of the classifier "
         "(mean $\\pm$ SD over three seeds). \\textbf{(A)} U2-BENCH BI-RADS-like subset ($n=109$, "
         "categories 2--5, no overlap with training): the category read from the concept head and "
-        "from the generated report. \\textbf{(B)} BrEaST ($n=252$): agreement of the generated "
+        "from the generated report; the image-blind row always states category "
+        f"{ub['most_frequent_category']} (on the 4A/4B references, "
+        f"{ub['ab_more_frequent_category']}) and high risk"
+        + (", and scores higher than every model mean on all three endpoints. "
+           if blind_wins else ". ") +
+        "\\textbf{(B)} BrEaST ($n=252$): agreement of the generated "
         "report's descriptors and category with the radiologist's BI-RADS lexicon annotation "
         "(missing counts as wrong), as accuracy and as balanced accuracy (mean recall over the "
         "annotated classes), and malignancy F1 of the report. Margin is scored as circumscribed "
@@ -281,6 +299,9 @@ def tab_external_reports(n: dict) -> str:
         "\\begin{tabular}{llccc}", "\\toprule",
         "\\multicolumn{5}{l}{\\textbf{(A)} U2-BENCH} \\\\",
         "Model & Source & Exact category & 4A vs 4B & Risk-group F1 \\\\", "\\midrule", *u2b,
+        "\\midrule",
+        f"Image-blind & constant answer & {f3(ub['exact_most_frequent'])} & "
+        f"{f3(ub['ab_more_frequent'])} & {f3(ub['risk_f1_always_high'])} \\\\",
         "\\bottomrule", "\\end{tabular}", "\\par\\vspace{6pt}",
         "\\begin{tabular}{llcccccc}", "\\toprule",
         "\\multicolumn{8}{l}{\\textbf{(B)} BrEaST, generated report} \\\\",
@@ -391,13 +412,15 @@ def supp_interventions(n: dict) -> str:
            f"{msd(a[m]['covariation']['control_change'])} \\\\"
            for m, mname in (("cb3", "CB-3"), ("cb9", "CB-9"))]
     t1 = table(
-        "Forced-concept agreement per head (80 test images, every class of the head forced in "
+        "Forced-concept agreement per head (seeded random sample of 80 test images, the same for "
+        "every model; every class of the head forced in "
         "turn; fraction of all regenerated reports that state the forced value, so a report that "
         "omits the slot counts as not following the override). Mean $\\pm$ SD over "
         "three seeds; the six finding heads exist only in CB-9 (boundary has no report slot).",
         "tab:s_intervention", "lcc", "Concept head & CB-3 & CB-9", body)
     t2 = table(
-        "Descriptor co-variation under a forced pathology flip (80 test images). ``Adopted'' is "
+        "Descriptor co-variation under a forced pathology flip (the same 80 test images as Table "
+        "S8). ``Adopted'' is "
         "the fraction of flips whose report states the forced pathology; the change rates are the "
         "fraction of reports in which at least one descriptor changes, on a genuine flip and on a "
         "control that forces the pathology the unmodified report already states (itself an "
@@ -447,7 +470,8 @@ def supp_annotation() -> str:
 
         def both(slot: str, k: str) -> str:
             return " / ".join(f"{a[k]:.3f}" for a in v[slot]["per_annotator"])
-        body = [f"{slot.replace('birads', 'BI-RADS-like')} & {both(slot, 'precision')} & "
+        label = {"birads": "BI-RADS-like", "calcification": "calcification (absent/present)"}
+        body = [f"{label.get(slot, slot)} & {both(slot, 'precision')} & "
                 f"{both(slot, 'recall')} & "
                 + (f"{v[slot]['inter_annotator_kappa']:.3f}"
                    if v[slot].get("inter_annotator_kappa") is not None else "n/a") + " \\\\"

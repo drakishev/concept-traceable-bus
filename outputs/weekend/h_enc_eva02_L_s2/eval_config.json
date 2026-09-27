@@ -5,5 +5,7 @@
   "preprocess_mode": "ultrasound",
   "image_size": 224,
   "max_new_tokens": 256,
-  "num_beams": 4
+  "num_beams": 4,
+  "checkpoint_size": 33706438777,
+  "checkpoint_mtime_ns": 1790259400430730094
 }

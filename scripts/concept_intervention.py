@@ -21,11 +21,12 @@ from __future__ import annotations
 
 import argparse
 import json
+import random
 import sys
 from pathlib import Path
 
 import torch
-from torch.utils.data import DataLoader
+from torch.utils.data import DataLoader, Subset
 from tqdm import tqdm
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -83,6 +84,10 @@ def main() -> None:
     ap.add_argument("--train_config", required=True,
                     help="Stage-2 training config (its data.preprocess_mode is applied)")
     ap.add_argument("--n", type=int, default=80, help="number of test images to probe")
+    ap.add_argument("--sample_seed", type=int, default=0,
+                    help="the n images are a seeded random sample of the test set (the test "
+                         "file is ordered by source collection, so its first n are not "
+                         "representative)")
     ap.add_argument("--output", required=True)
     ap.add_argument("--max_new_tokens", type=int, default=256)
     ap.add_argument("--device", default="cuda")
@@ -94,6 +99,9 @@ def main() -> None:
 
     ds = BUSCoTJEPADataset(jsonl_path=args.test_jsonl, root_dir=Path("."), image_size=224,
                            preprocess_mode=preprocess_mode_of(args.train_config))
+    ids = sorted(random.Random(args.sample_seed).sample(range(len(ds)), min(args.n, len(ds))))
+    sample = {"seed": args.sample_seed, "record_ids": [ds.records[i]["id"] for i in ids]}
+    ds = Subset(ds, ids)
     loader = DataLoader(ds, batch_size=8, shuffle=False, num_workers=4)
 
     heads = [h for h in model.aux_heads if h in INV]
@@ -135,7 +143,7 @@ def main() -> None:
             seen += B
 
     results = {
-        "n_images": seen,
+        "n_images": seen, "sample": sample,
         "agreement": {h: (agree[h] / total[h] if total[h] else None) for h in heads},
         "counts": {h: {"agree": agree[h], "total": total[h], "extracted": extracted[h]}
                    for h in heads},
