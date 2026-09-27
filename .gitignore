@@ -5,8 +5,8 @@ __pycache__/
 .venv/
 .env
 # datasets, model weights and logs are not distributed; only the checkpoint hashes are
-data/
-logs/
+/data/
+/logs/
 checkpoints/*
 !checkpoints/SHA256SUMS
 # written by retraining (see README): the reported results stay in the tracked files

@@ -3,87 +3,87 @@
   "pathology": {
     "coverage": 1.0,
     "n": 252,
-    "f1": 0.6948356807511736,
-    "accuracy": 0.7420634920634921,
-    "sensitivity": 0.7551020408163265,
-    "specificity": 0.7337662337662337,
-    "precision": 0.6434782608695652,
-    "balanced_accuracy": 0.7444341372912802,
+    "f1": 0.6633165829145728,
+    "accuracy": 0.7341269841269841,
+    "sensitivity": 0.673469387755102,
+    "specificity": 0.7727272727272727,
+    "precision": 0.6534653465346535,
+    "balanced_accuracy": 0.7230983302411873,
     "confusion": {
-      "tp": 74,
-      "tn": 113,
-      "fp": 41,
-      "fn": 24
+      "tp": 66,
+      "tn": 119,
+      "fp": 35,
+      "fn": 32
     }
   },
   "birads": {
     "n": 252,
     "coverage": 1.0,
-    "exact_accuracy": 0.25793650793650796,
-    "adjacent_accuracy": 0.7420634920634921,
+    "exact_accuracy": 0.2261904761904762,
+    "adjacent_accuracy": 0.7103174603174603,
     "risk_group": {
       "n": 252,
-      "f1": 0.7625,
-      "accuracy": 0.6984126984126984,
-      "sensitivity": 0.6594594594594595,
-      "specificity": 0.8059701492537313,
-      "precision": 0.9037037037037037,
-      "balanced_accuracy": 0.7327148043565954,
+      "f1": 0.7147540983606557,
+      "accuracy": 0.6547619047619048,
+      "sensitivity": 0.5891891891891892,
+      "specificity": 0.835820895522388,
+      "precision": 0.9083333333333333,
+      "balanced_accuracy": 0.7125050423557886,
       "confusion": {
-        "tp": 122,
-        "tn": 54,
-        "fp": 13,
-        "fn": 63
+        "tp": 109,
+        "tn": 56,
+        "fp": 11,
+        "fn": 76
       }
     },
-    "acc_4a_vs_4b": 0.13333333333333333,
+    "acc_4a_vs_4b": 0.07777777777777778,
     "n_4a_4b": 90,
     "confusion": {
       "2": {
-        "4A": 6,
-        "3": 19,
-        "4C": 2,
-        "2": 3
+        "4A": 4,
+        "3": 22,
+        "4C": 1,
+        "2": 2,
+        "4B": 1
       },
       "4B": {
-        "3": 13,
-        "4A": 17,
-        "4C": 11,
-        "4B": 5
+        "3": 17,
+        "4A": 16,
+        "4C": 12,
+        "4B": 1
       },
       "4A": {
-        "4A": 7,
-        "3": 28,
-        "4B": 5,
-        "4C": 4
+        "3": 33,
+        "4A": 6,
+        "4C": 4,
+        "4B": 1
       },
       "3": {
-        "3": 31,
+        "3": 32,
         "4A": 3,
-        "4C": 2,
-        "2": 1
+        "4C": 2
       },
       "5": {
-        "4B": 6,
-        "4C": 33,
-        "3": 3,
+        "4C": 30,
+        "3": 6,
+        "4B": 3,
         "5": 2,
-        "4A": 2
+        "4A": 5
       },
       "4C": {
-        "3": 19,
-        "4C": 17,
-        "4A": 8,
-        "4B": 4,
-        "5": 1
+        "3": 20,
+        "4C": 14,
+        "4B": 3,
+        "4A": 10,
+        "5": 2
       }
     }
   },
   "shape": {
     "n": 252,
     "coverage": 1.0,
-    "accuracy_on_covered": 0.6507936507936508,
-    "accuracy_missing_wrong": 0.6507936507936508,
+    "accuracy_on_covered": 0.6111111111111112,
+    "accuracy_missing_wrong": 0.6111111111111112,
     "gold_distribution": {
       "irregular": 140,
       "oval": 97,
@@ -91,14 +91,14 @@
     },
     "confusion": {
       "irregular": {
-        "round": 26,
-        "irregular": 82,
-        "oval": 32
+        "round": 28,
+        "irregular": 71,
+        "oval": 41
       },
       "oval": {
-        "oval": 79,
-        "irregular": 10,
-        "round": 8
+        "oval": 80,
+        "round": 12,
+        "irregular": 5
       },
       "round": {
         "oval": 12,
@@ -109,28 +109,28 @@
   "margin_circumscribed": {
     "n": 252,
     "coverage": 1.0,
-    "accuracy_on_covered": 0.7698412698412699,
-    "accuracy_missing_wrong": 0.7698412698412699,
+    "accuracy_on_covered": 0.746031746031746,
+    "accuracy_missing_wrong": 0.746031746031746,
     "gold_distribution": {
       "0": 137,
       "1": 115
     },
     "confusion": {
       "0": {
-        "0": 104,
-        "1": 33
+        "0": 96,
+        "1": 41
       },
       "1": {
-        "1": 90,
-        "0": 25
+        "1": 92,
+        "0": 23
       }
     }
   },
   "echogenicity": {
     "n": 252,
     "coverage": 1.0,
-    "accuracy_on_covered": 0.5873015873015873,
-    "accuracy_missing_wrong": 0.5873015873015873,
+    "accuracy_on_covered": 0.5952380952380952,
+    "accuracy_missing_wrong": 0.5952380952380952,
     "gold_distribution": {
       "heterogeneous": 57,
       "hypoechoic": 148,
@@ -141,17 +141,14 @@
     },
     "confusion": {
       "heterogeneous": {
-        "hypoechoic": 56,
-        "complex cystic/solid": 1
+        "hypoechoic": 57
       },
       "hypoechoic": {
-        "hypoechoic": 141,
-        "anechoic": 5,
-        "complex cystic/solid": 2
+        "hypoechoic": 144,
+        "anechoic": 4
       },
       "hyperechoic": {
-        "complex cystic/solid": 2,
-        "hypoechoic": 7
+        "hypoechoic": 9
       },
       "complex cystic/solid": {
         "complex cystic/solid": 1,
@@ -162,29 +159,29 @@
         "hypoechoic": 12
       },
       "anechoic": {
-        "complex cystic/solid": 2,
-        "hypoechoic": 7,
-        "anechoic": 6
+        "complex cystic/solid": 1,
+        "hypoechoic": 9,
+        "anechoic": 5
       }
     }
   },
   "calcification": {
     "n": 252,
     "coverage": 1.0,
-    "accuracy_on_covered": 0.8809523809523809,
-    "accuracy_missing_wrong": 0.8809523809523809,
+    "accuracy_on_covered": 0.873015873015873,
+    "accuracy_missing_wrong": 0.873015873015873,
     "gold_distribution": {
       "0": 225,
       "1": 27
     },
     "confusion": {
       "0": {
-        "0": 220,
-        "1": 5
+        "0": 219,
+        "1": 6
       },
       "1": {
-        "0": 25,
-        "1": 2
+        "0": 26,
+        "1": 1
       }
     }
   },

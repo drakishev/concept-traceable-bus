@@ -27,6 +27,11 @@ def msd(b: dict) -> str:
     return f"{b['mean']:.3f}" if b.get("sd") is None else f"{b['mean']:.3f}$\\pm${b['sd']:.3f}"
 
 
+def sg(x: float, d: int = 3) -> str:
+    """Signed number with a typeset minus sign."""
+    return f"${x:+.{d}f}$"
+
+
 def rng(b: dict) -> str:
     return f"{b['min']:.3f}--{b['max']:.3f}"
 
@@ -96,38 +101,69 @@ SIZES = [("0.5B", "0_5b"), ("1.5B", "1_5b"), ("3B", "3b"), ("7B", "7b"), ("14B",
          ("32B", "32b"), ("72B", "72b")]
 
 
+def sweep_batch_sizes() -> str:
+    """Stage-2 batch size per decoder size, from the job list that trained the sweep."""
+    import sys
+
+    from omegaconf import OmegaConf
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import run_weekend6 as b6
+    base = OmegaConf.load("configs/train/finetune_jepa_v5.yaml").train.batch_size
+    groups: dict[int, list[str]] = {}
+    for tag, _, extra, _, _ in b6.QWEN:
+        bs = next((int(e.split("=")[1]) for e in extra if e.startswith("train.batch_size=")),
+                  base)
+        groups.setdefault(bs, []).append(tag.replace("_", ".").upper())
+
+    def join(x: list[str]) -> str:
+        return x[0] if len(x) == 1 else ", ".join(x[:-1]) + " and " + x[-1]
+    parts = [f"{bs} for {join(tags)}" for bs, tags in groups.items()]
+    return ", ".join(parts[:-1]) + ", and " + parts[-1] if len(parts) > 1 else parts[0]
+
+
 def tab_decoders(n: dict) -> str:
     rows = n["main_table"]["rows"]
     pairs = n["decoder"]["pairs"]
+
+    def delta(tag: str, ep: str) -> str:
+        if tag == "0_5b":
+            return "reference"
+        p = pairs[f"{tag}_vs_0_5b_s1"][ep]
+        return (f"{sg(p['delta_f1'])} [{sg(p['ci90'][0])}, {sg(p['ci90'][1])}]"
+                + (" (equiv.)" if p["equivalent_at_margin"] else ""))
     body = []
     for label, tag in SIZES:
         key = f"Qwen2.5-{label}" + (" (4-bit)" if tag == "72b" else "")
         r = rows[key]
-        if tag == "0_5b":
-            d = "reference"
-        else:
-            p = pairs[f"{tag}_vs_0_5b_s1"]["pathology"]
-            d = (f"{p['delta_f1']:+.3f} [{p['ci90'][0]:+.3f}, {p['ci90'][1]:+.3f}]"
-                 + (" (equiv.)" if p["equivalent_at_margin"] else ""))
         body.append(f"{label} & {len(r['runs'])} & {msd(r['path'])} & {msd(r['risk'])} & "
-                    f"{msd(r['exact'])} & {d} \\\\")
-    dr = n["decoder"]["dose_response_patient_bootstrap"]["path_f1"]
-    decades = __import__("math").log10(72 / 0.5)
+                    f"{msd(r['exact'])} & {delta(tag, 'pathology')} & {delta(tag, 'risk')} \\\\")
+    boot = n["decoder"]["dose_response_patient_bootstrap"]
+    ols = n["decoder"]["dose_response"]
+
+    def slope(ep: str) -> str:
+        b, o = boot[ep], ols[ep]
+        lo, hi = b["ci95_patient_bootstrap"]
+        return (f"{sg(b['slope_per_decade'], 4)} (patient-cluster bootstrap 95\\% CI "
+                f"{sg(lo, 4)} to {sg(hi, 4)}; across runs {sg(o['ci95'][0], 4)} to "
+                f"{sg(o['ci95'][1], 4)})")
     return table(
-        "Single-family decoder sweep (Qwen2.5-Instruct, 0.5B--72B). Every run starts Stage 2 from "
-        "the same Stage-1 checkpoint (CB-3, seed 1) and uses the identical LoRA protocol "
-        "($r{=}16$, $\\alpha{=}32$, dropout 0.05); only decoder size varies. $\\Delta$ is the "
-        "malignancy-F1 difference to the 0.5B decoder at seed 1 with its 90\\% patient-cluster "
-        "bootstrap interval; ``equiv.'' marks the interval lying inside the pre-specified "
-        "$\\pm0.02$ margin (TOST). Over all 15 runs, malignancy F1 changes by "
-        f"{dr['slope_per_decade']:+.4f} per tenfold increase in parameters (95\\% patient-cluster "
-        f"bootstrap CI {dr['ci95_patient_bootstrap'][0]:+.4f} to "
-        f"{dr['ci95_patient_bootstrap'][1]:+.4f}); if the trend is log-linear, the average gain "
-        f"from 0.5B to 72B is at most {dr['ci95_patient_bootstrap'][1] * decades:.4f} F1 at the "
-        "upper confidence bound. The bound does not apply to each size separately.",
-        "tab:decoders", "lccccc",
+        "Single-family decoder sweep (Qwen2.5-Instruct, 0.5B--72B). Every decoder is conditioned "
+        "only on the three assessment concepts of CB-3, starting Stage 2 from the same Stage-1 "
+        "checkpoint (CB-3, seed 1), with the same LoRA settings ($r{=}16$, $\\alpha{=}32$, "
+        "dropout 0.05). Decoder size is not the only difference: the Stage-2 batch size is "
+        f"{sweep_batch_sizes()} (no gradient accumulation), the 72B decoder is loaded in 4 bits, "
+        "and the three largest decoders have one seed. $\\Delta$ is the F1 difference to the "
+        "0.5B decoder at seed 1 with its 90\\% patient-cluster bootstrap interval; ``equiv.'' "
+        "would mark an interval inside the pre-specified $\\pm0.02$ margin (TOST; "
+        f"established in {n['decoder']['tost_equivalent'].replace('/', ' of ')} size, seed and "
+        "endpoint comparisons, Supplementary Table S7). "
+        "Per tenfold increase in parameters, fitted over all 15 runs, malignancy F1 changes by "
+        f"{slope('path_f1')} and risk-group F1 by {slope('risk_f1')}. The bootstrap interval "
+        "resamples test patients with the trained models held fixed; the across-run interval "
+        "treats the 15 runs as independent and so reflects training variability.",
+        "tab:decoders", "lcccccc",
         "Decoder & Seeds & Malignancy F1 & Risk-group F1 & Exact category & "
-        "$\\Delta$ malignancy vs 0.5B [90\\% CI]", body, fit=True)
+        "$\\Delta$ malignancy [90\\% CI] & $\\Delta$ risk group [90\\% CI]", body, fit=True)
 
 
 # ── Table 3: encoders with their properties ───────────────────────────────
@@ -213,10 +249,22 @@ def tab_external_reports(n: dict) -> str:
             c = b[src]
             u2b.append(f"{mname if src == 'concept_head' else ''} & {label} & "
                        f"{msd(c['exact'])} & {msd(c['ab'])} & {msd(c['risk_f1'])} \\\\")
-    br = [f"{mname} & {msd(a[m]['breast']['shape'])} & {msd(a[m]['breast']['margin'])} & "
-          f"{msd(a[m]['breast']['echogenicity'])} & {msd(a[m]['breast']['calcification'])} & "
-          f"{msd(a[m]['breast']['birads_exact'])} & {msd(a[m]['breast']['path_f1'])} \\\\"
-          for m, mname in (("cb3", "CB-3"), ("cb9", "CB-9"))]
+    cols = ("shape", "margin", "echogenicity", "calcification")
+    br = []
+    for m, mname in (("cb3", "CB-3"), ("cb9", "CB-9")):
+        b = a[m]["breast"]
+        br.append(f"{mname} & accuracy & " + " & ".join(msd(b[c]) for c in cols)
+                  + f" & {msd(b['birads_exact'])} & {msd(b['path_f1'])} \\\\")
+        br.append(" & balanced accuracy & " + " & ".join(msd(b[f"{c}_balanced"]) for c in cols)
+                  + f" & {msd(b['birads_balanced'])} & \\\\")
+    base = n["analyses"]["breast_baselines"]
+    br += ["\\midrule",
+           "Image-blind & majority class & "
+           + " & ".join(f3(base[c]["majority_accuracy"]) for c in (*cols, "birads_exact"))
+           + f" & {f3(base['path_f1_always_malignant'])} \\\\",
+           " & chance & "
+           + " & ".join(f3(base[c]["chance_balanced_accuracy"]) for c in (*cols, "birads_exact"))
+           + " & \\\\"]
     lines = [
         "\\begin{table*}[h!]",
         "\\caption{External evaluation of the generated report, not only of the classifier "
@@ -224,15 +272,19 @@ def tab_external_reports(n: dict) -> str:
         "categories 2--5, no overlap with training): the category read from the concept head and "
         "from the generated report. \\textbf{(B)} BrEaST ($n=252$): agreement of the generated "
         "report's descriptors and category with the radiologist's BI-RADS lexicon annotation "
-        "(missing counts as wrong), and malignancy F1 of the report.}",
+        "(missing counts as wrong), as accuracy and as balanced accuracy (mean recall over the "
+        "annotated classes), and malignancy F1 of the report. Margin is scored as circumscribed "
+        "versus not circumscribed and calcification as absent versus present. The image-blind "
+        "rows give the accuracy of a report that always states the most frequent annotated class "
+        "(for malignancy F1: always malignant) and the chance level of balanced accuracy.}",
         "\\label{tab:external_reports}", "\\centering", "\\footnotesize",
         "\\begin{tabular}{llccc}", "\\toprule",
         "\\multicolumn{5}{l}{\\textbf{(A)} U2-BENCH} \\\\",
         "Model & Source & Exact category & 4A vs 4B & Risk-group F1 \\\\", "\\midrule", *u2b,
         "\\bottomrule", "\\end{tabular}", "\\par\\vspace{6pt}",
-        "\\begin{tabular}{lcccccc}", "\\toprule",
-        "\\multicolumn{7}{l}{\\textbf{(B)} BrEaST, generated report} \\\\",
-        "Model & Shape & Margin & Echogenicity & Calcification & Exact category & "
+        "\\begin{tabular}{llcccccc}", "\\toprule",
+        "\\multicolumn{8}{l}{\\textbf{(B)} BrEaST, generated report} \\\\",
+        "Model & Score & Shape & Margin & Echogenicity & Calcification & Exact category & "
         "Malignancy F1 \\\\", "\\midrule", *br, "\\bottomrule", "\\end{tabular}",
         "\\end{table*}"]
     return "\n".join(lines) + "\n"
@@ -271,7 +323,11 @@ def supp_comparisons(n: dict) -> str:
               ("DINOv2BvsUSFM", "DINOv2-B $-$ USFM", True),
               ("CB3vsOpaque", "CB-3 $-$ opaque", True), ("CB9vsOpaque", "CB-9 $-$ opaque", True),
               ("CB9vsCB3", "CB-9 $-$ CB-3", False), ("DINOv2vsUSFM", "DINOv2-L $-$ USFM", False),
-              ("DINOv2vsIN21k", "DINOv2-L $-$ ImageNet-21k", False)]
+              ("DINOv2vsIN21k", "DINOv2-L $-$ ImageNet-21k", False),
+              ("CB3vs_qwen25vl_7b", "CB-3 $-$ Qwen2.5-VL-7B", False),
+              ("CB9vs_qwen25vl_7b", "CB-9 $-$ Qwen2.5-VL-7B", False),
+              ("CB3vs_internvl3_8b", "CB-3 $-$ InternVL3-8B", False),
+              ("CB9vs_internvl3_8b", "CB-9 $-$ InternVL3-8B", False)]
     body = []
     for key, label, fam in labels:
         for s in (1, 2, 3):
@@ -344,7 +400,9 @@ def supp_interventions(n: dict) -> str:
         "Descriptor co-variation under a forced pathology flip (80 test images). ``Adopted'' is "
         "the fraction of flips whose report states the forced pathology; the change rates are the "
         "fraction of reports in which at least one descriptor changes, on a genuine flip and on a "
-        "control that forces the class the model already predicted.",
+        "control that forces the pathology the unmodified report already states (itself an "
+        "intervention, since it replaces the predicted distribution with a one-hot vector). A "
+        "change shows that the report responds to the override, not that it is correct.",
         "tab:s_covariation", "lccc",
         "Model & Adopted & Descriptor change, flip & Descriptor change, control", cov)
     return t1 + "\n" + t2
@@ -370,11 +428,20 @@ def supp_extractor() -> str:
         "tab:s_extractor", "lcccc", "Slot & Style A & Style B & Style C & Style D", body)
 
 
+def _min_pr(v: dict) -> float:
+    return min(a[k] for e in v.values() for a in e["per_annotator"]
+               for k in ("precision", "recall"))
+
+
 def supp_annotation() -> str:
-    path = Path("outputs/annotation7/extractor_validation.json")
+    """Round 2 (outputs/annotation7b) reads reports of the final evaluation; round 1
+    (outputs/annotation7) read reports generated before the evaluation corrections."""
+    path = Path("outputs/annotation7b/extractor_validation.json")
+    first = _min_pr(json.load(open("outputs/annotation7/extractor_validation.json"))["per_slot"])
     if not path.exists():
-        body = ["\\multicolumn{4}{l}{\\PENDING{two annotators fill outputs/annotation7/sheet.csv; "
-                "then run scripts/annotation\\_sheet.py score}} \\\\"]
+        body = ["\\multicolumn{4}{l}{\\PENDING{two annotators fill outputs/annotation7b/"
+                "sheet\\_A.html and sheet\\_B.html; then run scripts/annotation\\_sheet.py "
+                "score}} \\\\"]
     else:
         v = json.load(open(path))["per_slot"]
 
@@ -386,12 +453,13 @@ def supp_annotation() -> str:
                    if v[slot].get("inter_annotator_kappa") is not None else "n/a") + " \\\\"
                 for slot in SLOTS if slot in v]
     return table(
-        "Extractor validation on generated text: 100 generated reports (20 from each of CB-3, "
-        "CB-9, the 7B decoder, USFM and Qwen2.5-VL-7B, seed 1) read independently by two "
-        "annotators who were blinded to the generating model and to the extractor output. "
-        "Precision and recall of the extractor against annotator A / annotator B; Cohen's "
-        "$\\kappa$ between the annotators. The 20 decoder reports were sampled before the "
-        "stop-token correction (Section 3.6) and include run-on continuations.",
+        "Extractor validation on generated text: 100 reports of the final evaluation (20 from "
+        "each of CB-3, CB-9, the 7B decoder, USFM and Qwen2.5-VL-7B, seed 1) read independently "
+        "by two annotators who were blinded to the generating model and to the extractor "
+        "output. Precision and recall of the extractor against annotator A / annotator B; "
+        "Cohen's $\\kappa$ between the annotators. An earlier round on 100 other reports, "
+        "generated before the evaluation corrections described in Section 2, gave precision and "
+        f"recall of at least {first:.2f} against either annotator.",
         "tab:s_annotation", "lccc", "Slot & Precision & Recall & $\\kappa$", body)
 
 

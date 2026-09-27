@@ -69,10 +69,10 @@ def main() -> None:
     # ── Datasets ───────────────────────────────────────────────────────────────
     from torch.utils.data import DataLoader
 
-    from src.data.datasets.bus_cot_jepa import BUSCoTJEPADataset
+    from src.data.datasets.bus_cot_jepa import BUSCoTJEPADataset, preprocess_mode_of
 
     root_dir = Path(".")
-    preprocess_mode = data_cfg.get("preprocess_mode", "basic")
+    preprocess_mode = preprocess_mode_of(cfg)
     logger.info("Preprocess mode: %s", preprocess_mode)
 
     train_dataset = BUSCoTJEPADataset(

@@ -10,6 +10,7 @@ Usage:
     python scripts/qualitative_examples.py \
         --checkpoint checkpoints/weekend/dinov2_cb/epoch=05-val/loss=XXXX.ckpt \
         --test_jsonl data/unified_v2/test_buscot_only.jsonl \
+        --train_config configs/train/finetune_jepa_v5.yaml \
         --output_dir outputs/qualitative/dinov2_cb --n_per_bucket 3
 """
 from __future__ import annotations
@@ -42,6 +43,8 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--checkpoint", required=True)
     ap.add_argument("--test_jsonl", default="data/unified_v2/test_buscot_only.jsonl")
+    ap.add_argument("--train_config", required=True,
+                    help="Stage-2 training config (its data.preprocess_mode is applied)")
     ap.add_argument("--output_dir", required=True)
     ap.add_argument("--image_size", type=int, default=224)
     ap.add_argument("--n_per_bucket", type=int, default=3)
@@ -54,7 +57,7 @@ def main() -> None:
     out.mkdir(parents=True, exist_ok=True)
     random.seed(args.seed)
 
-    from src.data.datasets.bus_cot_jepa import BUSCoTJEPADataset
+    from src.data.datasets.bus_cot_jepa import BUSCoTJEPADataset, preprocess_mode_of
     from src.model.vl_jepa import HistoVLJEPA
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -68,7 +71,8 @@ def main() -> None:
     id_to_record = {r["id"]: r for r in records}
 
     dataset = BUSCoTJEPADataset(jsonl_path=args.test_jsonl, root_dir=Path("."),
-                                image_size=args.image_size)
+                                image_size=args.image_size,
+                                preprocess_mode=preprocess_mode_of(args.train_config))
 
     results = []
     with torch.no_grad():

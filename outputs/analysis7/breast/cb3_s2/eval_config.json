@@ -1,0 +1,9 @@
+{
+  "checkpoint": "checkpoints/weekend/h_cb3_dinov2_s2/epoch=04-val/loss=0.0929.ckpt",
+  "test_jsonl": "data/raw/breast/breast_eval.jsonl",
+  "train_config": "configs/train/finetune_jepa_v5.yaml",
+  "preprocess_mode": "ultrasound",
+  "image_size": 224,
+  "max_new_tokens": 256,
+  "num_beams": 4
+}

@@ -2,13 +2,13 @@
   "n_images": 80,
   "agreement": {
     "pathology": 0.85,
-    "risk": 0.76875,
-    "birads": 0.3339285714285714,
-    "margins": 0.475,
-    "shape": 0.38333333333333336,
-    "orientation": 0.99375,
-    "echogenicity": 0.5071428571428571,
-    "calcification": 0.325
+    "risk": 0.69375,
+    "birads": 0.31607142857142856,
+    "margins": 0.4875,
+    "shape": 0.37083333333333335,
+    "orientation": 0.9875,
+    "echogenicity": 0.5,
+    "calcification": 0.32083333333333336
   },
   "counts": {
     "pathology": {
@@ -17,50 +17,45 @@
       "extracted": 160
     },
     "risk": {
-      "agree": 123,
+      "agree": 111,
       "total": 160,
-      "extracted": 157
+      "extracted": 155
     },
     "birads": {
-      "agree": 187,
+      "agree": 177,
       "total": 560,
       "extracted": 560
     },
     "margins": {
-      "agree": 114,
+      "agree": 117,
       "total": 240,
       "extracted": 240
     },
     "shape": {
-      "agree": 92,
+      "agree": 89,
       "total": 240,
       "extracted": 240
     },
     "orientation": {
-      "agree": 159,
+      "agree": 158,
       "total": 160,
       "extracted": 160
     },
     "echogenicity": {
-      "agree": 284,
+      "agree": 280,
       "total": 560,
       "extracted": 558
     },
     "calcification": {
-      "agree": 156,
+      "agree": 154,
       "total": 480,
-      "extracted": 479
+      "extracted": 476
     }
   },
   "examples": [
     {
       "forced": "pathology=benign",
-      "report": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these ",
-      "match": true
-    },
-    {
-      "forced": "pathology=benign",
-      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features",
+      "report": "The lesion is oriented not parallel to the skin surface. Microlobulated margins are observed with round morphology. The lesion demonstrates markedly hypoechoic ",
       "match": true
     },
     {
@@ -70,22 +65,12 @@
     },
     {
       "forced": "pathology=benign",
-      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features",
+      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these featur",
       "match": true
     },
     {
       "forced": "pathology=benign",
-      "report": "<reasoning>This lesion is parallel, has angular margins and round shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the",
-      "match": true
-    },
-    {
-      "forced": "pathology=benign",
-      "report": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has complex cystic and solidwith absence of calcific deposits. Bas",
-      "match": true
-    },
-    {
-      "forced": "pathology=benign",
-      "report": "<reasoning>This lesion is parallel, has angular margins and round shape, This lesion has slightly hypoechoicwith absence of calcific deposits. Based on these fe",
+      "report": "Orientation: parallel. Margins: circumscribed. Shape: oval. Echogenicity: no internal echoes. Calcification: absence of calcific deposits. BI-RADS: 3. Impressio",
       "match": true
     },
     {
@@ -94,25 +79,39 @@
       "match": true
     },
     {
-      "forced": "pathology=malignant",
-      "report": "The lesion is oriented parallel to the skin surface. Microlobulated margins are observed with round morphology. The lesion demonstrates markedly hypoechoic char",
+      "forced": "pathology=benign",
+      "report": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these feat",
       "match": true
     },
     {
-      "forced": "pathology=malignant",
+      "forced": "pathology=benign",
+      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has slightly hypoechoicwith absence of calcific deposits. Based on the",
+      "match": true
+    },
+    {
+      "forced": "pathology=benign",
       "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these featur",
       "match": true
     },
     {
       "forced": "pathology=malignant",
-      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these featur",
+      "report": "<reasoning>This lesion is not parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these ",
       "match": true
+    },
+    {
+      "forced": "pathology=malignant",
+      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these featur",
+      "match": false
+    },
+    {
+      "forced": "pathology=malignant",
+      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these featur",
+      "match": false
     },
     {
       "forced": "pathology=malignant",
       "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these featur",
       "match": true
     }
-  ],
-  "denominator_note": "2026-09-26: total = all reports generated under an override (n_images x classes); unextractable reports now count as not following the override (were excluded)."
+  ]
 }

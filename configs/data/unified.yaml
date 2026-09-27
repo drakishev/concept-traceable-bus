@@ -1,0 +1,34 @@
+data:
+  unified_jsonl: data/unified/train.jsonl
+  val_jsonl: data/unified/val.jsonl
+  test_jsonl: data/unified/test.jsonl
+  image_root: data/unified/images
+
+  # Sources to include (comment out to exclude)
+  sources:
+    - bus_cot       # Figshare chain-of-thought — highest priority
+    - breast        # TCIA BrEaST BI-RADS descriptions
+    - bus_bra       # Zenodo biopsy-confirmed
+    - busi          # Kaggle baseline
+
+  # Raw data locations
+  raw:
+    bus_cot: data/raw/bus_cot
+    breast: data/raw/breast
+    bus_bra: data/raw/bus_bra
+    busi: data/raw/busi
+    u2bench: data/raw/u2bench    # eval only
+
+  # Train/val/test split ratios (applied per-source, stratified by pathology)
+  split:
+    train: 0.80
+    val: 0.10
+    test: 0.10
+    seed: 42
+
+  # Image preprocessing
+  image:
+    size: 448            # Qwen2-VL works well at 448x448; Florence-2 uses 768
+    keep_aspect: true    # Pad to square rather than stretch
+
+  num_workers: 4

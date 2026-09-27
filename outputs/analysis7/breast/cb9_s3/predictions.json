@@ -11,17 +11,17 @@
   },
   {
     "id": "breast_003",
-    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and round shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has hyperechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_004",
-    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_005",
-    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 5. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has microlobulated margins and round shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
@@ -41,12 +41,12 @@
   },
   {
     "id": "breast_009",
-    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has microlobulated margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_010",
-    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has angular margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
@@ -71,7 +71,7 @@
   },
   {
     "id": "breast_015",
-    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -81,7 +81,7 @@
   },
   {
     "id": "breast_017",
-    "prediction": "<reasoning>This lesion is not parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -91,12 +91,12 @@
   },
   {
     "id": "breast_019",
-    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has microlobulated margins and round shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has heterogeneouswith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_020",
-    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -106,7 +106,7 @@
   },
   {
     "id": "breast_022",
-    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -121,7 +121,7 @@
   },
   {
     "id": "breast_025",
-    "prediction": "<reasoning>This lesion is parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has microlobulated margins and round shape, This lesion has slightly hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has heterogeneouswith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -141,17 +141,17 @@
   },
   {
     "id": "breast_029",
-    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and irregular shape, This lesion has isoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_030",
-    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has microlobulated margins and round shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_031",
-    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -161,12 +161,12 @@
   },
   {
     "id": "breast_033",
-    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has isoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_034",
-    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
@@ -176,7 +176,7 @@
   },
   {
     "id": "breast_036",
-    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has hyperechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -196,7 +196,7 @@
   },
   {
     "id": "breast_040",
-    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has complex cystic and solidwith calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -211,7 +211,7 @@
   },
   {
     "id": "breast_043",
-    "prediction": "<reasoning>This lesion is not parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith punctuate microcalcifications. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -236,7 +236,7 @@
   },
   {
     "id": "breast_049",
-    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -256,17 +256,17 @@
   },
   {
     "id": "breast_053",
-    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has spiculated margins and irregular shape, This lesion has hypoechoicwith calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
     "id": "breast_054",
-    "prediction": "<reasoning>This lesion is parallel, has angular margins and round shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and irregular shape, This lesion has isoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_055",
-    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has angular margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
@@ -276,7 +276,7 @@
   },
   {
     "id": "breast_057",
-    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has angular margins and round shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and irregular shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -296,22 +296,22 @@
   },
   {
     "id": "breast_062",
-    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has indistinct margins and irregular shape, This lesion has hypoechoicwith calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_063",
-    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 5. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
     "id": "breast_064",
-    "prediction": "<reasoning>This lesion is not parallel, has microlobulated margins and round shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has microlobulated margins and irregular shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_065",
-    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -336,17 +336,17 @@
   },
   {
     "id": "breast_070",
-    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_071",
-    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has heterogeneouswith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_072",
-    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
@@ -356,7 +356,7 @@
   },
   {
     "id": "breast_074",
-    "prediction": "<reasoning>This lesion is parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has microlobulated margins and round shape, This lesion has slightly hypoechoicwith equivocal calcific particles. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -371,17 +371,17 @@
   },
   {
     "id": "breast_077",
-    "prediction": "<reasoning>This lesion is not parallel, has microlobulated margins and round shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_078",
-    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has isoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_079",
-    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has spiculated margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
@@ -396,12 +396,12 @@
   },
   {
     "id": "breast_082",
-    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has spiculated margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
     "id": "breast_083",
-    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and irregular shape, This lesion has heterogeneouswith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -421,7 +421,7 @@
   },
   {
     "id": "breast_087",
-    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
@@ -431,7 +431,7 @@
   },
   {
     "id": "breast_089",
-    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has spiculated margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
@@ -446,7 +446,7 @@
   },
   {
     "id": "breast_092",
-    "prediction": "<reasoning>This lesion is parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and irregular shape, This lesion has heterogeneouswith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has indistinct margins and irregular shape, This lesion has heterogeneouswith calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -471,17 +471,17 @@
   },
   {
     "id": "breast_097",
-    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_098",
-    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has heterogeneouswith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_099",
-    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has spiculated margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 5. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
@@ -506,7 +506,7 @@
   },
   {
     "id": "breast_104",
-    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has microlobulated margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -526,7 +526,7 @@
   },
   {
     "id": "breast_108",
-    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has heterogeneouswith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -541,7 +541,7 @@
   },
   {
     "id": "breast_111",
-    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has heterogeneouswith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
@@ -561,22 +561,22 @@
   },
   {
     "id": "breast_115",
-    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has indistinct margins and irregular shape, This lesion has heterogeneouswith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 5. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_116",
-    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has indistinct margins and oval shape, This lesion has heterogeneouswith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_117",
-    "prediction": "<reasoning>This lesion is parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has microlobulated margins and irregular shape, This lesion has heterogeneouswith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
     "id": "breast_118",
-    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -586,7 +586,7 @@
   },
   {
     "id": "breast_120",
-    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -616,12 +616,12 @@
   },
   {
     "id": "breast_126",
-    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith punctuate microcalcifications. Based on these features, the lesion is classified as BIRADS 5. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_127",
-    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has spiculated margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
@@ -646,7 +646,7 @@
   },
   {
     "id": "breast_132",
-    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has indistinct margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
@@ -656,12 +656,12 @@
   },
   {
     "id": "breast_134",
-    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_135",
-    "prediction": "<reasoning>This lesion is parallel, has angular margins and irregular shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -676,7 +676,7 @@
   },
   {
     "id": "breast_138",
-    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has spiculated margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -701,7 +701,7 @@
   },
   {
     "id": "breast_143",
-    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has spiculated margins and irregular shape, This lesion has heterogeneouswith calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -711,12 +711,12 @@
   },
   {
     "id": "breast_145",
-    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has indistinct margins and irregular shape, This lesion has heterogeneouswith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 5. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
     "id": "breast_146",
-    "prediction": "<reasoning>This lesion is parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has indistinct margins and irregular shape, This lesion has isoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -726,7 +726,7 @@
   },
   {
     "id": "breast_148",
-    "prediction": "<reasoning>This lesion is parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith punctuate microcalcifications. Based on these features, the lesion is classified as BIRADS 5. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has angular margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 5. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
@@ -741,7 +741,7 @@
   },
   {
     "id": "breast_151",
-    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has hyperechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -751,12 +751,12 @@
   },
   {
     "id": "breast_153",
-    "prediction": "wer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has microlobulated margins and irregular shape, This lesion has heterogeneouswith calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
     "id": "breast_154",
-    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has spiculated margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
@@ -766,7 +766,7 @@
   },
   {
     "id": "breast_156",
-    "prediction": "<reasoning>This lesion is parallel, has angular margins and round shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has angular margins and round shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and irregular shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -781,7 +781,7 @@
   },
   {
     "id": "breast_159",
-    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -796,12 +796,12 @@
   },
   {
     "id": "breast_162",
-    "prediction": "<reasoning>This lesion is not parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has indistinct margins and irregular shape, This lesion has heterogeneouswith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_163",
-    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has isoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -811,7 +811,7 @@
   },
   {
     "id": "breast_165",
-    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -826,7 +826,7 @@
   },
   {
     "id": "breast_168",
-    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -836,7 +836,7 @@
   },
   {
     "id": "breast_170",
-    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has angular margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 5. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
@@ -851,32 +851,32 @@
   },
   {
     "id": "breast_173",
-    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
     "id": "breast_174",
-    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has indistinct margins and irregular shape, This lesion has heterogeneouswith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
     "id": "breast_175",
-    "prediction": "<reasoning>This lesion is not parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_176",
-    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has spiculated margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 5. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
     "id": "breast_177",
-    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_178",
-    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has angular margins and irregular shape, This lesion has heterogeneouswith calcific deposits. Based on these features, the lesion is classified as BIRADS 5. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -886,17 +886,17 @@
   },
   {
     "id": "breast_180",
-    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_181",
-    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_182",
-    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and round shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -906,7 +906,7 @@
   },
   {
     "id": "breast_184",
-    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -916,17 +916,17 @@
   },
   {
     "id": "breast_186",
-    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and irregular shape, This lesion has hyperechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_187",
-    "prediction": "<reasoning>This lesion is parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has indistinct margins and irregular shape, This lesion has heterogeneouswith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_188",
-    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -941,7 +941,7 @@
   },
   {
     "id": "breast_191",
-    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -956,7 +956,7 @@
   },
   {
     "id": "breast_194",
-    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and round shape, This lesion has hyperechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -966,12 +966,12 @@
   },
   {
     "id": "breast_196",
-    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has heterogeneouswith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_197",
-    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -986,12 +986,12 @@
   },
   {
     "id": "breast_200",
-    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_201",
-    "prediction": "<reasoning>This lesion is parallel, has angular margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 5. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -1006,7 +1006,7 @@
   },
   {
     "id": "breast_204",
-    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and round shape, This lesion has isoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -1021,7 +1021,7 @@
   },
   {
     "id": "breast_207",
-    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -1031,12 +1031,12 @@
   },
   {
     "id": "breast_210",
-    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and round shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and round shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and round shape, This lesion has heterogeneouswith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_211",
-    "prediction": "<reasoning>This lesion is not parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
@@ -1046,7 +1046,7 @@
   },
   {
     "id": "breast_214",
-    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and round shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and irregular shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -1116,12 +1116,12 @@
   },
   {
     "id": "breast_228",
-    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith punctuate microcalcifications. Based on these features, the lesion is classified as BIRADS 5. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith punctuate microcalcifications. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has spiculated margins and irregular shape, This lesion has heterogeneouswith calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
     "id": "breast_229",
-    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -1136,17 +1136,17 @@
   },
   {
     "id": "breast_232",
-    "prediction": "<reasoning>This lesion is not parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has isoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_233",
-    "prediction": "<reasoning>This lesion is not parallel, has angular margins and round shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has angular margins and round shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
     "id": "breast_234",
-    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has angular margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
@@ -1166,12 +1166,12 @@
   },
   {
     "id": "breast_238",
-    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has spiculated margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 5. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
     "id": "breast_239",
-    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 5. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
@@ -1181,12 +1181,12 @@
   },
   {
     "id": "breast_241",
-    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and round shape, This lesion has heterogeneouswith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_242",
-    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has heterogeneouswith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -1196,17 +1196,17 @@
   },
   {
     "id": "breast_244",
-    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has microlobulated margins and irregular shape, This lesion has hypoechoicwith calcific deposits. Based on these features, the lesion is classified as BIRADS 5. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
     "id": "breast_245",
-    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has angular margins and irregular shape, This lesion has heterogeneouswith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
     "id": "breast_246",
-    "prediction": "<reasoning>This lesion is not parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has angular margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 5. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
@@ -1216,22 +1216,22 @@
   },
   {
     "id": "breast_248",
-    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith punctuate microcalcifications. Based on these features, the lesion is classified as BIRADS 5. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith punctuate microcalcifications. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has spiculated margins and irregular shape, This lesion has hypoechoicwith calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
     "id": "breast_249",
-    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith punctuate microcalcifications. Based on these features, the lesion is classified as BIRADS 5. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith punctuate microcalcifications. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has microlobulated margins and irregular shape, This lesion has complex cystic and solidwith calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
     "id": "breast_250",
-    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has indistinct margins and irregular shape, This lesion has heterogeneouswith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
     "id": "breast_251",
-    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has angular margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 5. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
@@ -1241,22 +1241,22 @@
   },
   {
     "id": "breast_253",
-    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   },
   {
     "id": "breast_254",
-    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has microlobulated margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 5. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
     "id": "breast_255",
-    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith punctuate microcalcifications. Based on these features, the lesion is classified as BIRADS 5. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>",
     "reference": "<reasoning>This lesion has microlobulated margins and irregular shape, This lesion has heterogeneouswith calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer> 1 </answer>"
   },
   {
     "id": "breast_256",
-    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
+    "prediction": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>",
     "reference": "<reasoning>This lesion has circumscribed margins and oval shape, This lesion has heterogeneouswith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer> 0 </answer>"
   }
 ]

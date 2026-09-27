@@ -42,6 +42,8 @@ BREAST=data/raw/breast/breast_eval.jsonl
 TEST=data/unified_${DATA}/test_buscot_only.jsonl
 VAL=data/unified_${DATA}/val.jsonl
 TRAIN=data/unified_${DATA}/train.jsonl
+# Stage-2 config of the models: evaluation applies its image preprocessing
+TRAIN_CONFIG="${TRAIN_CONFIG:-configs/train/finetune_jepa_${DATA}.yaml}"
 mkdir -p "$OUT" logs/analysis
 
 if [ -n "$LEAKAGE" ]; then
@@ -105,7 +107,7 @@ run_model() {  # run_model <model tag> <seed> <gpu>
 
     step "$OUT/breast/$tag/predictions.json" python scripts/evaluate_jepa.py \
         --checkpoint "$ck" --test_jsonl "$BREAST" --output_dir "$OUT/breast/$tag" \
-        --num_workers 2
+        --train_config "$TRAIN_CONFIG" --num_workers 2
     step "$OUT/breast/$tag/descriptors.json" python scripts/evaluate_breast.py \
         --predictions "$OUT/breast/$tag/predictions.json" --eval_jsonl "$BREAST" \
         --output "$OUT/breast/$tag/descriptors.json"
@@ -124,9 +126,11 @@ run_model() {  # run_model <model tag> <seed> <gpu>
         --output "$pd/calibration.json"
 
     step "$OUT/intervention/$tag.json" python scripts/concept_intervention.py \
-        --checkpoint "$ck" --test_jsonl "$TEST" --n 80 --output "$OUT/intervention/$tag.json"
+        --checkpoint "$ck" --test_jsonl "$TEST" --train_config "$TRAIN_CONFIG" --n 80 \
+        --output "$OUT/intervention/$tag.json"
     step "$OUT/covariation/$tag.json" python scripts/intervention_covariation.py \
-        --checkpoint "$ck" --test_jsonl "$TEST" --n 80 --output "$OUT/covariation/$tag.json"
+        --checkpoint "$ck" --test_jsonl "$TEST" --train_config "$TRAIN_CONFIG" --n 80 \
+        --output "$OUT/covariation/$tag.json"
 
     step "$OUT/linear_probe/$tag.json" python scripts/linear_probe.py --checkpoint "$ck" \
         --train_jsonl "$TRAIN" --test_jsonl "$TEST" \
@@ -134,7 +138,8 @@ run_model() {  # run_model <model tag> <seed> <gpu>
         --output "$OUT/linear_probe/$tag.json" --num_workers 2
 
     step "$OUT/viz/$tag/embeddings.npz" python scripts/visualize_embeddings.py \
-        --checkpoint "$ck" --test_jsonl "$TEST" --output_dir "$OUT/viz/$tag" --stage finetune
+        --checkpoint "$ck" --test_jsonl "$TEST" --train_config "$TRAIN_CONFIG" \
+        --output_dir "$OUT/viz/$tag" --stage finetune
     echo "[$tag] done $(date '+%H:%M')" | tee -a "$log"
 }
 

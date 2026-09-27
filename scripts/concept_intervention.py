@@ -14,6 +14,7 @@ Usage:
     python scripts/concept_intervention.py \
         --checkpoint checkpoints/ultrasound_jepa_finetune_cb/epoch=07-val/loss=0.0854.ckpt \
         --test_jsonl data/unified_v2/test_buscot_only.jsonl \
+        --train_config configs/train/finetune_jepa_v5.yaml \
         --n 80 --output outputs/eval_jepa_cb_buscot/intervention.json
 """
 from __future__ import annotations
@@ -29,7 +30,7 @@ from tqdm import tqdm
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from src.data.datasets.bus_cot_jepa import BUSCoTJEPADataset
+from src.data.datasets.bus_cot_jepa import BUSCoTJEPADataset, preprocess_mode_of
 from src.data.slot_labels import (
     BIRADS_CLASSES,
     CALCIFICATION_CLASSES,
@@ -79,9 +80,11 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--checkpoint", required=True)
     ap.add_argument("--test_jsonl", required=True)
+    ap.add_argument("--train_config", required=True,
+                    help="Stage-2 training config (its data.preprocess_mode is applied)")
     ap.add_argument("--n", type=int, default=80, help="number of test images to probe")
     ap.add_argument("--output", required=True)
-    ap.add_argument("--max_new_tokens", type=int, default=128)
+    ap.add_argument("--max_new_tokens", type=int, default=256)
     ap.add_argument("--device", default="cuda")
     args = ap.parse_args()
 
@@ -89,7 +92,8 @@ def main() -> None:
     model = model.eval().to(args.device)
     assert model.concept_bottleneck_enabled, "checkpoint is not a concept-bottleneck model"
 
-    ds = BUSCoTJEPADataset(jsonl_path=args.test_jsonl, root_dir=Path("."), image_size=224)
+    ds = BUSCoTJEPADataset(jsonl_path=args.test_jsonl, root_dir=Path("."), image_size=224,
+                           preprocess_mode=preprocess_mode_of(args.train_config))
     loader = DataLoader(ds, batch_size=8, shuffle=False, num_workers=4)
 
     heads = [h for h in model.aux_heads if h in INV]

@@ -126,6 +126,29 @@ def excluded_seed() -> dict:
     return out
 
 
+def submitted_encoder_check() -> dict:
+    """The submitted version's DINOv2 vs UNI2-h comparison (earlier split, 440 test records),
+    re-evaluated from its two checkpoints (scripts/evaluate_jepa.py): with resize only, which
+    reproduces the stored predictions, and with the training preprocessing."""
+    from src.evaluation.slots import binary_f1, paired_labels
+    root = Path("outputs/submitted_preprocessing_check")
+    stored = {"dinov2": "outputs/weekend/x_dinov2/predictions.json",
+              "uni2h": "outputs/eval_jepa_v2_mt_buscot/predictions.json"}
+    runs = {"dinov2": "x_dinov2", "uni2h": "v2_mt_uni2h"}
+    out: dict = {"source": f"{root}/<run>_<basic|ultrasound>/predictions.json"}
+    for m in ("basic", "ultrasound"):
+        f1 = {}
+        for enc, run in runs.items():
+            pred = _j(root / f"{run}_{m}" / "predictions.json")
+            f1[enc] = {ep: binary_f1(paired_labels(pred, ep)) for ep in ("pathology", "risk")}
+            if m == "basic":
+                old = {d["id"]: d["prediction"] for d in _j(Path(stored[enc]))}
+                f1[enc]["reproduces_stored"] = all(old[d["id"]] == d["prediction"] for d in pred)
+        out[m] = {**f1, "delta": {ep: f1["dinov2"][ep] - f1["uni2h"][ep]
+                                  for ep in ("pathology", "risk")}}
+    return out
+
+
 def label_consistency() -> dict:
     """How often BUS-CoT's structured margin annotation (LesionEdge, the CB-9 margins label)
     agrees with the margin word in the same record's report text."""
@@ -144,6 +167,37 @@ def label_consistency() -> dict:
                 agree += edge.lower() == text
     return {"source": "BUS-CoT lesion_dataset.json vs report text, data/unified_v5",
             "margin_enum_vs_text_agreement": agree / total, "n": total}
+
+
+#: BrEaST descriptor entries of descriptors.json (scripts/evaluate_breast.py)
+BREAST_DESCRIPTORS = {"shape": "shape", "margin": "margin_circumscribed",
+                      "echogenicity": "echogenicity", "calcification": "calcification"}
+
+
+def _gold_counts(entry: dict) -> dict[str, int]:
+    return entry.get("gold_distribution") or {g: sum(r.values())
+                                              for g, r in entry["confusion"].items()}
+
+
+def balanced_accuracy(entry: dict) -> float:
+    """Mean per-class recall over the gold classes; a missing prediction counts as wrong."""
+    gold = _gold_counts(entry)
+    return st.mean(entry["confusion"].get(g, {}).get(g, 0) / n for g, n in gold.items() if n)
+
+
+def breast_baselines(d: dict) -> dict:
+    """What a report that ignores the image would score on BrEaST: always the most frequent
+    annotated class (accuracy), chance balanced accuracy, and always "malignant" (F1)."""
+    out = {}
+    for name, key in {**BREAST_DESCRIPTORS, "birads_exact": "birads"}.items():
+        gold = _gold_counts(d[key])
+        out[name] = {"majority_accuracy": max(gold.values()) / sum(gold.values()),
+                     "majority_class": max(gold, key=gold.get),
+                     "chance_balanced_accuracy": 1 / len(gold), "n_classes": len(gold)}
+    c = d["pathology"]["confusion"]
+    pos, n = c["tp"] + c["fn"], sum(c.values())
+    out["path_f1_always_malignant"] = 2 * pos / (n + pos)
+    return out
 
 
 def main_table() -> dict:
@@ -239,7 +293,10 @@ def per_model_analyses() -> dict:
                          ("shape", d["shape"]["accuracy_missing_wrong"]),
                          ("margin", d["margin_circumscribed"]["accuracy_missing_wrong"]),
                          ("echogenicity", d["echogenicity"]["accuracy_missing_wrong"]),
-                         ("calcification", d["calcification"]["accuracy_missing_wrong"])):
+                         ("calcification", d["calcification"]["accuracy_missing_wrong"]),
+                         ("birads_balanced", balanced_accuracy(d["birads"])),
+                         *((f"{k}_balanced", balanced_accuracy(d[e]))
+                           for k, e in BREAST_DESCRIPTORS.items())):
                 br.setdefault(k, []).append(v)
             for h, v in _j(A7 / "intervention" / f"{t}.json")["agreement"].items():
                 if v is not None:
@@ -261,12 +318,14 @@ def per_model_analyses() -> dict:
             "intervention": {k: _msd(v) for k, v in iv.items()},
             "covariation": {k: _msd(v) for k, v in cv.items()},
         }
+    baselines = breast_baselines(_j(A7 / "breast" / "cb3_s1" / "descriptors.json"))
     probe = _j(A7 / "linear_probe" / "cb3_s1.json")["endpoints"]
     gap = _j(STATS / "modality_gap_batch7.json")
     gap = gap if isinstance(gap, dict) else {}
     keys = ("linear_cka", "i2t_R@1", "t2i_R@1", "i2t_median_rank", "t2i_median_rank",
             "chance_median_rank")
     return {"source": "outputs/analysis7/ (scripts/run_batch_analyses.sh)", "models": out,
+            "breast_baselines": baselines,
             "linear_probe": {ep: {"f1": v["f1"], "ci95": v["f1_ci95"]} for ep, v in probe.items()},
             "modality_gap": {k: _msd([r[k] for r in gap.values() if isinstance(r, dict)])
                              for k in keys}}
@@ -300,6 +359,7 @@ def main() -> None:
     out = {"data": data_block(), "leakage_history": leakage_history(),
            "main_table": main_table(), "comparisons": comparisons(),
            "label_consistency": label_consistency(), "excluded_seed": excluded_seed(),
+           "submitted_encoder_check": submitted_encoder_check(),
            "decoder": decoder(), "analyses": per_model_analyses(), "bleu": vlm_bleu(),
            "extractor_validation": {"source": "outputs/stats/extractor_validation_v5.json",
                                     "summary": ext.get("summary", ext)}}

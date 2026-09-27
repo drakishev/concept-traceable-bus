@@ -1,7 +1,7 @@
 # Concept-traceable breast ultrasound report generation
 
 Code, split definitions and results for the article
-"Concept-traceable breast ultrasound report generation: encoder suitability over decoder scale"
+"Concept-traceable breast ultrasound report generation: a leakage-controlled evaluation of accuracy and faithfulness"
 (Rakishev, Abdikenov, Saidnassim, Orazayev, Ayanbayev; Frontiers in Medicine, under revision).
 
 A frozen image encoder and a trainable predictor are aligned to a text encoder with bidirectional InfoNCE (Stage 1).
@@ -23,9 +23,9 @@ The repository contains everything needed to rebuild the leakage-free split, ret
 | `scripts/check_manuscript.py` | Checks that every number quoted in the manuscript text appears in the computed results |
 | `configs/` | Model and training configurations of the reported runs |
 | `splits/` | Record identifiers, patient groups and split of every record; official-test ids of the two earlier splits; U2-BENCH frames excluded from external evaluation |
-| `outputs/` | Per-run predictions and metrics (`outputs/weekend/`), statistics (`outputs/stats/`), analysis outputs (`outputs/analysis7/`) and the extractor annotation study (`outputs/annotation7/`) behind the article, in the layout the scripts read |
+| `outputs/` | Per-run predictions and metrics (`outputs/weekend/`), statistics (`outputs/stats/`), analysis outputs (`outputs/analysis7/`), the extractor annotation study (`outputs/annotation7b/`, and the earlier round `outputs/annotation7/`) and the re-evaluation of the submitted version's encoder comparison (`outputs/submitted_preprocessing_check/`) behind the article, in the layout the scripts read |
 | `checkpoints/SHA256SUMS` | SHA-256 hashes of the 57 reported checkpoints |
-| `tests/` | Unit tests of the data loaders and split builder (`pytest tests/`) |
+| `tests/` | Unit tests of the data loaders, split builder and evaluation protocol (`pytest tests/`) |
 
 ## Installation
 
@@ -144,17 +144,34 @@ python scripts/make_revision2_figures.py --outdir paper
 python scripts/make_config_table.py --out paper/tab_config.tex
 ```
 
-The extractor validation on generated text (Supplementary Table S4) is scored from the two annotators' sheets:
+The extractor validation on generated text (Supplementary Table S4) is scored from the two annotators' sheets.
+`annotation_sheet.py make` writes the blank sheet, the hidden key and one clickable page per annotator (`sheet_A.html`, `sheet_B.html`), which runs in any browser and downloads the filled `sheet_A.csv` / `sheet_B.csv`; the scorer refuses sheets with unanswered items or with samples or report text of another round.
 
 ```bash
-python scripts/annotation_sheet.py score --key outputs/annotation7/sheet_key.json \
-    --sheets outputs/annotation7/sheet_A.csv outputs/annotation7/sheet_B.csv \
-    --out outputs/annotation7/extractor_validation.json
+python scripts/annotation_sheet.py make --runs h_cb3_dinov2_s1 h_cb9_dinov2_s1 h_dec_qwen7b_s1 \
+    h_enc_usfm_s1 h_vlm_qwen25vl_7b --per_run 20 --seed 1 --out outputs/annotation7b/sheet.csv
+python scripts/annotation_sheet.py score --key outputs/annotation7b/sheet_key.json \
+    --sheets outputs/annotation7b/sheet_A.csv outputs/annotation7b/sheet_B.csv \
+    --out outputs/annotation7b/extractor_validation.json
 ```
+
+`outputs/annotation7/` is an earlier round with the same design on reports generated before the evaluation correction below.
 
 `outputs/weekend/cb_desc9_s{1,2,3}/` and `outputs/weekend_results.csv` are the nine-concept runs of the originally submitted version, kept only to re-score the seed excluded there (Supplementary Section 2).
 
 `outputs/` holds the outputs of these steps for the reported runs, so the statistics, tables and figures can be regenerated without retraining; rebuild the split files under `data/unified_v5/` first (step 1) and restore the U2-BENCH labels (section Data).
+
+## Evaluation preprocessing
+
+Test and external images receive the image preprocessing of the training configuration (CLAHE and dark-border cropping, without the training augmentations).
+The evaluation scripts take it from `--train_config`, have no default, and write it to `eval_config.json` next to their outputs.
+An earlier version of this code built the test data with a resize-only default; the reported results were regenerated from the trained checkpoints after that was corrected (article, Supplementary Material section 2), which the runner does without training:
+
+```bash
+EVAL_ONLY=1 POOL_GPUS=0,0,1,1 python scripts/run_weekend7.py
+```
+
+`outputs/submitted_preprocessing_check/` holds the submitted version's DINOv2 and UNI2-h checkpoints evaluated both ways on its 440-record test set (`scripts/evaluate_jepa.py --train_config` with a resize-only or the ultrasound configuration); the resize-only run reproduces the stored predictions in `outputs/weekend/x_dinov2/` and `outputs/eval_jepa_v2_mt_buscot/`.
 
 ## Evaluation conventions
 

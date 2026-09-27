@@ -32,7 +32,7 @@ from tqdm import tqdm
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.data.datasets.bus_cot_jepa import BUSCoTJEPADataset
+from src.data.datasets.bus_cot_jepa import BUSCoTJEPADataset, preprocess_mode_of
 from src.model.vl_jepa import HistoVLJEPA
 
 
@@ -138,6 +138,8 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--checkpoint", required=True, help="path to .ckpt")
     parser.add_argument("--test_jsonl", default="data/unified/test.jsonl")
+    parser.add_argument("--train_config", required=True,
+                        help="Stage-2 training config (its data.preprocess_mode is applied)")
     parser.add_argument("--output_dir", required=True)
     parser.add_argument("--batch_size", type=int, default=16)
     parser.add_argument("--device", default="cuda")
@@ -155,7 +157,8 @@ def main() -> None:
     ).eval()
 
     # ── Build dataset ──────────────────────────────────────────────────────
-    test_ds = BUSCoTJEPADataset(jsonl_path=args.test_jsonl, image_size=224)
+    test_ds = BUSCoTJEPADataset(jsonl_path=args.test_jsonl, image_size=224,
+                                preprocess_mode=preprocess_mode_of(args.train_config))
     test_loader = DataLoader(test_ds, batch_size=args.batch_size, shuffle=False, num_workers=4)
 
     # ── Extract embeddings ─────────────────────────────────────────────────

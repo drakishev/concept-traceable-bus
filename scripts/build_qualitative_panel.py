@@ -135,8 +135,10 @@ def main() -> None:
     lines.append(r"\caption{Representative test-set examples from " + esc(args.model_name)
                  + r", one per correctness bucket (Supplementary Figure~S2 shows the full "
                  r"nine-example panel). The predicted concepts (top class and probability of each "
-                 r"head) are the decoder's only conditioning signal; \checkmark/$\times$\ mark "
-                 r"slot-extracted correctness against the reference. Reports are shown verbatim "
+                 r"head) are the decoder's only conditioning signal. \checkmark/$\times$\ after "
+                 r"pathology and risk group mark whether the generated report's statement of that "
+                 r"slot matches the reference, so a correct concept carries $\times$ when the "
+                 r"report contradicts it. Reports are shown verbatim "
                  r"apart from the template's reasoning/answer tags, including a missing space "
                  r"(``hypoechoicwith'') that is present in the BUS-CoT source reports.}")
     lines.append(r"\label{tab:qualitative}")

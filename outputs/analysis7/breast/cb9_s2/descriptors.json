@@ -3,90 +3,90 @@
   "pathology": {
     "coverage": 1.0,
     "n": 252,
-    "f1": 0.6203703703703703,
-    "accuracy": 0.6746031746031746,
-    "sensitivity": 0.6836734693877551,
-    "specificity": 0.6688311688311688,
-    "precision": 0.5677966101694916,
-    "balanced_accuracy": 0.6762523191094619,
+    "f1": 0.6069651741293532,
+    "accuracy": 0.6865079365079365,
+    "sensitivity": 0.6224489795918368,
+    "specificity": 0.7272727272727273,
+    "precision": 0.5922330097087378,
+    "balanced_accuracy": 0.674860853432282,
     "confusion": {
-      "tp": 67,
-      "tn": 103,
-      "fp": 51,
-      "fn": 31
+      "tp": 61,
+      "tn": 112,
+      "fp": 42,
+      "fn": 37
     }
   },
   "birads": {
     "n": 252,
     "coverage": 1.0,
-    "exact_accuracy": 0.21031746031746032,
-    "adjacent_accuracy": 0.7341269841269841,
+    "exact_accuracy": 0.2222222222222222,
+    "adjacent_accuracy": 0.6825396825396826,
     "risk_group": {
       "n": 252,
-      "f1": 0.7515923566878981,
-      "accuracy": 0.6904761904761905,
-      "sensitivity": 0.6378378378378379,
-      "specificity": 0.835820895522388,
-      "precision": 0.9147286821705426,
-      "balanced_accuracy": 0.7368293666801129,
+      "f1": 0.7207792207792209,
+      "accuracy": 0.6587301587301587,
+      "sensitivity": 0.6,
+      "specificity": 0.8208955223880597,
+      "precision": 0.9024390243902439,
+      "balanced_accuracy": 0.7104477611940299,
       "confusion": {
-        "tp": 118,
-        "tn": 56,
-        "fp": 11,
-        "fn": 67
+        "tp": 111,
+        "tn": 55,
+        "fp": 12,
+        "fn": 74
       }
     },
-    "acc_4a_vs_4b": 0.13333333333333333,
+    "acc_4a_vs_4b": 0.1111111111111111,
     "n_4a_4b": 90,
     "confusion": {
       "2": {
-        "3": 18,
+        "3": 16,
         "2": 7,
-        "4A": 2,
+        "4A": 4,
         "4B": 2,
         "4C": 1
       },
       "4B": {
-        "3": 12,
-        "4B": 7,
-        "4C": 5,
-        "2": 2,
-        "4A": 20
-      },
-      "4A": {
-        "3": 30,
-        "4B": 2,
-        "2": 2,
-        "4C": 5,
-        "4A": 5
-      },
-      "3": {
-        "2": 8,
-        "4A": 4,
-        "3": 23,
-        "4C": 2
-      },
-      "5": {
-        "4B": 6,
-        "4C": 35,
-        "3": 3,
-        "4A": 1,
+        "3": 19,
+        "4B": 5,
+        "4A": 15,
+        "4C": 6,
         "2": 1
       },
+      "4A": {
+        "3": 29,
+        "4B": 4,
+        "2": 4,
+        "4A": 5,
+        "4C": 2
+      },
+      "3": {
+        "2": 3,
+        "3": 29,
+        "4A": 2,
+        "4C": 2,
+        "4B": 1
+      },
+      "5": {
+        "4B": 5,
+        "4C": 30,
+        "3": 5,
+        "4A": 6
+      },
       "4C": {
-        "4A": 11,
-        "4C": 11,
+        "4A": 12,
+        "4C": 10,
         "3": 15,
-        "4B": 10,
-        "2": 2
+        "4B": 11,
+        "2": 1
       }
     }
   },
   "shape": {
     "n": 252,
     "coverage": 1.0,
-    "accuracy_on_covered": 0.6111111111111112,
-    "accuracy_missing_wrong": 0.6111111111111112,
+    "accuracy_on_covered": 0.5992063492063492,
+    "accuracy_missing_wrong": 0.5992063492063492,
     "gold_distribution": {
       "irregular": 140,
       "oval": 97,
@@ -95,17 +95,16 @@
     "confusion": {
       "irregular": {
         "oval": 34,
-        "irregular": 75,
-        "round": 31
+        "round": 36,
+        "irregular": 70
       },
       "oval": {
-        "oval": 77,
-        "round": 14,
-        "irregular": 6
+        "oval": 81,
+        "round": 11,
+        "irregular": 5
       },
       "round": {
-        "oval": 12,
-        "round": 2,
+        "oval": 14,
         "irregular": 1
       }
     }
@@ -113,28 +112,28 @@
   "margin_circumscribed": {
     "n": 252,
     "coverage": 1.0,
-    "accuracy_on_covered": 0.75,
-    "accuracy_missing_wrong": 0.75,
+    "accuracy_on_covered": 0.753968253968254,
+    "accuracy_missing_wrong": 0.753968253968254,
     "gold_distribution": {
       "0": 137,
       "1": 115
     },
     "confusion": {
       "0": {
-        "1": 36,
-        "0": 101
+        "1": 38,
+        "0": 99
       },
       "1": {
-        "1": 88,
-        "0": 27
+        "1": 91,
+        "0": 24
       }
     }
   },
   "echogenicity": {
     "n": 252,
     "coverage": 1.0,
-    "accuracy_on_covered": 0.5714285714285714,
-    "accuracy_missing_wrong": 0.5714285714285714,
+    "accuracy_on_covered": 0.6111111111111112,
+    "accuracy_missing_wrong": 0.6111111111111112,
     "gold_distribution": {
       "heterogeneous": 57,
       "hypoechoic": 148,
@@ -146,13 +145,13 @@
     "confusion": {
       "heterogeneous": {
         "hypoechoic": 51,
-        "heterogeneous": 1,
-        "anechoic": 3,
-        "complex cystic/solid": 2
+        "complex cystic/solid": 2,
+        "anechoic": 4
       },
       "hypoechoic": {
-        "hypoechoic": 132,
-        "anechoic": 16
+        "hypoechoic": 143,
+        "anechoic": 4,
+        "heterogeneous": 1
       },
       "hyperechoic": {
         "hypoechoic": 7,

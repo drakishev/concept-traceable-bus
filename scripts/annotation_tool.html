@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Report Reading Sheet</title>
+<!-- Template filled by scripts/annotation_sheet.py make; the data line below is replaced. -->
+<style>
+:root {
+  --bg: #f6f7f9; --panel: #ffffff; --text: #1c2024; --muted: #60646c; --faint: #8b8d98;
+  --line: #e0e1e6; --accent: #2f6fdf; --accent-soft: #e6effd; --accent-text: #ffffff;
+  --done: #2e9d5b; --part: #d99a1e; --focus: #2f6fdf33; --tag: #9aa0aa; --ns: #eceef2;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111317; --panel: #1a1d22; --text: #e8eaed; --muted: #a3a8b3; --faint: #7a808c;
+    --line: #2c3038; --accent: #5b8ff0; --accent-soft: #22324f; --accent-text: #0d1117;
+    --done: #45b574; --part: #e0a93a; --focus: #5b8ff040; --tag: #6d7380; --ns: #252a31;
+  }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--bg); color: var(--text);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+header {
+  position: sticky; top: 0; z-index: 5; background: var(--panel);
+  border-bottom: 1px solid var(--line);
+}
+.bar {
+  max-width: 1180px; margin: 0 auto; padding: 10px 16px;
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+}
+.bar h1 { font-size: 16px; font-weight: 600; margin: 0; }
+.who { color: var(--muted); font-size: 13px; }
+.grow { flex: 1; }
+.progress { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
+.meter { width: 140px; height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.meter > i { display: block; height: 100%; width: 0; background: var(--done); transition: width .2s; }
+button {
+  font: inherit; color: inherit; background: var(--panel); border: 1px solid var(--line);
+  border-radius: 8px; padding: 6px 12px; cursor: pointer;
+}
+button:hover { border-color: var(--faint); }
+button.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-text); font-weight: 600; }
+button.primary:hover { filter: brightness(1.05); }
+.saved { font-size: 12px; color: var(--faint); min-width: 120px; text-align: right; }
+.saved.warn { color: var(--part); }
+
+main {
+  max-width: 1180px; margin: 0 auto; padding: 16px;
+  display: grid; grid-template-columns: 236px minmax(0, 1fr); gap: 16px; align-items: start;
+}
+aside {
+  position: sticky; top: 64px; background: var(--panel); border: 1px solid var(--line);
+  border-radius: 12px; padding: 12px;
+}
+aside h2 { font-size: 12px; font-weight: 600; color: var(--muted); margin: 0 0 8px; letter-spacing: .02em; }
+.grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 3px; }
+.chip {
+  aspect-ratio: 1; border-radius: 4px; background: var(--ns);
+  border: 1px solid color-mix(in srgb, var(--faint) 45%, transparent);
+  padding: 0; font-size: 0; cursor: pointer;
+}
+.chip.part { background: var(--part); border-color: var(--part); }
+.chip.done { background: var(--done); border-color: var(--done); }
+.chip.cur { outline: 2px solid var(--accent); outline-offset: 1px; }
+.legend { display: flex; gap: 10px; margin-top: 10px; font-size: 12px; color: var(--muted); flex-wrap: wrap; }
+.legend span::before {
+  content: ""; display: inline-block; width: 9px; height: 9px; border-radius: 2px;
+  margin-right: 5px; vertical-align: -1px; background: var(--c); border: 1px solid var(--c);
+}
+.jump { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+.jump button { font-size: 13px; padding: 5px 10px; }
+
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; }
+.report { padding: 16px 20px 12px; }
+.report .meta { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+.report .id { font-weight: 700; font-size: 18px; }
+.report .pos { color: var(--muted); font-size: 13px; }
+.report .text {
+  font-size: 17px; line-height: 1.65; white-space: pre-wrap; overflow-wrap: anywhere;
+  max-height: 42vh; overflow-y: auto;
+}
+.report .text .tag { color: var(--tag); font-size: 14px; }
+
+.slots { padding: 0 0 4px; border-top: 1px solid var(--line); }
+.slot {
+  display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 12px;
+  padding: 6px 20px; border-left: 3px solid transparent;
+}
+.slot + .slot { border-top: 1px solid var(--line); }
+.slot.focus { background: var(--focus); border-left-color: var(--accent); }
+.slot .name { font-weight: 600; padding-top: 4px; }
+.slot .name small { display: block; font-weight: 400; color: var(--faint); font-size: 12px; }
+.opts { display: flex; flex-wrap: wrap; gap: 6px; }
+.opt {
+  border-radius: 999px; padding: 5px 12px; font-size: 14px; background: var(--panel);
+  display: inline-flex; align-items: baseline; gap: 6px; text-align: left;
+}
+.opt .val { white-space: nowrap; }
+.opt kbd { font: 11px ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--faint); }
+.opt .hint { font-size: 12px; color: var(--faint); }
+.opt.ns { background: var(--ns); }
+.opt.on { background: var(--accent); border-color: var(--accent); color: var(--accent-text); }
+.opt.on kbd, .opt.on .hint { color: inherit; opacity: .8; }
+
+.nav {
+  display: flex; gap: 8px; justify-content: space-between; padding: 10px 20px;
+  border-top: 1px solid var(--line); position: sticky; bottom: 0; background: var(--panel);
+  border-radius: 0 0 12px 12px;
+}
+.keys { color: var(--faint); font-size: 12px; align-self: center; text-align: center; }
+
+dialog {
+  max-width: 620px; width: calc(100% - 32px); border: 1px solid var(--line); border-radius: 12px;
+  background: var(--panel); color: var(--text); padding: 20px 24px;
+}
+dialog::backdrop { background: #0008; }
+dialog h2 { font-size: 17px; margin: 0 0 8px; }
+dialog ul { margin: 8px 0 12px; padding-left: 20px; color: var(--muted); }
+dialog li + li { margin-top: 4px; }
+dialog p { color: var(--muted); margin: 0 0 16px; }
+dialog .actions { display: flex; justify-content: flex-end; }
+button:focus:not(:focus-visible) { outline: none; }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.toast {
+  position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%);
+  background: var(--text); color: var(--bg); padding: 8px 14px; border-radius: 8px;
+  font-size: 13px; opacity: 0; transition: opacity .2s; pointer-events: none;
+}
+.toast.show { opacity: .95; }
+
+@media (max-width: 760px) {
+  main { grid-template-columns: minmax(0, 1fr); }
+  aside { position: static; order: 2; }
+  .grow { display: none; }
+  .progress { width: 100%; }
+  .slot { grid-template-columns: minmax(0, 1fr); gap: 6px; padding: 9px 14px; }
+  .report { padding: 14px; }
+  .nav { padding: 10px 14px; }
+  .keys { display: none; }
+  .opt { flex-wrap: wrap; row-gap: 0; border-radius: 16px; }
+  .opt .hint { flex-basis: 100%; padding-left: 16px; }
+  .meter { width: 90px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <h1>Report reading sheet</h1>
+    <span class="who" id="who"></span>
+    <span class="grow"></span>
+    <div class="progress"><span id="count"></span><div class="meter"><i id="meter"></i></div></div>
+    <span class="saved" id="saved"></span>
+    <button id="helpBtn">Help</button>
+    <button id="import" title="Load answers from a CSV downloaded earlier">Load CSV</button>
+    <button class="primary" id="download">Download CSV</button>
+    <input type="file" id="file" accept=".csv,text/csv" hidden>
+  </div>
+</header>
+
+<main>
+  <aside>
+    <h2>REPORTS</h2>
+    <div class="grid" id="grid"></div>
+    <div class="legend">
+      <span style="--c: var(--done)">done</span>
+      <span style="--c: var(--part)">started</span>
+      <span style="--c: var(--ns)">open</span>
+    </div>
+    <div class="jump"><button id="nextOpen">Next unfinished report</button></div>
+  </aside>
+
+  <section>
+
+    <div class="card">
+      <div class="report">
+        <div class="meta"><span class="id" id="sid"></span><span class="pos" id="pos"></span></div>
+        <div class="text" id="text"></div>
+      </div>
+      <div class="slots" id="slots"></div>
+      <div class="nav">
+        <button id="prev">&larr; Previous</button>
+        <span class="keys">1-9 choose &middot; 0 not stated &middot; &uarr;&darr; row &middot; &larr;&rarr; report</span>
+        <button class="primary" id="next">Next &rarr;</button>
+      </div>
+    </div>
+  </section>
+</main>
+<dialog id="help">
+  <h2>How to fill in this sheet</h2>
+  <ul>
+          <li>For each report, record what the text <b>states</b> for every item. Do not judge whether it is medically right.</li>
+          <li>Choose <b>not stated</b> if the report does not mention the item, or if it is unreadable.</li>
+          <li>A report may be garbled or repeat itself: still record what it states, or choose <b>not stated</b> if the item is unreadable.</li>
+          <li>The report wording differs from the buttons: choose the button that means the same thing.</li>
+          <li>Work on your own, without AI tools, and do not discuss the reports with the other reader.</li>
+          <li>Answers are saved in this browser as you click. When you have finished, press <b>Download CSV</b> and send the file back.</li>
+        </ul>
+  <p>Keyboard: number keys choose an option in the highlighted row (0 = not stated),
+  &uarr;/&darr; move between rows, &larr;/&rarr; or Enter move between reports.</p>
+  <div class="actions"><button class="primary" id="helpClose">Start</button></div>
+</dialog>
+<div class="toast" id="toast"></div>
+
+<script>
+const SHEET = /*__SHEET__*/null;
+const NS = "not stated";
+const LABELS = {pathology: "Pathology", birads: "BI-RADS category", orientation: "Orientation",
+  margins: "Margins", shape: "Shape", echogenicity: "Echogenicity", calcification: "Calcification"};
+const slots = SHEET.slots;
+const options = {};
+for (const s of slots) {
+  options[s] = SHEET.vocab[s].map(label => {
+    const i = label.indexOf(" (");
+    return i < 0 ? {value: label, hint: ""}
+                 : {value: label.slice(0, i), hint: label.slice(i + 2, -1)};
+  }).concat([{value: NS, hint: ""}]);
+}
+const storeKey = `reading-sheet:${SHEET.id}:${SHEET.annotator}`;
+let answers = {};   // sample -> {slot: value}
+let cur = 0, focusSlot = 0, storageOk = true, dirtySinceDownload = false;
+
+function load() {
+  try { answers = JSON.parse(localStorage.getItem(storeKey) || "{}"); }
+  catch (e) { storageOk = false; answers = {}; }
+  try { cur = Math.min(+localStorage.getItem(storeKey + ":cur") || 0, SHEET.rows.length - 1); }
+  catch (e) { cur = 0; }
+}
+function save() {
+  dirtySinceDownload = true;
+  try {
+    localStorage.setItem(storeKey, JSON.stringify(answers));
+    localStorage.setItem(storeKey + ":cur", String(cur));
+    storageOk = true;
+  } catch (e) { storageOk = false; }
+  renderSaved();
+}
+function renderSaved() {
+  const el = document.getElementById("saved");
+  el.className = "saved" + (storageOk ? "" : " warn");
+  el.textContent = storageOk ? "Saved in this browser" : "Not saved: download the CSV often";
+}
+function filled(sample) {
+  const a = answers[sample] || {};
+  return slots.filter(s => a[s]).length;
+}
+function state(sample) {
+  const n = filled(sample);
+  return n === slots.length ? "done" : n > 0 ? "part" : "";
+}
+function escapeHtml(t) {
+  return t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+function reportHtml(t) {
+  // Markup tags such as <reasoning> are part of the report; show them muted.
+  return escapeHtml(t).replace(/&lt;\/?[a-z_]+&gt;/gi, m => `<span class="tag">${m}</span>`);
+}
+
+function renderGrid() {
+  const grid = document.getElementById("grid");
+  grid.innerHTML = "";
+  SHEET.rows.forEach((r, i) => {
+    const b = document.createElement("button");
+    b.className = "chip " + state(r.sample) + (i === cur ? " cur" : "");
+    b.title = r.sample;
+    b.setAttribute("aria-label", r.sample);
+    b.onclick = () => go(i);
+    grid.appendChild(b);
+  });
+  const done = SHEET.rows.filter(r => state(r.sample) === "done").length;
+  document.getElementById("count").textContent = `${done} / ${SHEET.rows.length} done`;
+  document.getElementById("meter").style.width = `${100 * done / SHEET.rows.length}%`;
+}
+
+function renderReport() {
+  const r = SHEET.rows[cur];
+  document.getElementById("sid").textContent = r.sample;
+  document.getElementById("pos").textContent = `report ${cur + 1} of ${SHEET.rows.length}`;
+  const text = document.getElementById("text");
+  text.innerHTML = reportHtml(r.report);
+  text.scrollTop = 0;
+  const box = document.getElementById("slots");
+  box.innerHTML = "";
+  const a = answers[r.sample] || {};
+  slots.forEach((s, si) => {
+    const row = document.createElement("div");
+    row.className = "slot" + (si === focusSlot ? " focus" : "");
+    row.onclick = () => { focusSlot = si; markFocus(); };
+    const name = document.createElement("div");
+    name.className = "name";
+    name.textContent = LABELS[s] || s;
+    const opts = document.createElement("div");
+    opts.className = "opts";
+    options[s].forEach((o, oi) => {
+      const b = document.createElement("button");
+      const key = o.value === NS ? 0 : oi + 1;
+      b.className = "opt" + (o.value === NS ? " ns" : "") + (a[s] === o.value ? " on" : "");
+      b.innerHTML = `<kbd>${key}</kbd><span class="val">${escapeHtml(o.value)}</span>` +
+                    (o.hint ? `<span class="hint">${escapeHtml(o.hint)}</span>` : "");
+      b.onclick = ev => { ev.stopPropagation(); choose(si, o.value); };
+      opts.appendChild(b);
+    });
+    row.append(name, opts);
+    box.appendChild(row);
+  });
+}
+function markFocus() {
+  document.querySelectorAll(".slot").forEach((el, i) => el.classList.toggle("focus", i === focusSlot));
+}
+function render() { renderGrid(); renderReport(); }
+
+function choose(si, value, toggle = true) {
+  const sample = SHEET.rows[cur].sample;
+  const a = answers[sample] = answers[sample] || {};
+  const s = slots[si];
+  a[s] = toggle && a[s] === value ? undefined : value;   // clicking a chosen option clears it
+  if (a[s] === undefined) delete a[s];
+  save();
+  // move to the next row that is still empty
+  if (a[s]) {
+    const nextEmpty = slots.findIndex((x, i) => i > si && !a[x]);
+    focusSlot = nextEmpty >= 0 ? nextEmpty : si;
+  } else { focusSlot = si; }
+  render();
+}
+function go(i) {
+  cur = Math.max(0, Math.min(SHEET.rows.length - 1, i));
+  const a = answers[SHEET.rows[cur].sample] || {};
+  const firstEmpty = slots.findIndex(s => !a[s]);
+  focusSlot = firstEmpty >= 0 ? firstEmpty : 0;
+  try { localStorage.setItem(storeKey + ":cur", String(cur)); } catch (e) { /* storage optional */ }
+  render();
+  window.scrollTo({top: 0});
+}
+function nextOpen() {
+  const n = SHEET.rows.length;
+  for (let k = 1; k <= n; k++) {
+    const i = (cur + k) % n;
+    if (state(SHEET.rows[i].sample) !== "done") { go(i); return; }
+  }
+  toast("All reports are done. Download the CSV and send it back.");
+}
+
+function csvCell(v) {
+  v = v == null ? "" : String(v);
+  return /[",\n\r]/.test(v) ? `"${v.replace(/"/g, '""')}"` : v;
+}
+function download() {
+  const lines = [["sample", "report", ...slots].map(csvCell).join(",")];
+  for (const r of SHEET.rows) {
+    const a = answers[r.sample] || {};
+    lines.push([r.sample, r.report, ...slots.map(s => a[s] || "")].map(csvCell).join(","));
+  }
+  const blob = new Blob([lines.join("\r\n") + "\r\n"], {type: "text/csv"});
+  const url = URL.createObjectURL(blob);
+  const link = Object.assign(document.createElement("a"),
+                             {href: url, download: `sheet_${SHEET.annotator}.csv`});
+  document.body.appendChild(link); link.click(); link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  dirtySinceDownload = false;
+  const open = SHEET.rows.filter(r => state(r.sample) !== "done").length;
+  toast(open ? `Downloaded. ${open} report(s) are not finished yet.` : "Downloaded. Thank you!");
+}
+
+function parseCsv(text) {
+  const rows = []; let row = [], cell = "", q = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (q) {
+      if (c === '"' && text[i + 1] === '"') { cell += '"'; i++; }
+      else if (c === '"') q = false;
+      else cell += c;
+    } else if (c === '"') q = true;
+    else if (c === ",") { row.push(cell); cell = ""; }
+    else if (c === "\n" || c === "\r") {
+      if (c === "\r" && text[i + 1] === "\n") i++;
+      row.push(cell); rows.push(row); row = []; cell = "";
+    } else cell += c;
+  }
+  if (cell || row.length) { row.push(cell); rows.push(row); }
+  return rows;
+}
+function importCsv(file) {
+  file.text().then(text => {
+    const [head, ...body] = parseCsv(text).filter(r => r.length > 1);
+    const col = Object.fromEntries(head.map((h, i) => [h, i]));
+    if (!("sample" in col)) throw new Error("no sample column");
+    const known = new Set(SHEET.rows.map(r => r.sample));
+    let n = 0;
+    for (const r of body) {
+      const sample = r[col.sample];
+      if (!known.has(sample)) continue;
+      const a = {};
+      for (const s of slots) {
+        const v = (r[col[s]] || "").trim();
+        if (v && options[s].some(o => o.value === v)) a[s] = v;
+      }
+      answers[sample] = a; n++;
+    }
+    save(); render();
+    toast(`Loaded answers for ${n} report(s).`);
+  }).catch(() => toast("This file could not be read as a reading-sheet CSV."));
+}
+
+let toastTimer;
+function toast(msg) {
+  const el = document.getElementById("toast");
+  el.textContent = msg; el.classList.add("show");
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.remove("show"), 3200);
+}
+
+document.addEventListener("keydown", ev => {
+  if (ev.target.closest("input, textarea") || ev.metaKey || ev.ctrlKey || ev.altKey) return;
+  if (document.getElementById("help").open) return;
+  const k = ev.key;
+  if (/^[0-9]$/.test(k)) {
+    const opts = options[slots[focusSlot]];
+    const o = k === "0" ? opts[opts.length - 1] : opts[+k - 1];
+    if (o && (k === "0" || o.value !== NS)) { choose(focusSlot, o.value, false); ev.preventDefault(); }
+  } else if (k === "ArrowDown") { focusSlot = Math.min(slots.length - 1, focusSlot + 1); markFocus(); ev.preventDefault(); }
+  else if (k === "ArrowUp") { focusSlot = Math.max(0, focusSlot - 1); markFocus(); ev.preventDefault(); }
+  else if (k === "ArrowRight" || k === "Enter") { go(cur + 1); ev.preventDefault(); }
+  else if (k === "ArrowLeft") { go(cur - 1); ev.preventDefault(); }
+});
+window.addEventListener("beforeunload", ev => {
+  if (!storageOk && dirtySinceDownload) { ev.preventDefault(); ev.returnValue = ""; }
+});
+
+document.getElementById("who").textContent = `Reader ${SHEET.annotator} · ${SHEET.rows.length} reports`;
+document.getElementById("prev").onclick = () => go(cur - 1);
+document.getElementById("next").onclick = () => go(cur + 1);
+document.getElementById("nextOpen").onclick = nextOpen;
+document.getElementById("download").onclick = download;
+document.getElementById("import").onclick = () => document.getElementById("file").click();
+document.getElementById("file").onchange = ev => {
+  if (ev.target.files[0]) importCsv(ev.target.files[0]);
+  ev.target.value = "";
+};
+load();
+const help = document.getElementById("help");
+document.getElementById("helpBtn").onclick = () => help.showModal();
+document.getElementById("helpClose").onclick = () => help.close();
+if (!Object.keys(answers).length) help.showModal();
+renderSaved();
+go(cur);
+</script>
+</body>
+</html>

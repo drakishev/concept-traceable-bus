@@ -1,0 +1,1402 @@
+{
+ "S001": {
+  "run": "h_enc_usfm_s1",
+  "id": "bus_cot_reasoning_test_00849",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S002": {
+  "run": "h_cb3_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00435",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and round shape, This lesion has heterogeneouswith equivocal calcific particles. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4A",
+   "orientation": "not parallel",
+   "margins": "partiallyregular",
+   "shape": "round",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S003": {
+  "run": "h_cb3_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00765",
+  "reference": "<reasoning>This lesion is not parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "4A",
+   "orientation": "not parallel",
+   "margins": "partiallyregular",
+   "shape": "round",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S004": {
+  "run": "h_vlm_qwen25vl_7b",
+  "id": "bus_cot_reasoning_test_00375",
+  "reference": "<reasoning>This lesion is parallel, has angular margins and round shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "4A",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "cysticsolidmixedecho",
+   "calcification": "absent"
+  }
+ },
+ "S005": {
+  "run": "h_dec_qwen7b_s1",
+  "id": "bus_cot_reasoning_test_00206",
+  "reference": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S006": {
+  "run": "h_cb3_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00229",
+  "reference": "<reasoning>This lesion is parallel, has angular margins and oval shape, This lesion has slightly hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "4A",
+   "orientation": "parallel",
+   "margins": "partiallyregular",
+   "shape": "round",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S007": {
+  "run": "h_cb3_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00793",
+  "reference": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith coarse heterogeneous calcifications. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "5",
+   "orientation": "not parallel",
+   "margins": "irregular",
+   "shape": "irregular",
+   "echogenicity": "lowecho",
+   "calcification": "present"
+  }
+ },
+ "S008": {
+  "run": "h_cb3_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00064",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S009": {
+  "run": "h_dec_qwen7b_s1",
+  "id": "bus_cot_reasoning_test_00189",
+  "reference": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4B",
+   "orientation": "parallel",
+   "margins": "irregular",
+   "shape": "irregular",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S010": {
+  "run": "h_vlm_qwen25vl_7b",
+  "id": "bus_cot_reasoning_test_00399",
+  "reference": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith equivocal calcific particles. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4C",
+   "orientation": "not parallel",
+   "margins": "irregular",
+   "shape": "irregular",
+   "echogenicity": "lowecho",
+   "calcification": "present"
+  }
+ },
+ "S011": {
+  "run": "h_enc_usfm_s1",
+  "id": "bus_cot_reasoning_test_00158",
+  "reference": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has slightly hypoechoicwith equivocal calcific particles. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "4A",
+   "orientation": "parallel",
+   "margins": "partiallyregular",
+   "shape": "round",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S012": {
+  "run": "h_cb3_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00768",
+  "reference": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 5. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "4A",
+   "orientation": "parallel",
+   "margins": "partiallyregular",
+   "shape": "round",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S013": {
+  "run": "h_dec_qwen7b_s1",
+  "id": "bus_cot_reasoning_test_00611",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S014": {
+  "run": "h_cb3_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00182",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has slightly hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S015": {
+  "run": "h_dec_qwen7b_s1",
+  "id": "bus_cot_reasoning_test_00445",
+  "reference": "<reasoning>This lesion is parallel, has microlobulated margins and round shape, This lesion has complex cystic and solidwith punctuate microcalcifications. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "4A",
+   "orientation": "not parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "cysticsolidmixedecho",
+   "calcification": "absent"
+  }
+ },
+ "S016": {
+  "run": "h_cb9_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00471",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S017": {
+  "run": "h_dec_qwen7b_s1",
+  "id": "bus_cot_reasoning_test_00363",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "noecho",
+   "calcification": "absent"
+  }
+ },
+ "S018": {
+  "run": "h_vlm_qwen25vl_7b",
+  "id": "bus_cot_reasoning_test_00162",
+  "reference": "<reasoning>This lesion is parallel, has angular margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S019": {
+  "run": "h_enc_usfm_s1",
+  "id": "bus_cot_reasoning_test_00745",
+  "reference": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "not parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S020": {
+  "run": "h_vlm_qwen25vl_7b",
+  "id": "bus_cot_reasoning_test_00746",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4A",
+   "orientation": "parallel",
+   "margins": "partiallyregular",
+   "shape": "round",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S021": {
+  "run": "h_dec_qwen7b_s1",
+  "id": "bus_cot_reasoning_test_00192",
+  "reference": "<reasoning>This lesion is parallel, has angular margins and round shape, This lesion has slightly hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "4A",
+   "orientation": "parallel",
+   "margins": "partiallyregular",
+   "shape": "round",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S022": {
+  "run": "h_cb3_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00859",
+  "reference": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 5. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4C",
+   "orientation": "not parallel",
+   "margins": "irregular",
+   "shape": "irregular",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S023": {
+  "run": "h_cb9_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00240",
+  "reference": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4C",
+   "orientation": "not parallel",
+   "margins": "irregular",
+   "shape": "irregular",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S024": {
+  "run": "h_cb3_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00598",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "4A",
+   "orientation": "parallel",
+   "margins": "partiallyregular",
+   "shape": "round",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S025": {
+  "run": "h_cb3_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00479",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S026": {
+  "run": "h_vlm_qwen25vl_7b",
+  "id": "bus_cot_reasoning_test_00278",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4A",
+   "orientation": "parallel",
+   "margins": "partiallyregular",
+   "shape": "round",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S027": {
+  "run": "h_vlm_qwen25vl_7b",
+  "id": "bus_cot_reasoning_test_00145",
+  "reference": "<reasoning>This lesion is parallel, has angular margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S028": {
+  "run": "h_cb3_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00088",
+  "reference": "<reasoning>This lesion is parallel, has microlobulated margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4B",
+   "orientation": "parallel",
+   "margins": "irregular",
+   "shape": "irregular",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S029": {
+  "run": "h_enc_usfm_s1",
+  "id": "bus_cot_reasoning_test_00091",
+  "reference": "<reasoning>This lesion is parallel, has microlobulated margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S030": {
+  "run": "h_dec_qwen7b_s1",
+  "id": "bus_cot_reasoning_test_00768",
+  "reference": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 5. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S031": {
+  "run": "h_cb3_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00847",
+  "reference": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S032": {
+  "run": "h_vlm_qwen25vl_7b",
+  "id": "bus_cot_reasoning_test_00345",
+  "reference": "<reasoning>This lesion is parallel, has microlobulated margins and round shape, This lesion has slightly hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S033": {
+  "run": "h_enc_usfm_s1",
+  "id": "bus_cot_reasoning_test_00841",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4B",
+   "orientation": "parallel",
+   "margins": "partiallyregular",
+   "shape": "round",
+   "echogenicity": "cysticsolidmixedecho",
+   "calcification": "absent"
+  }
+ },
+ "S034": {
+  "run": "h_vlm_qwen25vl_7b",
+  "id": "bus_cot_reasoning_test_00662",
+  "reference": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith punctuate microcalcifications. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4C",
+   "orientation": "parallel",
+   "margins": "irregular",
+   "shape": "irregular",
+   "echogenicity": "lowecho",
+   "calcification": "present"
+  }
+ },
+ "S035": {
+  "run": "h_vlm_qwen25vl_7b",
+  "id": "bus_cot_reasoning_test_00491",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "noecho",
+   "calcification": "absent"
+  }
+ },
+ "S036": {
+  "run": "h_vlm_qwen25vl_7b",
+  "id": "bus_cot_reasoning_test_00258",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "noecho",
+   "calcification": "absent"
+  }
+ },
+ "S037": {
+  "run": "h_cb9_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00591",
+  "reference": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4C",
+   "orientation": "not parallel",
+   "margins": "irregular",
+   "shape": "irregular",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S038": {
+  "run": "h_cb9_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00202",
+  "reference": "<reasoning>This lesion is parallel, has angular margins and round shape, This lesion has slightly hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S039": {
+  "run": "h_cb9_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00690",
+  "reference": "<reasoning>This lesion is not parallel, has angular margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "not parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S040": {
+  "run": "h_dec_qwen7b_s1",
+  "id": "bus_cot_reasoning_test_00204",
+  "reference": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4B",
+   "orientation": "parallel",
+   "margins": "irregular",
+   "shape": "irregular",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S041": {
+  "run": "h_cb3_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00643",
+  "reference": "<reasoning>This lesion is not parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4A",
+   "orientation": "not parallel",
+   "margins": "partiallyregular",
+   "shape": "round",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S042": {
+  "run": "h_dec_qwen7b_s1",
+  "id": "bus_cot_reasoning_test_00195",
+  "reference": "<reasoning>This lesion is parallel, has angular margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S043": {
+  "run": "h_cb9_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00868",
+  "reference": "<reasoning>This lesion is not parallel, has angular margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S044": {
+  "run": "h_cb9_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00766",
+  "reference": "<reasoning>This lesion is parallel, has angular margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "3",
+   "orientation": "not parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S045": {
+  "run": "h_cb9_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00809",
+  "reference": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4B",
+   "orientation": "parallel",
+   "margins": "irregular",
+   "shape": "irregular",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S046": {
+  "run": "h_vlm_qwen25vl_7b",
+  "id": "bus_cot_reasoning_test_00216",
+  "reference": "<reasoning>This lesion is parallel, has microlobulated margins and round shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4A",
+   "orientation": "parallel",
+   "margins": "partiallyregular",
+   "shape": "round",
+   "echogenicity": "cysticsolidmixedecho",
+   "calcification": "absent"
+  }
+ },
+ "S047": {
+  "run": "h_cb9_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00431",
+  "reference": "<reasoning>This lesion is parallel, has angular margins and irregular shape, This lesion has complex cystic and solidwith equivocal calcific particles. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "4B",
+   "orientation": "parallel",
+   "margins": "partiallyregular",
+   "shape": "round",
+   "echogenicity": "cysticsolidmixedecho",
+   "calcification": "absent"
+  }
+ },
+ "S048": {
+  "run": "h_vlm_qwen25vl_7b",
+  "id": "bus_cot_reasoning_test_00003",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "noecho",
+   "calcification": "absent"
+  }
+ },
+ "S049": {
+  "run": "h_enc_usfm_s1",
+  "id": "bus_cot_reasoning_test_00868",
+  "reference": "<reasoning>This lesion is not parallel, has angular margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "3",
+   "orientation": "not parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S050": {
+  "run": "h_cb9_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00072",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S051": {
+  "run": "h_cb3_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00487",
+  "reference": "<reasoning>This lesion is not parallel, has circumscribed margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4A",
+   "orientation": "not parallel",
+   "margins": "partiallyregular",
+   "shape": "round",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S052": {
+  "run": "h_enc_usfm_s1",
+  "id": "bus_cot_reasoning_test_00620",
+  "reference": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 5. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4C",
+   "orientation": "not parallel",
+   "margins": "irregular",
+   "shape": "irregular",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S053": {
+  "run": "h_cb9_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00574",
+  "reference": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has complex cystic and solidwith equivocal calcific particles. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4C",
+   "orientation": "not parallel",
+   "margins": "irregular",
+   "shape": "irregular",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S054": {
+  "run": "h_vlm_qwen25vl_7b",
+  "id": "bus_cot_reasoning_test_00656",
+  "reference": "<reasoning>This lesion is parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith punctuate microcalcifications. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4C",
+   "orientation": "parallel",
+   "margins": "irregular",
+   "shape": "irregular",
+   "echogenicity": "lowecho",
+   "calcification": "present"
+  }
+ },
+ "S055": {
+  "run": "h_dec_qwen7b_s1",
+  "id": "bus_cot_reasoning_test_00705",
+  "reference": "<reasoning>This lesion is parallel, has angular margins and round shape, This lesion has heterogeneouswith equivocal calcific particles. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S056": {
+  "run": "h_dec_qwen7b_s1",
+  "id": "bus_cot_reasoning_test_00322",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S057": {
+  "run": "h_enc_usfm_s1",
+  "id": "bus_cot_reasoning_test_00407",
+  "reference": "<reasoning>This lesion is parallel, has microlobulated margins and round shape, This lesion has slightly hypoechoicwith equivocal calcific particles. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S058": {
+  "run": "h_cb9_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00771",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S059": {
+  "run": "h_cb3_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00105",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S060": {
+  "run": "h_dec_qwen7b_s1",
+  "id": "bus_cot_reasoning_test_00598",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S061": {
+  "run": "h_cb9_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00641",
+  "reference": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 5. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4C",
+   "orientation": "not parallel",
+   "margins": "irregular",
+   "shape": "irregular",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S062": {
+  "run": "h_cb9_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00600",
+  "reference": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has heterogeneouswith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "3",
+   "orientation": "not parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S063": {
+  "run": "h_dec_qwen7b_s1",
+  "id": "bus_cot_reasoning_test_00678",
+  "reference": "<reasoning>This lesion is parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S064": {
+  "run": "h_cb9_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00293",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "2",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S065": {
+  "run": "h_dec_qwen7b_s1",
+  "id": "bus_cot_reasoning_test_00765",
+  "reference": "<reasoning>This lesion is not parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "4A",
+   "orientation": "not parallel",
+   "margins": "partiallyregular",
+   "shape": "round",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S066": {
+  "run": "h_dec_qwen7b_s1",
+  "id": "bus_cot_reasoning_test_00733",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4A",
+   "orientation": "not parallel",
+   "margins": "partiallyregular",
+   "shape": "round",
+   "echogenicity": "cysticsolidmixedecho",
+   "calcification": "absent"
+  }
+ },
+ "S067": {
+  "run": "h_dec_qwen7b_s1",
+  "id": "bus_cot_reasoning_test_00407",
+  "reference": "<reasoning>This lesion is parallel, has microlobulated margins and round shape, This lesion has slightly hypoechoicwith equivocal calcific particles. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4A",
+   "orientation": "parallel",
+   "margins": "partiallyregular",
+   "shape": "round",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S068": {
+  "run": "h_vlm_qwen25vl_7b",
+  "id": "bus_cot_reasoning_test_00466",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S069": {
+  "run": "h_dec_qwen7b_s1",
+  "id": "bus_cot_reasoning_test_00487",
+  "reference": "<reasoning>This lesion is not parallel, has circumscribed margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4C",
+   "orientation": "not parallel",
+   "margins": "irregular",
+   "shape": "irregular",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S070": {
+  "run": "h_enc_usfm_s1",
+  "id": "bus_cot_reasoning_test_00309",
+  "reference": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 2. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "2",
+   "orientation": "not parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "noecho",
+   "calcification": "absent"
+  }
+ },
+ "S071": {
+  "run": "h_enc_usfm_s1",
+  "id": "bus_cot_reasoning_test_00731",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S072": {
+  "run": "h_cb9_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00331",
+  "reference": "<reasoning>This lesion is parallel, has angular margins and round shape, This lesion has slightly hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S073": {
+  "run": "h_cb3_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00551",
+  "reference": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith punctuate microcalcifications. Based on these features, the lesion is classified as BIRADS 5. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "5",
+   "orientation": "not parallel",
+   "margins": "irregular",
+   "shape": "irregular",
+   "echogenicity": "lowecho",
+   "calcification": "present"
+  }
+ },
+ "S074": {
+  "run": "h_cb9_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00728",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S075": {
+  "run": "h_enc_usfm_s1",
+  "id": "bus_cot_reasoning_test_00540",
+  "reference": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4C",
+   "orientation": "not parallel",
+   "margins": "irregular",
+   "shape": "irregular",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S076": {
+  "run": "h_enc_usfm_s1",
+  "id": "bus_cot_reasoning_test_00492",
+  "reference": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "not parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S077": {
+  "run": "h_cb9_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00418",
+  "reference": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4C",
+   "orientation": "parallel",
+   "margins": "irregular",
+   "shape": "irregular",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S078": {
+  "run": "h_vlm_qwen25vl_7b",
+  "id": "bus_cot_reasoning_test_00497",
+  "reference": "<reasoning>This lesion is not parallel, has microlobulated margins and round shape, This lesion has heterogeneouswith equivocal calcific particles. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4A",
+   "orientation": "not parallel",
+   "margins": "partiallyregular",
+   "shape": "round",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S079": {
+  "run": "h_enc_usfm_s1",
+  "id": "bus_cot_reasoning_test_00728",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S080": {
+  "run": "h_enc_usfm_s1",
+  "id": "bus_cot_reasoning_test_00715",
+  "reference": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "partiallyregular",
+   "shape": "round",
+   "echogenicity": "slightlylowecho",
+   "calcification": "absent"
+  }
+ },
+ "S081": {
+  "run": "h_enc_usfm_s1",
+  "id": "bus_cot_reasoning_test_00499",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "2",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "noecho",
+   "calcification": "absent"
+  }
+ },
+ "S082": {
+  "run": "h_cb9_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00534",
+  "reference": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has heterogeneouswith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4A",
+   "orientation": "parallel",
+   "margins": "partiallyregular",
+   "shape": "round",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S083": {
+  "run": "h_cb3_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00032",
+  "reference": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4A",
+   "orientation": "not parallel",
+   "margins": "partiallyregular",
+   "shape": "round",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S084": {
+  "run": "h_enc_usfm_s1",
+  "id": "bus_cot_reasoning_test_00264",
+  "reference": "<reasoning>This lesion is parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4A",
+   "orientation": "parallel",
+   "margins": "partiallyregular",
+   "shape": "round",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S085": {
+  "run": "h_cb3_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00809",
+  "reference": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4B",
+   "orientation": "parallel",
+   "margins": "irregular",
+   "shape": "irregular",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S086": {
+  "run": "h_enc_usfm_s1",
+  "id": "bus_cot_reasoning_test_00401",
+  "reference": "<reasoning>This lesion is parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4A",
+   "orientation": "parallel",
+   "margins": "partiallyregular",
+   "shape": "round",
+   "echogenicity": "cysticsolidmixedecho",
+   "calcification": "absent"
+  }
+ },
+ "S087": {
+  "run": "h_vlm_qwen25vl_7b",
+  "id": "bus_cot_reasoning_test_00388",
+  "reference": "<reasoning>This lesion is not parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith equivocal calcific particles. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4C",
+   "orientation": "not parallel",
+   "margins": "irregular",
+   "shape": "irregular",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S088": {
+  "run": "h_dec_qwen7b_s1",
+  "id": "bus_cot_reasoning_test_00423",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "2",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "noecho",
+   "calcification": "absent"
+  }
+ },
+ "S089": {
+  "run": "h_enc_usfm_s1",
+  "id": "bus_cot_reasoning_test_00070",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S090": {
+  "run": "h_cb9_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00372",
+  "reference": "<reasoning>This lesion is parallel, has angular margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "noecho",
+   "calcification": "absent"
+  }
+ },
+ "S091": {
+  "run": "h_cb3_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00360",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "noecho",
+   "calcification": "absent"
+  }
+ },
+ "S092": {
+  "run": "h_enc_usfm_s1",
+  "id": "bus_cot_reasoning_test_00633",
+  "reference": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith clustered microcalcific clusters. Based on these features, the lesion is classified as BIRADS 5. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4B",
+   "orientation": "parallel",
+   "margins": "irregular",
+   "shape": "irregular",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S093": {
+  "run": "h_vlm_qwen25vl_7b",
+  "id": "bus_cot_reasoning_test_00570",
+  "reference": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4C",
+   "orientation": "parallel",
+   "margins": "irregular",
+   "shape": "irregular",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S094": {
+  "run": "h_dec_qwen7b_s1",
+  "id": "bus_cot_reasoning_test_00669",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 3. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "not parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S095": {
+  "run": "h_cb3_dinov2_s1",
+  "id": "bus_cot_reasoning_test_00458",
+  "reference": "<reasoning>This lesion is parallel, has microlobulated margins and oval shape, This lesion has hypoechoicwith coarse heterogeneous calcifications. Based on these features, the lesion is classified as BIRADS 3. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4A",
+   "orientation": "parallel",
+   "margins": "partiallyregular",
+   "shape": "round",
+   "echogenicity": "cysticsolidmixedecho",
+   "calcification": "absent"
+  }
+ },
+ "S096": {
+  "run": "h_dec_qwen7b_s1",
+  "id": "bus_cot_reasoning_test_00520",
+  "reference": "<reasoning>This lesion is not parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a benign lesion.</reasoning> <answer>0 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4C",
+   "orientation": "not parallel",
+   "margins": "irregular",
+   "shape": "irregular",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S097": {
+  "run": "h_vlm_qwen25vl_7b",
+  "id": "bus_cot_reasoning_test_00802",
+  "reference": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith punctuate microcalcifications. Based on these features, the lesion is classified as BIRADS 4A. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "benign",
+   "birads": "3",
+   "orientation": "parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S098": {
+  "run": "h_vlm_qwen25vl_7b",
+  "id": "bus_cot_reasoning_test_00858",
+  "reference": "<reasoning>This lesion is not parallel, has circumscribed margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4A",
+   "orientation": "parallel",
+   "margins": "partiallyregular",
+   "shape": "round",
+   "echogenicity": "cysticsolidmixedecho",
+   "calcification": "absent"
+  }
+ },
+ "S099": {
+  "run": "h_vlm_qwen25vl_7b",
+  "id": "bus_cot_reasoning_test_00572",
+  "reference": "<reasoning>This lesion is parallel, has indistinct margins and irregular shape, This lesion has complex cystic and solidwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4B. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "4C",
+   "orientation": "parallel",
+   "margins": "irregular",
+   "shape": "irregular",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ },
+ "S100": {
+  "run": "h_enc_usfm_s1",
+  "id": "bus_cot_reasoning_test_00271",
+  "reference": "<reasoning>This lesion is not parallel, has microlobulated margins and round shape, This lesion has slightly hypoechoicwith absence of calcific deposits. Based on these features, the lesion is classified as BIRADS 4C. Thus this is a malignant lesion.</reasoning> <answer>1 </answer>",
+  "extractor": {
+   "pathology": "malignant",
+   "birads": "3",
+   "orientation": "not parallel",
+   "margins": "regular",
+   "shape": "oval",
+   "echogenicity": "lowecho",
+   "calcification": "absent"
+  }
+ }
+}

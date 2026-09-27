@@ -21,6 +21,7 @@ Usage:
     python scripts/intervention_covariation.py \
         --checkpoint checkpoints/weekend/dinov2_cb/final.ckpt \
         --test_jsonl data/augmented_v2/test.jsonl --n 80 \
+        --train_config configs/train/finetune_jepa_v5.yaml \
         --output outputs/stats/intervention_covariation.json
 """
 from __future__ import annotations
@@ -36,7 +37,7 @@ from tqdm import tqdm
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from src.data.datasets.bus_cot_jepa import BUSCoTJEPADataset  # noqa: E402
+from src.data.datasets.bus_cot_jepa import BUSCoTJEPADataset, preprocess_mode_of  # noqa: E402
 from src.data.slot_labels import PATHOLOGY_CLASSES  # noqa: E402
 from src.evaluation.slots import DESCRIPTOR_SLOTS, extract_slots  # noqa: E402
 from src.model.vl_jepa import HistoVLJEPA  # noqa: E402
@@ -53,6 +54,8 @@ def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--checkpoint", required=True)
     ap.add_argument("--test_jsonl", required=True)
+    ap.add_argument("--train_config", required=True,
+                    help="Stage-2 training config (its data.preprocess_mode is applied)")
     ap.add_argument("--n", type=int, default=80)
     # Match scripts/evaluate_jepa.py so co-variation is measured under the SAME
     # generation process as every other slot metric in the paper. With greedy
@@ -71,7 +74,8 @@ def main() -> None:
     assert model.concept_bottleneck_enabled, "checkpoint is not a concept-bottleneck model"
 
     ds = BUSCoTJEPADataset(jsonl_path=args.test_jsonl, root_dir=Path("."),
-                           image_size=224, preprocess_mode="ultrasound")
+                           image_size=224,
+                           preprocess_mode=preprocess_mode_of(args.train_config))
     loader = DataLoader(ds, batch_size=args.batch_size, shuffle=False, num_workers=4)
 
     # counters, split by whether the intervention actually flips the baseline label

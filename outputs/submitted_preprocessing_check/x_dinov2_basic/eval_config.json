@@ -1,0 +1,9 @@
+{
+  "checkpoint": "checkpoints/weekend/x_dinov2/epoch=01-val/loss=0.0849.ckpt",
+  "test_jsonl": "data/unified_v2/test_buscot_only.jsonl",
+  "train_config": "configs/train/finetune_jepa.yaml",
+  "preprocess_mode": "basic",
+  "image_size": 224,
+  "max_new_tokens": 256,
+  "num_beams": 4
+}

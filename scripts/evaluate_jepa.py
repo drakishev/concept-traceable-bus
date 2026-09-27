@@ -7,7 +7,11 @@ Usage:
     python scripts/evaluate_jepa.py \
         --checkpoint checkpoints/ultrasound_jepa_finetune/final.ckpt \
         --test_jsonl data/unified/test.jsonl \
+        --train_config configs/train/finetune_jepa_v5.yaml \
         --output_dir outputs/eval_jepa
+
+Test images get the preprocessing of the training config, without the train-time
+augmentations; eval_config.json records it next to the predictions.
 """
 from __future__ import annotations
 
@@ -67,6 +71,9 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--checkpoint", required=True, help="Path to finetune .ckpt")
     parser.add_argument("--test_jsonl", default="data/unified/test.jsonl")
+    parser.add_argument("--train_config", required=True,
+                        help="Stage-2 config the checkpoint was trained with; its "
+                             "data.preprocess_mode is applied to the test images")
     parser.add_argument("--output_dir", default="outputs/eval_jepa")
     parser.add_argument("--image_size", type=int, default=224)
     parser.add_argument("--batch_size", type=int, default=16)
@@ -90,14 +97,16 @@ def main() -> None:
     device = torch.device(args.device)
 
     # ── Test dataset ───────────────────────────────────────────────────────────
-    from src.data.datasets.bus_cot_jepa import BUSCoTJEPADataset
+    from src.data.datasets.bus_cot_jepa import BUSCoTJEPADataset, preprocess_mode_of
 
+    preprocess_mode = preprocess_mode_of(args.train_config)
     test_dataset = BUSCoTJEPADataset(
         jsonl_path=args.test_jsonl,
         root_dir=Path("."),
         image_size=args.image_size,
+        preprocess_mode=preprocess_mode,
     )
-    logger.info("Test samples: %d", len(test_dataset))
+    logger.info("Test samples: %d (preprocessing: %s)", len(test_dataset), preprocess_mode)
 
     test_loader = DataLoader(
         test_dataset,
@@ -122,6 +131,11 @@ def main() -> None:
     logger.info("\n%s", metrics)
 
     # ── Save outputs ───────────────────────────────────────────────────────────
+    with open(output_dir / "eval_config.json", "w") as f:
+        json.dump({"checkpoint": args.checkpoint, "test_jsonl": args.test_jsonl,
+                   "train_config": args.train_config, "preprocess_mode": preprocess_mode,
+                   "image_size": args.image_size, "max_new_tokens": args.max_new_tokens,
+                   "num_beams": args.num_beams}, f, indent=2)
     with open(output_dir / "metrics.json", "w") as f:
         json.dump(metrics.to_dict(), f, indent=2)
     logger.info("Metrics saved to %s/metrics.json", output_dir)

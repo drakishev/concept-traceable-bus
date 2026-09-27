@@ -162,3 +162,42 @@ def test_configs_loadable() -> None:
     for cfg_path in config_files:
         cfg = OmegaConf.load(cfg_path)
         assert cfg is not None, f"Failed to load {cfg_path}"
+
+
+# ─── Evaluation protocol tests ────────────────────────────────────────────────
+
+
+def test_dataset_requires_preprocess_mode(tmp_path: Path) -> None:
+    """No silent default: evaluating without the training preprocessing once went unnoticed."""
+    from src.data.datasets.bus_cot_jepa import BUSCoTJEPADataset
+
+    jsonl = tmp_path / "records.jsonl"
+    jsonl.write_text("")
+    with pytest.raises(ValueError, match="preprocess_mode"):
+        BUSCoTJEPADataset(jsonl_path=jsonl)
+    assert len(BUSCoTJEPADataset(jsonl_path=jsonl, preprocess_mode="ultrasound")) == 0
+
+
+def test_revision_configs_use_ultrasound_preprocessing() -> None:
+    from src.data.datasets.bus_cot_jepa import preprocess_mode_of
+
+    for stage in ("pretrain", "finetune"):
+        assert preprocess_mode_of(f"configs/train/{stage}_jepa_v5.yaml") == "ultrasound"
+
+
+def test_annotation_values_are_scoreable() -> None:
+    """Every button of the clickable sheet exports a value the scorer maps onto the
+    extractor's vocabulary (margins and echogenicity use the BUS-CoT enum keys)."""
+    sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
+    from annotation_sheet import NOT_STATED, VOCAB, _norm
+
+    from src.evaluation.slots import _ECHO_SYN
+
+    allowed = {"margins": {"regular", "partiallyregular", "irregular"},
+               "echogenicity": set(_ECHO_SYN.values())}
+    for slot, labels in VOCAB.items():
+        for label in labels:
+            value = label.split(" (")[0]
+            got = _norm(value, slot)
+            assert got != NOT_STATED, (slot, label)
+            assert got in allowed.get(slot, {got}), (slot, label, got)

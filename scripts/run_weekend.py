@@ -4,6 +4,9 @@ Runs a list of jobs back-to-back, unattended, continuing past any failure.
 Each job: optional Stage-1 pretrain (or reuse an existing checkpoint) -> Stage-2
 finetune -> eval -> slot metrics. Results are appended to a CSV after each job, so
 partial progress is never lost. Re-running skips jobs whose metrics already exist.
+With EVAL_ONLY=1 nothing is trained: every job whose checkpoint exists is evaluated
+again unless its outputs already record an evaluation of that checkpoint with the
+training preprocessing (eval_config.json).
 
 Usage (launch in tmux):
     export $(grep -v '^#' .env | xargs); export CUDA_VISIBLE_DEVICES=2
@@ -22,6 +25,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 os.chdir(ROOT)
+sys.path.insert(0, str(ROOT))
 LOGDIR = ROOT / "logs" / "weekend"
 LOGDIR.mkdir(parents=True, exist_ok=True)
 RESULTS_CSV = ROOT / "outputs" / "weekend_results.csv"
@@ -137,6 +141,33 @@ def append_result(row: dict) -> None:
         w.writerow({k: row.get(k) for k in cols})
 
 
+def evaluated_as_trained(eval_dir: str, ck: str) -> bool:
+    """True if eval_dir holds slot metrics of checkpoint `ck` generated with the
+    preprocessing of the config it was trained with."""
+    from src.data.datasets.bus_cot_jepa import preprocess_mode_of
+    cfg = Path(eval_dir, "eval_config.json")
+    if not (cfg.exists() and Path(eval_dir, "slot_metrics.json").exists()):
+        return False
+    e = json.loads(cfg.read_text())
+    return (e.get("checkpoint") == ck
+            and e.get("preprocess_mode") == preprocess_mode_of(FINETUNE_CFG))
+
+
+def evaluate(name: str, ck: str, log: Path, tmo: int, cuda: str | None, t0: float) -> dict:
+    """Generate the test reports of checkpoint `ck` and score their clinical slots."""
+    py, eval_dir = sys.executable, f"outputs/weekend/{name}"
+    print(f"[{name}] eval ...")
+    rc = run(f"{py} scripts/evaluate_jepa.py --checkpoint '{ck}' --output_dir {eval_dir} "
+             f"--test_jsonl {TEST} --train_config {FINETUNE_CFG}", log, timeout=tmo, cuda=cuda)
+    if rc != 0:
+        return {"name": name, "status": f"eval_fail_rc{rc}", "ckpt": ck,
+                "seconds": int(time.time()-t0)}
+    run(f"{py} scripts/evaluate_slots.py --predictions {eval_dir}/predictions.json "
+        f"--output_dir {eval_dir}", log, cuda=cuda)
+    return {"name": name, "status": "ok", "ckpt": ck, "seconds": int(time.time()-t0),
+            **metrics_for(eval_dir)}
+
+
 def do_job(job: dict) -> dict:
     name = job["name"]
     log = LOGDIR / f"{name}.log"
@@ -145,15 +176,23 @@ def do_job(job: dict) -> dict:
 
     py = sys.executable
     ft_out = f"checkpoints/weekend/{name}"
+    cuda = job.get("cuda")  # GPU to pin (set by the parallel pool runner)
+    # Per-job wall-clock cap. The 10 h default is fine for a ~2 h run but the
+    # 27B/70B decoders need longer; a job may raise it via {"timeout": seconds}.
+    tmo = int(job.get("timeout", 36000))
+    if os.environ.get("EVAL_ONLY"):
+        ck = best_ckpt(ft_out)
+        if ck is None:
+            return {"name": name, "status": "no_ckpt", "seconds": 0}
+        if evaluated_as_trained(eval_dir, ck):
+            print(f"[SKIP] {name} (already evaluated with the training preprocessing)")
+            return {"name": name, "status": "skip", **metrics_for(eval_dir)}
+        return evaluate(name, ck, log, tmo, cuda, t0)
     # A job is finished only if its checkpoint exists too: metrics alone can be
     # bundled results (public release) with nothing trained on this machine.
     if os.path.exists(f"{eval_dir}/slot_metrics.json") and best_ckpt(ft_out) is not None:
         print(f"[SKIP] {name} (already has metrics and a checkpoint)")
         return {"name": name, "status": "skip", **metrics_for(eval_dir)}
-    cuda = job.get("cuda")  # GPU to pin (set by the parallel pool runner)
-    # Per-job wall-clock cap. The 10 h default is fine for a ~2 h run but the
-    # 27B/70B decoders need longer; a job may raise it via {"timeout": seconds}.
-    tmo = int(job.get("timeout", 36000))
 
     try:
         if job["type"] == "full":
@@ -195,18 +234,7 @@ def do_job(job: dict) -> dict:
         if ck is None:
             return {"name": name, "status": "no_ckpt", "seconds": int(time.time()-t0)}
 
-        # Eval + slots
-        print(f"[{name}] eval ...")
-        rc = run(f"{py} scripts/evaluate_jepa.py --checkpoint '{ck}' --output_dir {eval_dir} "
-                 f"--test_jsonl {TEST}", log, timeout=tmo, cuda=cuda)
-        if rc != 0:
-            return {"name": name, "status": f"eval_fail_rc{rc}", "ckpt": ck,
-                    "seconds": int(time.time()-t0)}
-        run(f"{py} scripts/evaluate_slots.py --predictions {eval_dir}/predictions.json "
-            f"--output_dir {eval_dir}", log, cuda=cuda)
-
-        return {"name": name, "status": "ok", "ckpt": ck, "seconds": int(time.time()-t0),
-                **metrics_for(eval_dir)}
+        return evaluate(name, ck, log, tmo, cuda, t0)
     except Exception as e:  # never let one job kill the queue
         return {"name": name, "status": f"exception:{type(e).__name__}",
                 "seconds": int(time.time()-t0)}

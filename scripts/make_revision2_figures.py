@@ -60,34 +60,38 @@ def fig_architecture(outdir: Path) -> None:
 
 
 # ── Figure 2: single-family decoder sweep ─────────────────────────────────
+def _padded_range(values: list[float], pad: float = 0.012, step: float = 0.02) -> tuple:
+    """Axis limits that contain every value, rounded outward to `step`."""
+    return (np.floor((min(values) - pad) / step) * step, np.ceil((max(values) + pad) / step) * step)
+
+
 def fig_decoder_scale(outdir: Path) -> None:
     rows = _rows()
     sizes = [("0.5B", "0_5b", 0.5), ("1.5B", "1_5b", 1.5), ("3B", "3b", 3),
              ("7B", "7b", 7), ("14B", "14b", 14), ("32B", "32b", 32), ("72B", "72b", 72)]
-    pts = []
-    for label, tag, params in sizes:
-        p, k = _seed_vals(rows, f"dec_qwen{tag}")
-        pts.append((label, params, *_msd(p), *_msd(k), len(p)))
+    pts = [(label, params, *_seed_vals(rows, f"dec_qwen{tag}")) for label, tag, params in sizes]
     x = [q[1] for q in pts]
     fig, ax = plt.subplots(figsize=(W2, 0.50 * W2))
-    ax.errorbar(x, [q[2] for q in pts], yerr=[q[3] for q in pts], fmt="o-", color=C_PATH,
-                label="Malignancy F1", markersize=7, markeredgecolor="white",
-                markeredgewidth=1.0, capsize=4, linewidth=2.2)
-    ax.errorbar(x, [q[4] for q in pts], yerr=[q[5] for q in pts], fmt="s--", color=C_RISK,
-                label="BI-RADS-like risk-group F1", markersize=7, markeredgecolor="white",
-                markeredgewidth=1.0, capsize=4, linewidth=2.2)
+    # the two endpoints are drawn side by side (multiplicative offset on the log axis)
+    for i, (name, fmt, color, off) in enumerate((("Malignancy F1", "o-", C_PATH, 0.93),
+                                                  ("BI-RADS-like risk-group F1", "s--", C_RISK,
+                                                   1.075))):
+        vals = [q[2 + i] for q in pts]
+        for q, v in zip(pts, vals):
+            ax.plot([q[1] * off] * len(v), v, fmt[0], color=color, alpha=0.35, markersize=4,
+                    markeredgewidth=0, zorder=2)
+        ax.errorbar([xx * off for xx in x], [_msd(v)[0] for v in vals],
+                    yerr=[_msd(v)[1] for v in vals], fmt=fmt, color=color, label=name,
+                    markersize=7, markeredgecolor="white", markeredgewidth=1.0, capsize=4,
+                    linewidth=2.2, zorder=3)
     ax.set_xscale("log")
     ax.set_xticks(x)
-    ax.set_xticklabels([q[0] for q in pts])
+    ax.set_xticklabels([q[0] + ("\n1 seed" if len(q[2]) == 1 else "") for q in pts])
     ax.minorticks_off()
     ax.set_xlabel("Report decoder size, Qwen2.5-Instruct (log scale)")
     ax.set_ylabel("F1 (official BUS-CoT test set, n = 873)")
-    ax.set_ylim(0.70, 0.84)
-    ax.legend(frameon=False, loc="lower left", ncol=2)
-    for q in pts:
-        if q[6] == 1:
-            ax.annotate("1 seed", (q[1], q[2]), textcoords="offset points", xytext=(0, 11),
-                        ha="center", fontsize=8.5, color=C_MUTED)
+    ax.set_ylim(*_padded_range([v for q in pts for v in q[2] + q[3]]))
+    ax.legend(frameon=False, loc="lower center", bbox_to_anchor=(0.5, 1.0), ncol=2)
     _save(fig, outdir, "fig_decoder_scale")
 
 
@@ -109,21 +113,28 @@ def fig_encoder_compare(outdir: Path) -> None:
         data.append((label, *_msd(p), *_msd(k), p, k))
     data.sort(key=lambda d: d[1])
     y = np.arange(len(data))
-    h = 0.38
+    h = 0.17
     fig, ax = plt.subplots(figsize=(W2, 0.62 * W2))
-    ax.barh(y + h / 2, [d[1] for d in data], h, xerr=[d[2] for d in data], color=C_PATH,
-            label="Malignancy F1", capsize=3, error_kw={"linewidth": 1.2})
-    ax.barh(y - h / 2, [d[3] for d in data], h, xerr=[d[4] for d in data], color=C_RISK,
-            label="BI-RADS-like risk-group F1", capsize=3, error_kw={"linewidth": 1.2},
-            hatch="//", edgecolor="white")
+    for off, mean_i, seeds_i, fmt, color, name in (
+            (h, 1, 5, "o", C_PATH, "Malignancy F1"),
+            (-h, 3, 6, "s", C_RISK, "BI-RADS-like risk-group F1")):
+        for i, d in enumerate(data):
+            ax.plot(d[seeds_i], [i + off] * len(d[seeds_i]), fmt, color=color, alpha=0.35,
+                    markersize=4, markeredgewidth=0, zorder=2)
+        ax.errorbar([d[mean_i] for d in data], y + off, xerr=[d[mean_i + 1] for d in data],
+                    fmt=fmt, color=color, label=name, markersize=7, markeredgecolor="white",
+                    markeredgewidth=1.0, capsize=3, elinewidth=1.4, zorder=3)
     for i, d in enumerate(data):
-        ax.plot(d[5], [i + h / 2] * len(d[5]), "o", color=INK, markersize=2.5)
-        ax.plot(d[6], [i - h / 2] * len(d[6]), "o", color=INK, markersize=2.5)
-        ax.text(0.905, i, f"{d[1]:.3f} / {d[3]:.3f}", va="center", fontsize=8.5, color=INK)
+        ax.text(1.01, i, f"{d[1]:.3f} / {d[3]:.3f}", va="center", fontsize=8.5, color=INK,
+                transform=ax.get_yaxis_transform())
+    ax.text(1.01, len(data) - 0.45, "malignancy / risk", va="bottom", fontsize=8,
+            color=C_MUTED, transform=ax.get_yaxis_transform())
     ax.set_yticks(y)
     ax.set_yticklabels([d[0] for d in data], fontsize=9)
-    ax.set_xlim(0.55, 0.97)
-    ax.set_xlabel("F1, mean $\\pm$ SD over 3 seeds (dots: individual seeds)")
+    ax.set_xlim(*_padded_range([v for d in data for v in d[5] + d[6]], step=0.05))
+    ax.xaxis.set_major_locator(base.matplotlib.ticker.MultipleLocator(0.02))
+    ax.xaxis.set_major_formatter(base.matplotlib.ticker.FormatStrFormatter("%.2f"))
+    ax.set_xlabel("F1, mean $\\pm$ SD over 3 seeds (faint marks: individual seeds)")
     ax.legend(frameon=False, loc="upper center", bbox_to_anchor=(0.5, -0.12), ncol=2,
               fontsize=9)
     ax.grid(axis="y", visible=False)

@@ -1,0 +1,9 @@
+{
+  "checkpoint": "checkpoints/weekend/h_enc_dinov2_L_s2/epoch=01-val/loss=0.0905.ckpt",
+  "test_jsonl": "data/unified_v5/test_buscot_only.jsonl",
+  "train_config": "configs/train/finetune_jepa_v5.yaml",
+  "preprocess_mode": "ultrasound",
+  "image_size": 224,
+  "max_new_tokens": 256,
+  "num_beams": 4
+}

@@ -7,7 +7,8 @@ BI-RADS descriptor lexicon, so it is the external test of whether the
 a predictions.json produced by
 
     python scripts/evaluate_jepa.py --checkpoint <ckpt> \\
-        --test_jsonl data/raw/breast/breast_eval.jsonl --output_dir outputs/breast/<run>
+        --test_jsonl data/raw/breast/breast_eval.jsonl --output_dir outputs/breast/<run> \\
+        --train_config configs/train/finetune_jepa_v5.yaml
 
 against the structured fields stored in `metadata` by src/data/datasets/breast.py.
 

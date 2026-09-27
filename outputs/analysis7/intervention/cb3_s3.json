@@ -1,18 +1,18 @@
 {
   "n_images": 80,
   "agreement": {
-    "pathology": 0.99375,
-    "risk": 0.86875,
+    "pathology": 1.0,
+    "risk": 0.83125,
     "birads": 0.3125
   },
   "counts": {
     "pathology": {
-      "agree": 159,
+      "agree": 160,
       "total": 160,
       "extracted": 160
     },
     "risk": {
-      "agree": 139,
+      "agree": 133,
       "total": 160,
       "extracted": 160
     },
@@ -26,11 +26,11 @@
     {
       "forced": "pathology=benign",
       "report": "<reasoning>This lesion is not parallel, has indistinct margins and irregular shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these ",
-      "match": false
+      "match": true
     },
     {
       "forced": "pathology=benign",
-      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has anechoicwith absence of calcific deposits. Based on these features",
+      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these featur",
       "match": true
     },
     {
@@ -45,7 +45,7 @@
     },
     {
       "forced": "pathology=benign",
-      "report": "<reasoning>This lesion is not parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these fe",
+      "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these featur",
       "match": true
     },
     {
@@ -65,7 +65,7 @@
     },
     {
       "forced": "pathology=malignant",
-      "report": "<reasoning>This lesion is parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these feat",
+      "report": "<reasoning>This lesion is not parallel, has microlobulated margins and round shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these ",
       "match": true
     },
     {
@@ -83,6 +83,5 @@
       "report": "<reasoning>This lesion is parallel, has circumscribed margins and oval shape, This lesion has hypoechoicwith absence of calcific deposits. Based on these featur",
       "match": true
     }
-  ],
-  "denominator_note": "2026-09-26: total = all reports generated under an override (n_images x classes); unextractable reports now count as not following the override (were excluded)."
+  ]
 }

@@ -17,7 +17,10 @@ Usage:
     python scripts/annotation_sheet.py make \\
         --runs g_cb3_dinov2_s1 g_cb9_dinov2_s1 g_dec_qwen7b_s1 g_enc_usfm_s1 g_vlm_qwen25vl_7b \\
         --per_run 20 --out outputs/annotation/sheet.csv
-    #    -> sheet.csv (for the annotators) + sheet_key.json (run + extractor output, keep hidden)
+    #    -> sheet.csv + sheet_A.html / sheet_B.html (for the annotators) and
+    #       sheet_key.json (run + extractor output, keep hidden)
+    #    Each annotator opens their .html file in a browser, clicks through the reports
+    #    (answers are kept in the browser) and sends back the sheet_<A|B>.csv it downloads.
     # 2. scoring
     python scripts/annotation_sheet.py score --key outputs/annotation/sheet_key.json \\
         --sheets outputs/annotation/sheet_A.csv outputs/annotation/sheet_B.csv \\
@@ -27,6 +30,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 import random
 import sys
@@ -92,6 +96,19 @@ def extractor_reading(text: str) -> dict[str, str]:
     }
 
 
+def write_html(sheet_rows: list[dict], annotator: str, path: Path) -> None:
+    """Clickable sheet (scripts/annotation_tool.html) with the reports embedded and the
+    extractor output left out; it downloads sheet_<annotator>.csv in the sheet.csv format."""
+    sheet_id = hashlib.sha256(json.dumps(sheet_rows).encode()).hexdigest()[:12]
+    data = {"id": sheet_id, "annotator": annotator, "slots": SLOTS, "vocab": VOCAB,
+            "rows": sheet_rows}
+    # "<" escaped so that no report text can close the <script> element
+    blob = json.dumps(data, ensure_ascii=False).replace("<", "\\u003c")
+    template = (Path(__file__).parent / "annotation_tool.html").read_text()
+    assert template.count("/*__SHEET__*/null") == 1
+    path.write_text(template.replace("/*__SHEET__*/null", blob))
+
+
 def make(args: argparse.Namespace) -> None:
     random.seed(args.seed)
     rows, key = [], []
@@ -106,11 +123,15 @@ def make(args: argparse.Namespace) -> None:
     random.shuffle(order)  # runs are interleaved so the annotator cannot infer them
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
+    sheet_rows = [{"sample": f"S{n:03d}", "report": rows[i]["report"]}
+                  for n, i in enumerate(order, 1)]
     with open(out, "w", newline="") as f:
         w = csv.writer(f)
         w.writerow(["sample", "report"] + SLOTS)
-        for n, i in enumerate(order, 1):
-            w.writerow([f"S{n:03d}", rows[i]["report"]] + [""] * len(SLOTS))
+        for r in sheet_rows:
+            w.writerow([r["sample"], r["report"]] + [""] * len(SLOTS))
+    for a in args.annotators:
+        write_html(sheet_rows, a, out.with_name(f"{out.stem}_{a}.html"))
     key_path = out.with_name(out.stem + "_key.json")
     key_path.write_text(json.dumps(
         {f"S{n:03d}": key[i] for n, i in enumerate(order, 1)}, indent=1))
@@ -118,6 +139,8 @@ def make(args: argparse.Namespace) -> None:
     instructions.write_text(
         "Extractor validation sheet\n"
         "==========================\n"
+        "Easiest: open your sheet_<A or B>.html file in a web browser, click through the\n"
+        "reports and press 'Download CSV' at the end. The rules below apply either way.\n\n"
         "For each row, read the report and write what it STATES for each slot.\n"
         "Write 'not stated' if the report does not mention the slot. Do not judge\n"
         "whether the report is medically right; only record what the text says.\n\n"
@@ -127,12 +150,31 @@ def make(args: argparse.Namespace) -> None:
         "A report may be garbled or repeat itself: still record what it states, or\n"
         "'not stated' if a slot is absent or unreadable.\n"
         "Do not open the _key.json file until you have finished.\n")
-    print(f"{len(rows)} reports -> {out}\nkey -> {key_path}\ninstructions -> {instructions}")
+    print(f"{len(rows)} reports -> {out} and "
+          + ", ".join(f"{out.stem}_{a}.html" for a in args.annotators)
+          + f"\nkey -> {key_path}\ninstructions -> {instructions}")
 
 
-def _read_sheet(path: str) -> dict[str, dict[str, str]]:
+def _read_sheet(path: str, reports: dict[str, str]) -> dict[str, dict[str, str]]:
+    """Normalized answers per sample of a returned sheet, checked against the blank sheet it
+    was made from (`reports`: sample -> report text). Sample ids repeat across rounds
+    (S001, ...), so the sheet must hold exactly this round's samples with the same report
+    text. A blank cell is an unfinished answer, not "not stated" (the clickable sheet
+    writes "not stated" explicitly), so a sheet with blanks is refused."""
     with open(path, newline="") as f:
-        return {r["sample"]: {s: _norm(r.get(s), s) for s in SLOTS} for r in csv.DictReader(f)}
+        rows = list(csv.DictReader(f))
+    ids = [r["sample"] for r in rows]
+    if len(ids) != len(set(ids)) or set(ids) != set(reports):
+        sys.exit(f"{path}: samples do not match the blank sheet ({len(set(ids))} unique of "
+                 f"{len(ids)} rows, {len(set(ids) & set(reports))} of {len(reports)} expected)")
+    wrong = [r["sample"] for r in rows if r["report"] != reports[r["sample"]]]
+    if wrong:
+        sys.exit(f"{path}: report text differs from the blank sheet for {len(wrong)} sample(s), "
+                 f"e.g. {', '.join(wrong[:5])}: a sheet of another round?")
+    blank = [r["sample"] for r in rows if any(not (r.get(s) or "").strip() for s in SLOTS)]
+    if blank:
+        sys.exit(f"{path}: {len(blank)} report(s) not finished, e.g. {', '.join(blank[:5])}")
+    return {r["sample"]: {s: _norm(r.get(s), s) for s in SLOTS} for r in rows}
 
 
 def _prf(pairs: list[tuple[str, str]]) -> dict:
@@ -165,8 +207,13 @@ def _kappa(a: list[str], b: list[str]) -> float | None:
 
 def score(args: argparse.Namespace) -> None:
     key = json.load(open(args.key))
-    sheets = [_read_sheet(p) for p in args.sheets]
-    samples = [s for s in key if all(s in sh for sh in sheets)]
+    blank = args.sheet or str(Path(args.key).with_name(Path(args.key).stem[:-len("_key")] + ".csv"))
+    with open(blank, newline="") as f:
+        reports = {r["sample"]: r["report"] for r in csv.DictReader(f)}
+    if set(reports) != set(key):
+        sys.exit(f"{blank} and {args.key} list different samples")
+    sheets = [_read_sheet(p, reports) for p in args.sheets]
+    samples = list(key)
     out: dict = {"n_samples": len(samples), "sheets": args.sheets, "per_slot": {}, "per_run": {}}
     for slot in SLOTS:
         # the extractor against each annotator separately; kappa between the first two
@@ -202,9 +249,14 @@ def main() -> None:
     m.add_argument("--per_run", type=int, default=20)
     m.add_argument("--seed", type=int, default=0)
     m.add_argument("--out", default="outputs/annotation/sheet.csv")
+    m.add_argument("--annotators", nargs="+", default=["A", "B"],
+                   help="one clickable sheet_<name>.html per annotator")
     s = sub.add_parser("score")
     s.add_argument("--key", required=True)
     s.add_argument("--sheets", nargs="+", required=True)
+    s.add_argument("--sheet", default=None,
+                   help="blank sheet the returned ones were made from (default: the .csv "
+                        "next to --key)")
     s.add_argument("--out", default="outputs/annotation/extractor_validation.json")
     args = ap.parse_args()
     make(args) if args.cmd == "make" else score(args)

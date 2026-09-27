@@ -29,7 +29,8 @@ ARTIFACTS = ["outputs/stats/revision2_numbers.json", "outputs/stats/stats_batch7
              "outputs/stats/leakage_v2_hash.json", "outputs/stats/leakage_v4g_hash.json",
              "outputs/stats/extractor_validation_v5.json", "outputs/stats/modality_gap_batch7.json",
              "outputs/stats/config_table.json",
-             "outputs/annotation7/extractor_validation.json"]
+             "outputs/annotation7/extractor_validation.json",
+             "outputs/annotation7b/extractor_validation.json"]
 #: Design constants and settings quoted in the methods (not results).
 CONSTANTS = {"0.05", "0.1", "0.02", "0.07", "1.0", "0.50", "0.90", "0.01", "0.95", "2.7",
              "0.5", "1.5", "5.1", "0.0", "1.000"}
