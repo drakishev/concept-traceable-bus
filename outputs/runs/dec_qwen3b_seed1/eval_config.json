@@ -1,0 +1,11 @@
+{
+  "checkpoint": "checkpoints/runs/dec_qwen3b_seed1/epoch=01-val/loss=0.0988.ckpt",
+  "test_jsonl": "data/split/test_buscot_only.jsonl",
+  "train_config": "configs/train/stage2_generation.yaml",
+  "preprocess_mode": "ultrasound",
+  "image_size": 224,
+  "max_new_tokens": 256,
+  "num_beams": 4,
+  "checkpoint_size": 9061333979,
+  "checkpoint_mtime_ns": 1790269630821755603
+}

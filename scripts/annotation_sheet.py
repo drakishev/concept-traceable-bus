@@ -15,7 +15,8 @@ regex reads text the way a person does.
 Usage:
     # 1. sheet (100 reports, 20 per run, reproducible)
     python scripts/annotation_sheet.py make \\
-        --runs g_cb3_dinov2_s1 g_cb9_dinov2_s1 g_dec_qwen7b_s1 g_enc_usfm_s1 g_vlm_qwen25vl_7b \\
+        --runs cb3_dinov2_seed1 cb9_dinov2_seed1 dec_qwen7b_seed1 \\
+        enc_usfm_seed1 vlm_qwen25vl_7b_seed1 \\
         --per_run 20 --out outputs/annotation/sheet.csv
     #    -> sheet.csv + sheet_A.html / sheet_B.html (for the annotators) and
     #       sheet_key.json (run + extractor output, keep hidden)
@@ -113,7 +114,7 @@ def make(args: argparse.Namespace) -> None:
     random.seed(args.seed)
     rows, key = [], []
     for run in args.runs:
-        path = Path("outputs/weekend") / run / "predictions.json"
+        path = Path("outputs/runs") / run / "predictions.json"
         preds = json.load(open(path))
         for d in random.sample(preds, min(args.per_run, len(preds))):
             rows.append({"sample": None, "report": d["prediction"]})

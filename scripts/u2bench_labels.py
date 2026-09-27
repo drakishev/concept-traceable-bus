@@ -3,8 +3,8 @@
 U2-BENCH is licensed CC BY-NC-ND 4.0, which does not allow redistributing
 modified copies of its records. The public release therefore ships our per-case
 predictions for U2-BENCH frames without the dataset's labels, and without the
-filtered record file `outputs/analysis7/u2bench_external.jsonl` (which
-scripts/run_batch_analyses.sh rebuilds from the download). After downloading
+filtered record file `outputs/analyses/u2bench_external.jsonl` (which
+scripts/run_analyses.sh rebuilds from the download). After downloading
 U2-BENCH (scripts/download/_u2b_fetch.py), `restore` puts the labels back, so
 every number and figure can be regenerated.
 
@@ -31,11 +31,12 @@ RESTORE_HINT = ("U2-BENCH labels are not redistributed (CC BY-NC-ND 4.0): downlo
 
 
 def _files(outputs: Path) -> dict[str, list[Path]]:
-    a7 = outputs / "analysis7"
-    probs = sorted(a7.glob("probs/*/u2bench.json")) + [outputs / "stats" / "probs_u2bench.json"]
+    a7 = outputs / "analyses"
+    probs = sorted(a7.glob("probs/*/u2bench.json"))
+    probs.append(outputs / "stats" / "submitted_model_u2bench.json")
     return {"probs": probs,
-            "malignancy": sorted(a7.glob("u2b_malig/*/predictions.json")),
-            "birads": sorted(a7.glob("u2b_birads/*/predictions_birads.json"))}
+            "malignancy": sorted(a7.glob("u2bench_malignancy/*/predictions.json")),
+            "birads": sorted(a7.glob("u2bench_birads/*/predictions_birads.json"))}
 
 
 def _records(path: Path, data) -> list[dict]:
@@ -77,7 +78,7 @@ def strip(outputs: Path) -> None:
     for kind, paths in _files(outputs).items():
         for p in paths:
             _rewrite(p, lambda r, keys=drop[kind]: [r.pop(k, None) for k in keys])
-    (outputs / "analysis7" / "u2bench_external.jsonl").unlink(missing_ok=True)
+    (outputs / "analyses" / "u2bench_external.jsonl").unlink(missing_ok=True)
     print(f"U2-BENCH labels removed under {outputs}")
 
 

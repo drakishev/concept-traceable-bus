@@ -4,16 +4,16 @@ Uses a multimodal data collator so images are properly fed through the
 vision encoder at every step.
 
 Usage (single GPU, debug):
-    python scripts/train.py --config configs/train/lora_sft.yaml \
+    python scripts/train.py --config configs/train/vlm_lora.yaml \
         train.per_device_train_batch_size=1 train.num_train_epochs=1
 
 Usage (multi-GPU with Accelerate):
     accelerate launch --num_processes 8 scripts/train.py \
-        --config configs/train/lora_sft.yaml
+        --config configs/train/vlm_lora.yaml
 
 Usage (resume from checkpoint):
     accelerate launch --num_processes 8 scripts/train.py \
-        --config configs/train/lora_sft.yaml \
+        --config configs/train/vlm_lora.yaml \
         train.resume_from_checkpoint=checkpoints/qwen2vl_lora/checkpoint-400
 """
 
@@ -68,7 +68,7 @@ def build_hf_dataset(records: list[dict]) -> "datasets.Dataset":
         if len(convs) < 2:
             continue
         user_content = convs[0]["content"]
-        # Strip the <image> placeholder — the collator inserts the real image object
+        # Strip the <image> placeholder - the collator inserts the real image object
         user_text = user_content.replace("<image>", "").strip()
         assistant_text = convs[1]["content"]
         rows.append(

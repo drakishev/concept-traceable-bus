@@ -3,12 +3,12 @@
 BrEaST is the only public breast-ultrasound set whose lesions carry the full
 BI-RADS descriptor lexicon, so it is the external test of whether the
 *findings* in a generated report are right, not only the assessment
-(revision 2, reviewer 1 items 7 and 12). Nothing here touches a GPU: it scores
+(reviewer 1 items 7 and 12). Nothing here touches a GPU: it scores
 a predictions.json produced by
 
-    python scripts/evaluate_jepa.py --checkpoint <ckpt> \\
+    python scripts/evaluate_reports.py --checkpoint <ckpt> \\
         --test_jsonl data/raw/breast/breast_eval.jsonl --output_dir outputs/breast/<run> \\
-        --train_config configs/train/finetune_jepa_v5.yaml
+        --train_config configs/train/stage2_generation.yaml
 
 against the structured fields stored in `metadata` by src/data/datasets/breast.py.
 

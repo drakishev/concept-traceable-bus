@@ -1,4 +1,4 @@
-"""Learning rate schedulers for VL-JEPA training."""
+"""Learning rate schedulers for report-model training."""
 from __future__ import annotations
 
 import math

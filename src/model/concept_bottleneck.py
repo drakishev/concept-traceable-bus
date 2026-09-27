@@ -1,4 +1,4 @@
-"""Concept bottleneck for interpretable VL-JEPA.
+"""Concept bottleneck for the report model.
 
 Instead of conditioning the decoder on the raw predicted embedding, we route
 generation through the predicted clinical concepts only. All image information
@@ -33,7 +33,7 @@ class ConceptBottleneck(nn.Module):
         self.embeds = nn.ModuleDict(
             {name: nn.Embedding(n_classes, concept_dim) for name, n_classes in head_specs.items()}
         )
-        # B3: optional residual path — a small projection of the raw predicted
+        # B3: optional residual path - a small projection of the raw predicted
         # embedding concatenated with the concept embedding. residual_dim=0 is the
         # pure (fully interpretable) concept bottleneck.
         self.residual_dim = residual_dim

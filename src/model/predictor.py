@@ -1,4 +1,4 @@
-"""Predictor: The main trainable component of VL-JEPA.
+"""Predictor: The main trainable component of the report model.
 
 A bidirectional (non-causal) transformer that takes vision patch embeddings
 and predicts the target text embedding in the shared latent space.
@@ -39,7 +39,7 @@ class PredictorBlock(nn.Module):
         )
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        # self-attention with pre-norm (no causal mask — fully bidirectional)
+        # self-attention with pre-norm (no causal mask - fully bidirectional)
         residual = x
         x = self.norm1(x)
         x, _ = self.attn(x, x, x, need_weights=False)

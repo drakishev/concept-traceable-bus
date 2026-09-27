@@ -1,0 +1,5 @@
+{
+  "adapter": "checkpoints/vlm_qwen25vl_7b_seed1/final",
+  "adapter_size": 761515664,
+  "adapter_mtime_ns": 1790260564984746081
+}

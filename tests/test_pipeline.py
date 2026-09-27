@@ -34,7 +34,7 @@ def tmp_dataset_dir(tmp_path: Path) -> Path:
             img = Image.new("RGB", (224, 224), color=(i * 30, i * 30, i * 30))
             img.save(label_dir / f"image_{i:03d}.jpg")
 
-    # BUS-CoT: real format — BUSCoT/BUS-Lesion/trainval/ + BUSCoT/DatasetFiles/
+    # BUS-CoT: real format - BUSCoT/BUS-Lesion/trainval/ + BUSCoT/DatasetFiles/
     bus_cot_dir = tmp_path / "bus_cot"
     img_dir = bus_cot_dir / "BUSCoT" / "BUS-Lesion" / "trainval"
     json_dir = bus_cot_dir / "BUSCoT" / "DatasetFiles"
@@ -169,20 +169,20 @@ def test_configs_loadable() -> None:
 
 def test_dataset_requires_preprocess_mode(tmp_path: Path) -> None:
     """No silent default: evaluating without the training preprocessing once went unnoticed."""
-    from src.data.datasets.bus_cot_jepa import BUSCoTJEPADataset
+    from src.data.datasets.bus_cot_reports import BUSCoTReportDataset
 
     jsonl = tmp_path / "records.jsonl"
     jsonl.write_text("")
     with pytest.raises(ValueError, match="preprocess_mode"):
-        BUSCoTJEPADataset(jsonl_path=jsonl)
-    assert len(BUSCoTJEPADataset(jsonl_path=jsonl, preprocess_mode="ultrasound")) == 0
+        BUSCoTReportDataset(jsonl_path=jsonl)
+    assert len(BUSCoTReportDataset(jsonl_path=jsonl, preprocess_mode="ultrasound")) == 0
 
 
 def test_revision_configs_use_ultrasound_preprocessing() -> None:
-    from src.data.datasets.bus_cot_jepa import preprocess_mode_of
+    from src.data.datasets.bus_cot_reports import preprocess_mode_of
 
-    for stage in ("pretrain", "finetune"):
-        assert preprocess_mode_of(f"configs/train/{stage}_jepa_v5.yaml") == "ultrasound"
+    for config in ("stage1_alignment", "stage2_generation"):
+        assert preprocess_mode_of(f"configs/train/{config}.yaml") == "ultrasound"
 
 
 def test_annotation_values_are_scoreable() -> None:
@@ -206,11 +206,11 @@ def test_annotation_values_are_scoreable() -> None:
 def test_evaluation_record_tracks_checkpoint(tmp_path: Path, monkeypatch) -> None:
     """Metrics count as current only for the checkpoint file they were computed from."""
     sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
-    import run_weekend as rw
+    import runner as rw
 
-    monkeypatch.setattr(rw, "FINETUNE_CFG", "configs/train/finetune_jepa_v5.yaml")
+    monkeypatch.setattr(rw, "FINETUNE_CFG", "configs/train/stage2_generation.yaml")
 
-    from src.data.datasets.bus_cot_jepa import preprocess_mode_of
+    from src.data.datasets.bus_cot_reports import preprocess_mode_of
 
     ck = tmp_path / "model.ckpt"
     ck.write_bytes(b"trained")

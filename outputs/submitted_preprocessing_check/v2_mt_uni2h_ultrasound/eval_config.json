@@ -1,9 +1,0 @@
-{
-  "checkpoint": "checkpoints/ultrasound_jepa_finetune_v2_mt/epoch=01-val/loss=0.0801.ckpt",
-  "test_jsonl": "data/unified_v2/test_buscot_only.jsonl",
-  "train_config": "configs/train/finetune_jepa_v2_mt.yaml",
-  "preprocess_mode": "ultrasound",
-  "image_size": 224,
-  "max_new_tokens": 256,
-  "num_beams": 4
-}

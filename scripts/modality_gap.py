@@ -1,9 +1,9 @@
-"""Quantify the cross-modal modality gap from saved JEPA embeddings.
+"""Quantify the cross-modal modality gap from saved embeddings.
 
 Reports linear CKA between image and predicted-text embeddings (low => the two
 modalities occupy dissimilar subspaces) and cross-modal retrieval R@k (how often
 the matching text is retrieved for an image and vice versa). Uses the
-embeddings.npz files already produced by scripts/visualize_embeddings.py — no
+embeddings.npz files already produced by scripts/visualize_embeddings.py - no
 model re-run required.
 
 Results are printed and, when --output is given, persisted as JSON so the paper's

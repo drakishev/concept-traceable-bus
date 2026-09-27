@@ -7,9 +7,9 @@ it) and the smallest symmetric margin the data support. A dose-response check
 fits F1 against log10(parameters) over every run of the sweep.
 
 Usage:
-    python scripts/decoder_tost.py --prefix h_ \\
-        --groups_jsonl data/unified_v5/test_buscot_only.jsonl \\
-        --output outputs/stats/tost_decoder_scale_batch7.json
+    python scripts/decoder_tost.py \\
+        --groups_jsonl data/split/test_buscot_only.jsonl \\
+        --output outputs/stats/decoder_scale.json
 """
 from __future__ import annotations
 
@@ -138,9 +138,9 @@ def main() -> None:
     import csv
 
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--prefix", default="h_")
+    ap.add_argument("--prefix", default="")
     ap.add_argument("--groups_jsonl", required=True)
-    ap.add_argument("--results_csv", default="outputs/weekend7_results.csv")
+    ap.add_argument("--results_csv", default="outputs/runs.csv")
     ap.add_argument("--output", required=True)
     args = ap.parse_args()
 
@@ -149,20 +149,20 @@ def main() -> None:
     pairs, sweep = {}, []
     for tag, params in SIZES.items():
         for seed in (1, 2, 3):
-            name = f"{args.prefix}dec_qwen{tag}_s{seed}"
+            name = f"{args.prefix}dec_qwen{tag}_seed{seed}"
             if name not in results:
                 continue
             sweep.append({"name": name, "params_b": params,
                           "path_f1": float(results[name]["path_f1"]),
                           "risk_f1": float(results[name]["risk_f1"])})
-            ref = f"{args.prefix}dec_qwen0_5b_s{seed}"
+            ref = f"{args.prefix}dec_qwen0_5b_seed{seed}"
             if tag == "0_5b":
                 continue
             a, b = _load(name), _load(ref)
-            pairs[f"{tag}_vs_0_5b_s{seed}"] = {
+            pairs[f"{tag}_vs_0_5b_seed{seed}"] = {
                 ep: cluster_tost(a, b, ep, group_of) for ep in ("pathology", "risk")}
             print(name, {ep: (v["delta_f1"], v["ci90"], v["equivalent_at_margin"])
-                         for ep, v in pairs[f"{tag}_vs_0_5b_s{seed}"].items()}, flush=True)
+                         for ep, v in pairs[f"{tag}_vs_0_5b_seed{seed}"].items()}, flush=True)
     out = {"margin": MARGIN, "resampling": "patient clusters", "pairs": pairs,
            "dose_response": dose_response(args.prefix, sweep),
            "dose_response_patient_bootstrap": slope_bootstrap(

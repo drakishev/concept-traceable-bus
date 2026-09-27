@@ -1,6 +1,6 @@
 """Calibration and sensitivity-first operating points for the pathology concept head.
 
-Revision 2, reviewer 1 item 13: F1 at the argmax threshold treats a missed
+Reviewer 1 item 13: F1 at the argmax threshold treats a missed
 cancer like a false alarm, and a probability is only useful clinically if it is
 calibrated. This script reads the per-sample malignant probabilities dumped by
 scripts/dump_concept_probs.py and reports, for each split:
@@ -16,7 +16,7 @@ scripts/dump_concept_probs.py and reports, for each split:
 Usage:
     python scripts/calibration.py --val outputs/stats/probs_val.json \\
         --test outputs/stats/probs_internal.json \\
-        --external u2bench=outputs/stats/probs_u2bench.json \\
+        --external u2bench=outputs/stats/submitted_model_u2bench.json \\
                    breast=outputs/stats/probs_breast.json \\
         --output outputs/stats/calibration.json
 """

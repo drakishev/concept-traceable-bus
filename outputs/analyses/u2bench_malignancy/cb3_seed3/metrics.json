@@ -1,0 +1,16 @@
+{
+  "n": 294,
+  "malignancy_f1": 0.6260869565217392,
+  "accuracy": 0.7074829931972789,
+  "sensitivity": 0.5806451612903226,
+  "specificity": 0.8,
+  "precision": 0.6792452830188679,
+  "balanced_accuracy": 0.6903225806451614,
+  "confusion": {
+    "tp": 72,
+    "tn": 136,
+    "fp": 34,
+    "fn": 52
+  },
+  "checkpoint": "checkpoints/runs/cb3_dinov2_seed3/epoch=03-val/loss=0.0902.ckpt"
+}

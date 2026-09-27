@@ -1,7 +1,7 @@
 """Y-Decoder: Text generator conditioned on predicted embeddings.
 
 Takes predicted embeddings from the Predictor and generates report text.
-Only used during Stage 2 fine-tuning and inference — NOT during Stage 1 pretraining.
+Only used during Stage 2 fine-tuning and inference - NOT during Stage 1 pretraining.
 
 Supports small models (GPT-2, BioMedLM) with full fine-tuning and large models
 (MedGemma-27B) with LoRA to keep optimizer state within GPU memory.

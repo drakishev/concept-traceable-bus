@@ -6,14 +6,14 @@ training set and forces the model to learn clinical semantics rather than
 memorising a single template pattern.
 
 The 4 styles:
-  A — original template (kept as-is)
-  B — clinical note (structured, label-value pairs)
-  C — passive/descriptive prose
-  D — brief impression with key findings
+  A - original template (kept as-is)
+  B - clinical note (structured, label-value pairs)
+  C - passive/descriptive prose
+  D - brief impression with key findings
 
 Only train.jsonl is augmented; val/test stay clean for honest evaluation.
 
-Histopathology is deliberately absent from every style (revision 2, reviewer 1
+Histopathology is deliberately absent from every style (reviewer 1
 item 9): it cannot be read from sonographic appearance, so it is not a target.
 
 Usage:

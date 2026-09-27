@@ -76,7 +76,7 @@ def build(
             continue
         source_dir = raw_root / source
         if not source_dir.exists():
-            logger.warning("Raw directory not found: %s — skipping %s.", source_dir, source)
+            logger.warning("Raw directory not found: %s - skipping %s.", source_dir, source)
             continue
         # The grouped protocol evaluates on BUS-CoT's own held-out split, which the
         # default loader call never reads.

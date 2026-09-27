@@ -1,7 +1,7 @@
 """X-Encoder: Frozen vision backbone for image feature extraction.
 
 Wraps pretrained pathology/medical ViTs (UNI2-h, or generic timm models).
-All backbone parameters are frozen — this is a pure feature extractor.
+All backbone parameters are frozen - this is a pure feature extractor.
 
 UNI2-h loading note:
     timm.create_model('hf-hub:MahmoodLab/UNI2-h') fails because the hub
@@ -97,7 +97,7 @@ def _load_usfm(weights_path: str, freeze: bool) -> nn.Module:
           if k not in ("mask_token", "rel_pos_bias.relative_position_index")}
     missing, unexpected = backbone.load_state_dict(sd, strict=False)
     assert not unexpected and not [m for m in missing if not m.startswith("head")], (
-        f"USFM load failed — missing={missing}, unexpected={unexpected}"
+        f"USFM load failed - missing={missing}, unexpected={unexpected}"
     )
     if freeze:
         for p in backbone.parameters():
@@ -120,7 +120,7 @@ def _load_uni2h(freeze: bool) -> nn.Module:
     sd = torch.load(ckpt_path, map_location="cpu", weights_only=True)
     missing, unexpected = backbone.load_state_dict(sd, strict=True)
     assert not missing and not unexpected, (
-        f"UNI2-h load failed — missing={missing}, unexpected={unexpected}"
+        f"UNI2-h load failed - missing={missing}, unexpected={unexpected}"
     )
 
     if freeze:

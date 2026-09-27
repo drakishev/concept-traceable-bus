@@ -1,8 +1,8 @@
 {
-  "Data": "BUS-CoT only; train/val from data/augmented_v5 (patient-grouped, near-duplicate frames joined); test = BUS-CoT official test split",
+  "Data": "BUS-CoT only; training and validation grouped by patient, near-duplicate frames joined; test = BUS-CoT official test split",
   "Image preprocessing": "ultrasound (CLAHE + border crop), 224 px; train-time horizontal flip, +/-10 degree rotation, brightness/contrast jitter",
   "Shared embedding dim": "1024",
-  "Image encoder": "frozen; see the encoder table for each backbone (batch-7 runs add DINOv2 ViT-B/14 as the size-matched comparator for USFM)",
+  "Image encoder": "frozen; see the encoder table for each backbone (the comparison includes DINOv2 ViT-B/14 as the size-matched comparator for USFM)",
   "Predictor": "6 transformer layers, width 1024, 16 heads, MLP ratio 4.0, dropout 0.1",
   "Text encoder": "microsoft/BiomedCLIP-PubMedBERT_256-vit_base_patch16_224 (trainable, LR multiplier 0.05)",
   "Alignment objective": "bidirectional InfoNCE, temperature 0.07 (learnable)",

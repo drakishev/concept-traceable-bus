@@ -1,8 +1,8 @@
 """BUSI (Breast Ultrasound Images) dataset loader.
 
-Source: Kaggle — "Breast Ultrasound Images Dataset" (aryashah2k mirror)
+Source: Kaggle - "Breast Ultrasound Images Dataset" (aryashah2k mirror)
 ~780 images split into benign/, malignant/, normal/ subdirectories.
-No free-text reports — we synthesize a BUS-CoT-style structured report
+No free-text reports - we synthesize a BUS-CoT-style structured report
 from the label so the same slot extractor and augmentation pipeline work.
 
 Expected raw layout after download + extract:

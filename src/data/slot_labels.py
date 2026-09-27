@@ -1,4 +1,4 @@
-"""Shared slot extraction + label encoding for VL-JEPA auxiliary heads.
+"""Shared slot extraction + label encoding for the auxiliary concept heads.
 
 Converts clinical concepts to integer class indices for cross-entropy
 supervision. Missing/unknown labels map to -100 so PyTorch's CrossEntropyLoss
@@ -206,7 +206,7 @@ def encode_labels(text: str, metadata: dict | None = None,
     entry = _struct_lookup().get(lesion_key(image_path) or "") or {}
     us = entry.get("us_report") or {}
 
-    # ── pathology — metadata is authoritative ─────────────────────────────
+    # ── pathology - metadata is authoritative ─────────────────────────────
     p_meta = metadata.get("pathology")
     if p_meta and isinstance(p_meta, str):
         out["pathology"] = PATHOLOGY_CLASSES.get(p_meta.lower(), IGNORE_INDEX)

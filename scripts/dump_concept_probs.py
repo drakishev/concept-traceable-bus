@@ -14,16 +14,16 @@ sensitivity is 0.730, i.e. 27% of malignancies missed).
 Usage:
     # internal BUS-CoT test split
     python scripts/dump_concept_probs.py \
-        --checkpoint checkpoints/weekend/dinov2_cb/final.ckpt \
-        --jsonl data/augmented_v2/test.jsonl \
-        --restrict-to outputs/weekend/dinov2_cb/predictions.json \
+        --checkpoint checkpoints/runs/dinov2_cb/final.ckpt \
+        --jsonl data/split_augmented/test.jsonl \
+        --restrict-to outputs/runs/dinov2_cb/predictions.json \
         --output outputs/stats/probs_internal.json
 
     # external U2-BENCH breast subset
     python scripts/dump_concept_probs.py \
-        --checkpoint checkpoints/weekend/dinov2_cb/final.ckpt \
+        --checkpoint checkpoints/runs/dinov2_cb/final.ckpt \
         --u2bench data/raw/u2bench/breast_eval/breast.jsonl \
-        --output outputs/stats/probs_u2bench.json
+        --output outputs/stats/submitted_model_u2bench.json
 """
 from __future__ import annotations
 
@@ -120,7 +120,7 @@ def operating_points(scores: list[float], labels: list[int]) -> list[dict]:
 
 # ─────────────────────────── inference ────────────────────────────────
 def run_internal(args, model, device) -> tuple[list[str], list[float], list[int]]:
-    from src.data.datasets.bus_cot_jepa import BUSCoTJEPADataset, _ultrasound_transform
+    from src.data.datasets.bus_cot_reports import BUSCoTReportDataset, _ultrasound_transform
     from src.data.slot_labels import IGNORE_INDEX
 
     keep = None
@@ -128,7 +128,7 @@ def run_internal(args, model, device) -> tuple[list[str], list[float], list[int]
         keep = {d["id"] for d in json.load(open(args.restrict_to))}
         logger.info("Restricting to %d evaluated ids", len(keep))
 
-    ds = BUSCoTJEPADataset(jsonl_path=args.jsonl,
+    ds = BUSCoTReportDataset(jsonl_path=args.jsonl,
                            transform=_ultrasound_transform(args.image_size, train=False))
     loader = DataLoader(ds, batch_size=args.batch_size, shuffle=False,
                         num_workers=args.num_workers, pin_memory=True)
@@ -154,7 +154,7 @@ def run_internal(args, model, device) -> tuple[list[str], list[float], list[int]
 
 def run_u2bench(args, model, device) -> tuple[list[str], list[float], list[int]]:
     from scripts.evaluate_u2bench import U2BBreastDataset, label_to_malignant
-    from src.data.datasets.bus_cot_jepa import _ultrasound_transform
+    from src.data.datasets.bus_cot_reports import _ultrasound_transform
 
     rows = []
     for line in open(args.u2bench):
@@ -185,7 +185,7 @@ def run_u2bench(args, model, device) -> tuple[list[str], list[float], list[int]]
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--checkpoint", required=True)
-    ap.add_argument("--jsonl", default="data/augmented_v2/test.jsonl")
+    ap.add_argument("--jsonl", default="data/split_augmented/test.jsonl")
     ap.add_argument("--restrict-to", default=None)
     ap.add_argument("--u2bench", default=None,
                     help="If given, evaluate the U2-BENCH breast subset instead.")
@@ -196,9 +196,9 @@ def main() -> None:
     ap.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
     args = ap.parse_args()
 
-    from src.model.vl_jepa import HistoVLJEPA
+    from src.model.report_model import ConceptReportModel
     logger.info("Loading %s", args.checkpoint)
-    model = HistoVLJEPA.load_from_checkpoint(args.checkpoint, stage="finetune")
+    model = ConceptReportModel.load_from_checkpoint(args.checkpoint, stage="finetune")
     model.eval()
     device = torch.device(args.device)
     model.to(device)

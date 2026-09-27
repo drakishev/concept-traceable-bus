@@ -8,9 +8,9 @@ concept-bottleneck checkpoints, the top predicted concept probabilities.
 
 Usage:
     python scripts/build_qualitative_panel.py \
-        --panel outputs/qualitative/h_cb9_dinov2_s2/panel_selected.json \
-        --out_fig paper/frontiers/revision2/supp_fig_qualitative.png \
-        --out_tex paper/frontiers/revision2/tables/tab_qualitative.tex \
+        --panel outputs/qualitative/cb9_dinov2_seed2/panel_selected.json \
+        --out_fig paper/supp_fig_qualitative.png \
+        --out_tex paper/tables/tab_qualitative.tex \
         --model_name "CB-9 (seed 2)"
 """
 from __future__ import annotations

@@ -119,7 +119,7 @@ def main() -> None:
             download_file(FIGSHARE_DIRECT_URL, zip_path)
             logger.info("Verifying MD5...")
             if not verify_md5(zip_path, FIGSHARE_MD5):
-                logger.error("MD5 check failed — download may be corrupt. Delete and retry.")
+                logger.error("MD5 check failed - download may be corrupt. Delete and retry.")
                 return
             logger.info("MD5 OK.")
 

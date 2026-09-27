@@ -1,0 +1,5 @@
+{
+  "adapter": "checkpoints/vlm_internvl3_8b_seed3/final",
+  "adapter_size": 683752864,
+  "adapter_mtime_ns": 1790334532291081799
+}

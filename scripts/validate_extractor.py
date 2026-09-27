@@ -25,8 +25,8 @@ Validated slots (unambiguous structured ground truth):
       so the text word, folded onto the enum, is the extractor's ground truth.
 
 Usage:
-    python scripts/validate_extractor.py --split-file data/unified_v4g/test_buscot_only.jsonl \\
-        --output outputs/stats/extractor_validation_v4g.json
+    python scripts/validate_extractor.py --split-file data/split/test_buscot_only.jsonl \\
+        --output outputs/stats/extractor_validation_templates.json
 """
 from __future__ import annotations
 
@@ -83,8 +83,8 @@ def renderings(ref_text: str, us_report: dict) -> dict[str, str]:
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--split-file", default="data/unified_v4g/test_buscot_only.jsonl")
-    ap.add_argument("--output", default="outputs/stats/extractor_validation_v4g.json")
+    ap.add_argument("--split-file", default="data/split/test_buscot_only.jsonl")
+    ap.add_argument("--output", default="outputs/stats/extractor_validation_templates.json")
     args = ap.parse_args()
 
     lesions = json.load(open(LESION_JSON))

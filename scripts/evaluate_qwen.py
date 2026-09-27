@@ -1,13 +1,13 @@
 """Evaluate a LoRA-fine-tuned Qwen2-VL-7B baseline on the ultrasound test set.
 
 Produces predictions.json + metrics.json in the SAME format as
-scripts/evaluate_jepa.py, so scripts/evaluate_slots.py works unchanged and
-results drop straight into the VL-JEPA comparison table.
+scripts/evaluate_reports.py, so scripts/evaluate_slots.py works unchanged and
+results drop straight into the comparison table.
 
 Usage:
     python scripts/evaluate_qwen.py \
         --adapter checkpoints/qwen2vl_lora_v2/final \
-        --test_jsonl data/unified_v2/test_buscot_only.jsonl \
+        --test_jsonl data/split/test_buscot_only.jsonl \
         --output_dir outputs/eval_qwen_v2_buscot
 """
 from __future__ import annotations

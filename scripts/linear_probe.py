@@ -12,7 +12,7 @@ decoder), so it isolates what is linearly decodable from the pretrained features
 
 Usage:
     python scripts/linear_probe.py \
-        --checkpoint checkpoints/weekend/dinov2_cb/final.ckpt \
+        --checkpoint checkpoints/runs/dinov2_cb/final.ckpt \
         --output outputs/stats/linear_probe.json
 """
 from __future__ import annotations
@@ -75,9 +75,9 @@ def patient_clusters(ids: list[str], test_jsonl: str) -> list[list[int]]:
 def extract(model, jsonl: str, device, image_size: int, batch_size: int,
             num_workers: int, restrict: set[str] | None = None):
     """Pooled frozen-encoder features + concept labels for one split."""
-    from src.data.datasets.bus_cot_jepa import BUSCoTJEPADataset, _ultrasound_transform
+    from src.data.datasets.bus_cot_reports import BUSCoTReportDataset, _ultrasound_transform
 
-    ds = BUSCoTJEPADataset(jsonl_path=jsonl, root_dir=Path("."),
+    ds = BUSCoTReportDataset(jsonl_path=jsonl, root_dir=Path("."),
                            transform=_ultrasound_transform(image_size, train=False))
     loader = DataLoader(ds, batch_size=batch_size, shuffle=False,
                         num_workers=num_workers, pin_memory=True)
@@ -103,9 +103,9 @@ def extract(model, jsonl: str, device, image_size: int, batch_size: int,
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--checkpoint", required=True)
-    ap.add_argument("--train_jsonl", default="data/augmented_v2/train.jsonl")
-    ap.add_argument("--test_jsonl", default="data/augmented_v2/test.jsonl")
-    ap.add_argument("--restrict-to", default="outputs/weekend/dinov2_cb/predictions.json")
+    ap.add_argument("--train_jsonl", default="data/split_augmented/train.jsonl")
+    ap.add_argument("--test_jsonl", default="data/split_augmented/test.jsonl")
+    ap.add_argument("--restrict-to", default="outputs/runs/dinov2_cb/predictions.json")
     ap.add_argument("--output", default="outputs/stats/linear_probe.json")
     ap.add_argument("--image_size", type=int, default=224)
     ap.add_argument("--batch_size", type=int, default=32)
@@ -117,10 +117,10 @@ def main() -> None:
     from sklearn.preprocessing import StandardScaler
 
     from src.data.slot_labels import IGNORE_INDEX
-    from src.model.vl_jepa import HistoVLJEPA
+    from src.model.report_model import ConceptReportModel
 
     logger.info("Loading %s (using its frozen x-encoder only)", args.checkpoint)
-    model = HistoVLJEPA.load_from_checkpoint(args.checkpoint, stage="finetune")
+    model = ConceptReportModel.load_from_checkpoint(args.checkpoint, stage="finetune")
     model.eval().to(args.device)
     device = torch.device(args.device)
 

@@ -7,7 +7,7 @@ It also asks authors NOT to draw figures with LaTeX, so the architecture schemat
 rendered here rather than in TikZ.
 
 Every value is read from the analysis artifacts (outputs/stats/*.json,
-outputs/weekend_results.csv, outputs/**/predictions.json) so no number is hand-copied
+outputs/submitted_version/runs.csv, outputs/**/predictions.json) so no number is hand-copied
 into a figure.
 
 Palette: blue/orange/purple/teal/yellow, no green. Adjacent-pair separation was
@@ -91,7 +91,7 @@ def _load_json(path: str) -> dict | None:
 def _csv_rows() -> dict[str, dict]:
     """Latest OK row per run name from the master results CSV."""
     out: dict[str, dict] = {}
-    with open("outputs/weekend_results.csv") as f:
+    with open("outputs/submitted_version/runs.csv") as f:
         for r in csv.DictReader(f):
             if r.get("status", "").startswith("ok") and r.get("path_f1"):
                 out[r["name"]] = r
@@ -197,7 +197,7 @@ def _seed_stats(prefix: str) -> tuple[float, float, float, float, int] | None:
     import statistics as st
     rows = _csv_rows()
     vals = [(float(r["path_f1"]), float(r["risk_f1"]))
-            for name, r in rows.items() if name.startswith(prefix + "_s")]
+            for name, r in rows.items() if name.startswith(prefix + "_seed")]
     if not vals:
         return None
     p = [v[0] for v in vals]
@@ -281,8 +281,8 @@ def fig_encoder_compare(outdir: Path) -> None:
         if k in rows:
             data.append((lbl, float(rows[k]["path_f1"]), 0.0,
                          float(rows[k]["risk_f1"]), 0.0, 1))
-    up, ur = (_f1("outputs/eval_jepa_v2_mt_buscot", "pathology"),
-              _f1("outputs/eval_jepa_v2_mt_buscot", "risk"))
+    up, ur = (_f1("outputs/submitted_version/uni2h", "pathology"),
+              _f1("outputs/submitted_version/uni2h", "risk"))
     if up is not None:
         data.append(("UNI2-h ViT-H/14 (histopath.)", up, 0.0, ur, 0.0, 1))
     data.sort(key=lambda t: -t[1])
@@ -314,10 +314,10 @@ def fig_encoder_compare(outdir: Path) -> None:
 # ── Figure 4: bottleneck spectrum ─────────────────────────────────────────
 def fig_bottleneck_spectrum(outdir: Path) -> None:
     rows = _csv_rows()
-    spec = [("Single vector\n(opaque)", "eval_jepa_v2_mt_buscot"),
+    spec = [("Single vector\n(opaque)", "eval_submitted_version_uni2h"),
             ("Multi-query\nK=4", "mq_k4"), ("Multi-query\nK=8", "mq_k8"),
             ("Multi-query\nK=32", "mq_k32"),
-            ("Concept\nbottleneck", "eval_jepa_cb_buscot"),
+            ("Concept\nbottleneck", "submitted_version/cb3"),
             ("Concept +\nresidual", "cb_resid256")]
     data = []
     for lbl, key in spec:
@@ -346,7 +346,7 @@ def fig_bottleneck_spectrum(outdir: Path) -> None:
 
 # ── Figure 5: faithfulness + descriptor co-variation ──────────────────────
 def fig_faithfulness(outdir: Path) -> None:
-    base = _load_json("outputs/eval_jepa_cb_buscot/intervention.json")
+    base = _load_json("outputs/submitted_version/cb3/intervention.json")
     # Prefer the batch-5 3-head measurement (corrected supervision); fall back to
     # the original run. The 9-head arm is deliberately NOT plotted: that model
     # generates a prose surface form the style-A slot regex cannot parse, so its
@@ -403,7 +403,7 @@ def fig_faithfulness(outdir: Path) -> None:
 # ── Figure 6 (new): malignancy ROC, internal + external ───────────────────
 def fig_roc(outdir: Path) -> None:
     a = _load_json("outputs/stats/probs_internal.json")
-    b = _load_json("outputs/stats/probs_u2bench.json")
+    b = _load_json("outputs/stats/submitted_model_u2bench.json")
     if not a:
         print("  ! skip fig_roc (run scripts/dump_concept_probs.py)")
         return

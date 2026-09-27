@@ -1,6 +1,6 @@
-"""Statistical rigor for the CB-JEPA paper — no training required.
+"""Statistical rigor for the paper - no training required.
 
-For every eval run under outputs/weekend/<name>/predictions.json:
+For every eval run under outputs/runs/<name>/predictions.json:
   - bootstrap 95% CI for malignancy (Path) F1 and BI-RADS-risk F1 (skip-missing
     convention, matching the reported tables) + extraction coverage.
 For the headline pairwise claims:
@@ -8,7 +8,7 @@ For the headline pairwise claims:
   - McNemar exact test on per-sample correctness.
 Plus malignancy ROC/AUC and the BI-RADS confusion matrix for the best model.
 
-Clustering (revision 2, reviewer 1 item 2): BUS-CoT stores up to two lesion
+Clustering (reviewer 1 item 2): BUS-CoT stores up to two lesion
 crops per source image, so records are not fully independent. When
 --groups_jsonl is given, every bootstrap resamples *groups* (source image /
 patient, `metadata.group`) rather than records, and McNemar is additionally run
@@ -18,7 +18,7 @@ reported so the reader can see how little they differ.
 Usage:
     python scripts/stats.py                       # all runs found
     python scripts/stats.py --runs dec_qwen7b x_dinov2
-    python scripts/stats.py --groups_jsonl data/unified_v4g/test_buscot_only.jsonl
+    python scripts/stats.py --groups_jsonl data/split/test_buscot_only.jsonl
 Outputs JSON + a LaTeX-ready summary to outputs/stats/.
 """
 from __future__ import annotations
@@ -47,7 +47,7 @@ OUT = Path("outputs/stats")
 
 
 def _load(name: str) -> list[dict] | None:
-    p = f"outputs/weekend/{name}/predictions.json"
+    p = f"outputs/runs/{name}/predictions.json"
     if not os.path.exists(p):
         p2 = f"outputs/{name}/predictions.json"
         if not os.path.exists(p2):
@@ -191,7 +191,7 @@ def birads_confusion(pred: list[dict]) -> dict:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--runs", nargs="*", default=None,
-                    help="runs to report per-run F1/CI for (default: all under outputs/weekend)")
+                    help="runs to report per-run F1/CI for (default: all under outputs/runs)")
     ap.add_argument("--compare", nargs="*", default=None, metavar="LABEL:RUN_A:RUN_B",
                     help="pairwise comparisons to run, overriding the built-in headline set")
     ap.add_argument("--groups_jsonl", default=None,
@@ -213,7 +213,7 @@ def main() -> None:
         names = args.runs
     else:
         names = sorted(os.path.basename(os.path.dirname(p))
-                       for p in glob.glob("outputs/weekend/*/predictions.json"))
+                       for p in glob.glob("outputs/runs/*/predictions.json"))
 
     per_run = {}
     for name in names:
@@ -248,12 +248,7 @@ def main() -> None:
                   f"{rf['ci95_cluster'][1]:.3f}]")
 
     # headline pairwise comparisons (only if both runs present)
-    default_pairs = [
-        ("DINOv2 vs UNI2-h (encoder dominates)", "x_dinov2", "eval_jepa_v2_mt_buscot"),
-        ("concept-bottleneck vs opaque (UNI2-h)", "eval_jepa_cb_buscot", "eval_jepa_v2_mt_buscot"),
-        ("concept-bottleneck vs opaque (DINOv2)", "dinov2_cb", "x_dinov2"),
-        ("DINOv2 CB-JEPA vs Qwen2-VL ceiling", "x_dinov2", "eval_qwen_v2_buscot"),
-    ]
+    default_pairs: list[tuple[str, str, str]] = []  # the article passes --compare
     if args.compare:
         pairs_to_test = []
         for spec in args.compare:

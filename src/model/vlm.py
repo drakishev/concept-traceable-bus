@@ -3,7 +3,7 @@
 Loads any HuggingFace image-text-to-text model (Qwen2.5-VL, InternVL3,
 Llama-3.2-Vision, MedGemma, ...) via the unified `AutoModelForImageTextToText`
 + `AutoProcessor` interface, optionally applying PEFT LoRA. This is the
-end-to-end "ceiling" counterpart to the VL-JEPA pipeline — the image is attended
+end-to-end counterpart to the latent-conditioned pipeline - the image is attended
 to directly by the decoder rather than squeezed through a predicted embedding.
 """
 from __future__ import annotations

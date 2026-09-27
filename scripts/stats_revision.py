@@ -1,4 +1,4 @@
-"""Peer-review revision analyses on existing predictions — no training required.
+"""Peer-review revision analyses on existing predictions - no training required.
 
 Complements scripts/stats.py (which produced the bootstrap CIs / McNemar tests already
 in the paper). This script adds the analyses the reviewers asked for:
@@ -21,7 +21,7 @@ Outputs outputs/stats/revision.json.
 
 Usage:
     python scripts/stats_revision.py
-    python scripts/stats_revision.py --cb_run cb_base3_s1 --opaque_run x_dinov2
+    python scripts/stats_revision.py --cb_run cb_base3_seed1 --opaque_run x_dinov2
 """
 from __future__ import annotations
 
@@ -42,7 +42,7 @@ from src.evaluation.slots import (  # noqa: E402
 random.seed(0)
 N_BOOT = 2000
 OUT = Path("outputs/stats")
-PRED = Path("outputs/weekend")
+PRED = Path("outputs/runs")
 
 #: Pre-specified equivalence margin for the "interpretability is free" claim,
 #: in absolute F1 points (item 10 asks for an explicit margin).

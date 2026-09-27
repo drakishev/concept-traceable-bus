@@ -1,4 +1,4 @@
-"""Concept-intervention faithfulness test for the concept-bottleneck VL-JEPA.
+"""Concept-intervention faithfulness test for the concept-bottleneck report model.
 
 For each test image we:
   1. generate the baseline report (predicted concepts),
@@ -12,10 +12,10 @@ genuinely depends on the concepts (interpretability is real, not post-hoc).
 
 Usage:
     python scripts/concept_intervention.py \
-        --checkpoint checkpoints/ultrasound_jepa_finetune_cb/epoch=07-val/loss=0.0854.ckpt \
-        --test_jsonl data/unified_v2/test_buscot_only.jsonl \
-        --train_config configs/train/finetune_jepa_v5.yaml \
-        --n 80 --output outputs/eval_jepa_cb_buscot/intervention.json
+        --checkpoint checkpoints/report_model_stage2_cb/epoch=07-val/loss=0.0854.ckpt \
+        --test_jsonl data/split/test_buscot_only.jsonl \
+        --train_config configs/train/stage2_generation.yaml \
+        --n 80 --output outputs/submitted_version/cb3/intervention.json
 """
 from __future__ import annotations
 
@@ -31,7 +31,7 @@ from tqdm import tqdm
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from src.data.datasets.bus_cot_jepa import BUSCoTJEPADataset, preprocess_mode_of
+from src.data.datasets.bus_cot_reports import BUSCoTReportDataset, preprocess_mode_of
 from src.data.slot_labels import (
     BIRADS_CLASSES,
     CALCIFICATION_CLASSES,
@@ -44,7 +44,7 @@ from src.data.slot_labels import (
     SHAPE_CLASSES,
 )
 from src.evaluation.slots import extract_slots
-from src.model.vl_jepa import HistoVLJEPA
+from src.model.report_model import ConceptReportModel
 
 # inverse maps: class index -> the value the generated report should express
 INV = {
@@ -93,11 +93,11 @@ def main() -> None:
     ap.add_argument("--device", default="cuda")
     args = ap.parse_args()
 
-    model = HistoVLJEPA.load_from_checkpoint(args.checkpoint, stage="finetune")
+    model = ConceptReportModel.load_from_checkpoint(args.checkpoint, stage="finetune")
     model = model.eval().to(args.device)
     assert model.concept_bottleneck_enabled, "checkpoint is not a concept-bottleneck model"
 
-    ds = BUSCoTJEPADataset(jsonl_path=args.test_jsonl, root_dir=Path("."), image_size=224,
+    ds = BUSCoTReportDataset(jsonl_path=args.test_jsonl, root_dir=Path("."), image_size=224,
                            preprocess_mode=preprocess_mode_of(args.train_config))
     ids = sorted(random.Random(args.sample_seed).sample(range(len(ds)), min(args.n, len(ds))))
     sample = {"seed": args.sample_seed, "record_ids": [ds.records[i]["id"] for i in ids]}

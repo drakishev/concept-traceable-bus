@@ -1,0 +1,355 @@
+{
+  "n_samples": 100,
+  "sheets": [
+    "outputs/extractor_validation/round2/sheet_A.csv",
+    "outputs/extractor_validation/round2/sheet_B.csv"
+  ],
+  "per_slot": {
+    "pathology": {
+      "per_annotator": [
+        {
+          "n": 100,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        },
+        {
+          "n": 100,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        }
+      ],
+      "inter_annotator_kappa": 1.0,
+      "inter_annotator_agreement": 1.0
+    },
+    "birads": {
+      "per_annotator": [
+        {
+          "n": 100,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        },
+        {
+          "n": 100,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        }
+      ],
+      "inter_annotator_kappa": 1.0,
+      "inter_annotator_agreement": 1.0
+    },
+    "orientation": {
+      "per_annotator": [
+        {
+          "n": 100,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        },
+        {
+          "n": 100,
+          "precision": 0.99,
+          "recall": 0.99,
+          "exact_agreement": 0.99,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        }
+      ],
+      "inter_annotator_kappa": 0.9764150943396226,
+      "inter_annotator_agreement": 0.99
+    },
+    "margins": {
+      "per_annotator": [
+        {
+          "n": 100,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        },
+        {
+          "n": 100,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        }
+      ],
+      "inter_annotator_kappa": 1.0,
+      "inter_annotator_agreement": 1.0
+    },
+    "shape": {
+      "per_annotator": [
+        {
+          "n": 100,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        },
+        {
+          "n": 100,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        }
+      ],
+      "inter_annotator_kappa": 1.0,
+      "inter_annotator_agreement": 1.0
+    },
+    "echogenicity": {
+      "per_annotator": [
+        {
+          "n": 100,
+          "precision": 0.98,
+          "recall": 0.98989898989899,
+          "exact_agreement": 0.98,
+          "human_not_stated": 1,
+          "extractor_not_stated": 0
+        },
+        {
+          "n": 100,
+          "precision": 0.99,
+          "recall": 1.0,
+          "exact_agreement": 0.99,
+          "human_not_stated": 1,
+          "extractor_not_stated": 0
+        }
+      ],
+      "inter_annotator_kappa": 0.9688667496886675,
+      "inter_annotator_agreement": 0.99
+    },
+    "calcification": {
+      "per_annotator": [
+        {
+          "n": 100,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        },
+        {
+          "n": 100,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        }
+      ],
+      "inter_annotator_kappa": 1.0,
+      "inter_annotator_agreement": 1.0
+    }
+  },
+  "per_run": {
+    "cb3_dinov2_seed1": {
+      "pathology": [
+        {
+          "n": 20,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        },
+        {
+          "n": 20,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        }
+      ],
+      "birads": [
+        {
+          "n": 20,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        },
+        {
+          "n": 20,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        }
+      ]
+    },
+    "cb9_dinov2_seed1": {
+      "pathology": [
+        {
+          "n": 20,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        },
+        {
+          "n": 20,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        }
+      ],
+      "birads": [
+        {
+          "n": 20,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        },
+        {
+          "n": 20,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        }
+      ]
+    },
+    "dec_qwen7b_seed1": {
+      "pathology": [
+        {
+          "n": 20,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        },
+        {
+          "n": 20,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        }
+      ],
+      "birads": [
+        {
+          "n": 20,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        },
+        {
+          "n": 20,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        }
+      ]
+    },
+    "enc_usfm_seed1": {
+      "pathology": [
+        {
+          "n": 20,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        },
+        {
+          "n": 20,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        }
+      ],
+      "birads": [
+        {
+          "n": 20,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        },
+        {
+          "n": 20,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        }
+      ]
+    },
+    "vlm_qwen25vl_7b_seed1": {
+      "pathology": [
+        {
+          "n": 20,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        },
+        {
+          "n": 20,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        }
+      ],
+      "birads": [
+        {
+          "n": 20,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        },
+        {
+          "n": 20,
+          "precision": 1.0,
+          "recall": 1.0,
+          "exact_agreement": 1.0,
+          "human_not_stated": 0,
+          "extractor_not_stated": 0
+        }
+      ]
+    }
+  }
+}

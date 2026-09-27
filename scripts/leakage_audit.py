@@ -4,11 +4,11 @@ Group = the finest available independence unit: for BUS-CoT the source image
 (`.../trainval/001755@0.png` -> image 001755; the @N suffix is the lesion-crop
 index, 4,338 crops from 4,228 images, so 1.03 crops per image), for BUS-BRA the
 patient (`Case`), otherwise the image. The pre-revision image-level split
-(data/augmented_v2) let crops of one image straddle train/test; the grouped split
-(data/augmented_v4g) must show zero overlap. This script quantifies both and
+(data/split_augmented) let crops of one image straddle train/test; the grouped split
+(data/split_augmented) must show zero overlap. This script quantifies both and
 recomputes the headline metrics with contaminated test groups removed.
 
-Groups are read from `metadata.group` when present (v4g) and derived from the
+Groups are read from `metadata.group` when present and derived from the
 image path otherwise (v2), where BUS-BRA patients are looked up in bus_data.csv.
 
 Group keys only compare records of one source. BUS-CoT, however, aggregates
@@ -27,12 +27,12 @@ Outputs <output>:
 
 Usage:
     python scripts/leakage_audit.py                                   # v2, historical
-    python scripts/leakage_audit.py --data data/augmented_v4g \\
-        --output outputs/stats/leakage_v4g.json
-    python scripts/leakage_audit.py --data data/unified_v5 --hash \\
+    python scripts/leakage_audit.py --data data/split_augmented \\
+        --output outputs/stats/leakage_audit.json
+    python scripts/leakage_audit.py --data data/split --hash \\
         --external u2bench=data/raw/u2bench/breast_eval/breast.jsonl \\
         "breast=data/raw/breast/BrEaST-Lesions_USG-images_and_masks/case???.png" \\
-        --output outputs/stats/leakage_v5.json
+        --output outputs/stats/leakage_audit.json
 """
 from __future__ import annotations
 
@@ -47,7 +47,7 @@ import numpy as np
 from src.data.image_hash import frame_path, hash_paths, near_duplicates
 from src.evaluation.slots import binary_f1, paired_labels
 
-PRED = Path("outputs/weekend")
+PRED = Path("outputs/runs")
 
 # `.../BUS-Lesion/trainval/001755@0.png` -> source image 001755 (@N = lesion-crop index)
 _STUDY_RE = re.compile(r"/(\d+)@(\d+)\.(?:png|jpg|jpeg)$", re.IGNORECASE)
@@ -178,9 +178,9 @@ def rescore(runs: list[str], excluded: set[str]) -> dict:
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--runs", nargs="*", default=None,
-                    help="Run names under outputs/weekend/ (default: all with predictions).")
+                    help="Run names under outputs/runs/ (default: all with predictions).")
     ap.add_argument("--output", default="outputs/stats/leakage.json")
-    ap.add_argument("--data", default="data/augmented_v2",
+    ap.add_argument("--data", default="data/split_augmented",
                     help="split directory with train/val/test.jsonl")
     ap.add_argument("--hash", action="store_true",
                     help="Also compare frames by perceptual hash across splits and sources.")
@@ -198,7 +198,9 @@ def main() -> None:
         for key in ("test_in_train", "test_in_val"):
             excluded |= set(audit["hash"]["splits"][key]["ids"])
     audit["rescored_excluded_ids"] = len(excluded)
-    audit["rescored"] = rescore(runs, excluded)
+    # A sensitivity re-score only means something if records are excluded; otherwise it
+    # would copy each run's F1 into the audit, where it goes stale when runs are re-evaluated.
+    audit["rescored"] = rescore(runs, excluded) if excluded else {}
 
     out = Path(args.output)
     out.parent.mkdir(parents=True, exist_ok=True)

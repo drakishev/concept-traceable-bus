@@ -1,4 +1,4 @@
-"""Bidirectional InfoNCE loss for VL-JEPA embedding alignment.
+"""Bidirectional InfoNCE loss for embedding alignment.
 
 Computes symmetric contrastive loss between predicted and target embeddings:
     L = 0.5 * (InfoNCE(pred→target) + InfoNCE(target→pred))
@@ -68,7 +68,7 @@ class InfoNCEWithGather(BidirectionalInfoNCE):
     """InfoNCE with all-gather for distributed training.
 
     Gathers embeddings from all GPUs to compute the loss over
-    a larger effective batch size — critical for contrastive learning.
+    a larger effective batch size - critical for contrastive learning.
     """
 
     def forward(

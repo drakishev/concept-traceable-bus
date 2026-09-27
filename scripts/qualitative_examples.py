@@ -8,9 +8,9 @@ is representative, not sanitized.
 
 Usage:
     python scripts/qualitative_examples.py \
-        --checkpoint checkpoints/weekend/dinov2_cb/epoch=05-val/loss=XXXX.ckpt \
-        --test_jsonl data/unified_v2/test_buscot_only.jsonl \
-        --train_config configs/train/finetune_jepa_v5.yaml \
+        --checkpoint checkpoints/runs/dinov2_cb/epoch=05-val/loss=XXXX.ckpt \
+        --test_jsonl data/split/test_buscot_only.jsonl \
+        --train_config configs/train/stage2_generation.yaml \
         --output_dir outputs/qualitative/dinov2_cb --n_per_bucket 3
 """
 from __future__ import annotations
@@ -42,7 +42,7 @@ CONCEPT_CLASS_NAMES = {
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--checkpoint", required=True)
-    ap.add_argument("--test_jsonl", default="data/unified_v2/test_buscot_only.jsonl")
+    ap.add_argument("--test_jsonl", default="data/split/test_buscot_only.jsonl")
     ap.add_argument("--train_config", required=True,
                     help="Stage-2 training config (its data.preprocess_mode is applied)")
     ap.add_argument("--output_dir", required=True)
@@ -57,12 +57,12 @@ def main() -> None:
     out.mkdir(parents=True, exist_ok=True)
     random.seed(args.seed)
 
-    from src.data.datasets.bus_cot_jepa import BUSCoTJEPADataset, preprocess_mode_of
-    from src.model.vl_jepa import HistoVLJEPA
+    from src.data.datasets.bus_cot_reports import BUSCoTReportDataset, preprocess_mode_of
+    from src.model.report_model import ConceptReportModel
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     logger.info("Loading checkpoint: %s", args.checkpoint)
-    model = HistoVLJEPA.load_from_checkpoint(args.checkpoint, stage="finetune")
+    model = ConceptReportModel.load_from_checkpoint(args.checkpoint, stage="finetune")
     model.eval().to(device)
     has_cb = getattr(model, "concept_bottleneck_enabled", False)
     logger.info("Concept bottleneck enabled: %s", has_cb)
@@ -70,7 +70,7 @@ def main() -> None:
     records = [json.loads(line) for line in open(args.test_jsonl) if line.strip()]
     id_to_record = {r["id"]: r for r in records}
 
-    dataset = BUSCoTJEPADataset(jsonl_path=args.test_jsonl, root_dir=Path("."),
+    dataset = BUSCoTReportDataset(jsonl_path=args.test_jsonl, root_dir=Path("."),
                                 image_size=args.image_size,
                                 preprocess_mode=preprocess_mode_of(args.train_config))
 

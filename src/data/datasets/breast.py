@@ -1,11 +1,11 @@
-"""BrEaST (Breast-Lesions-USG) loader — external, evaluation-only.
+"""BrEaST (Breast-Lesions-USG) loader - external, evaluation-only.
 
 Source: TCIA, CC BY 4.0, DOI 10.7937/9WKK-Q141 (Pawłowska et al., Sci Data 2024).
 256 B-mode images from 256 patients, 252 with a radiologist-annotated lesion and
 the full BI-RADS descriptor lexicon (shape, margin, echogenicity, posterior
 features, halo, calcifications, BI-RADS, biopsy/follow-up verification). It is
 the only public breast-ultrasound set with finding-level labels, so it is the
-external test of descriptor-level report content (revision 2, reviewer 1 items
+external test of descriptor-level report content (reviewer 1 items
 7 and 12). Never used for training.
 
 Expected raw layout (direct zip + xlsx from the TCIA collection page):

@@ -8,19 +8,19 @@ score near-perfect on n-gram metrics just by memorising the template
 skeleton. Slot accuracy measures whether it predicts the *right values*.
 
 Slots extracted (src/evaluation/slots.py, any of the four training styles):
-    orientation   — parallel / not parallel
-    margins       — source enum: regular / partiallyregular / irregular
-    shape         — oval / round / irregular
-    echogenicity  — source enum (7 classes)
-    calcification — source enum (6 classes)
-    birads        — 2 / 3 / 4A / 4B / 4C / 5 / 6
-    pathology     — benign / malignant
-    answer        — 0 / 1  (direct classification label)
+    orientation   - parallel / not parallel
+    margins       - source enum: regular / partiallyregular / irregular
+    shape         - oval / round / irregular
+    echogenicity  - source enum (7 classes)
+    calcification - source enum (6 classes)
+    birads        - 2 / 3 / 4A / 4B / 4C / 5 / 6
+    pathology     - benign / malignant
+    answer        - 0 / 1  (direct classification label)
 
 Usage:
     python scripts/evaluate_slots.py \
-        --predictions outputs/eval_jepa/predictions.json \
-        --output_dir  outputs/eval_jepa
+        --predictions outputs/evaluation/predictions.json \
+        --output_dir  outputs/evaluation
 """
 from __future__ import annotations
 
@@ -143,8 +143,8 @@ def binary_metrics(refs: list[dict], preds: list[dict], slot: str) -> dict:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--predictions", default="outputs/eval_jepa/predictions.json")
-    parser.add_argument("--output_dir",  default="outputs/eval_jepa")
+    parser.add_argument("--predictions", default="outputs/evaluation/predictions.json")
+    parser.add_argument("--output_dir",  default="outputs/evaluation")
     parser.add_argument("--output",      default=None, help="alias for --output_dir")
     args = parser.parse_args()
     if args.output:

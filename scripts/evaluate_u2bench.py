@@ -9,11 +9,11 @@ U2-BENCH (arXiv:2505.17782) breast records come in two usable flavours:
   --task birads (n=109, categories 2/3/4A/4B/4C/5): external check of the
       BI-RADS-like category and risk-group predictions, twice: from the BI-RADS
       concept head, and from the *generated report* (regex-extracted), so this
-      is also the only external test of report generation (revision 2, R1 #12).
+      is also the only external test of report generation (R1 #12).
 
 Usage:
     python scripts/evaluate_u2bench.py \
-        --checkpoint checkpoints/weekend/dinov2_cb/final.ckpt \
+        --checkpoint checkpoints/runs/dinov2_cb/final.ckpt \
         --breast_jsonl data/raw/u2bench/breast_eval/breast.jsonl \
         --output_dir outputs/eval_u2bench_breast [--task birads]
 """
@@ -233,11 +233,11 @@ def main() -> None:
         return
 
     # ── Model ─────────────────────────────────────────────────────────────────
-    from src.data.datasets.bus_cot_jepa import _ultrasound_transform
-    from src.model.vl_jepa import HistoVLJEPA
+    from src.data.datasets.bus_cot_reports import _ultrasound_transform
+    from src.model.report_model import ConceptReportModel
 
     logger.info("Loading checkpoint: %s", args.checkpoint)
-    model = HistoVLJEPA.load_from_checkpoint(args.checkpoint, stage="finetune")
+    model = ConceptReportModel.load_from_checkpoint(args.checkpoint, stage="finetune")
     model.eval()
     device = torch.device(args.device)
     model.to(device)

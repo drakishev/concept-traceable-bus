@@ -6,7 +6,7 @@ data:
 
   # Sources to include (comment out to exclude)
   sources:
-    - bus_cot       # Figshare chain-of-thought — highest priority
+    - bus_cot       # Figshare chain-of-thought - highest priority
     - breast        # TCIA BrEaST BI-RADS descriptions
     - bus_bra       # Zenodo biopsy-confirmed
     - busi          # Kaggle baseline

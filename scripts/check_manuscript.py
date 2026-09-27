@@ -1,9 +1,9 @@
 """Integrity check for the revised manuscript, supplement and response letter.
 
 1. Every decimal number in the prose must appear in the computed artifacts
-   (outputs/stats/revision2_numbers.json and the other stats JSONs) at the
+   (outputs/stats/article_numbers.json and the other stats JSONs) at the
    precision it is quoted, or in a short list of design constants. Tables are
-   generated from the same JSON (scripts/revision2_tables.py) and are skipped.
+   generated from the same JSON (scripts/article_tables.py) and are skipped.
 2. No `\\PENDING{...}` marker may remain (human input still missing).
 3. No em dash (the authors' style rule): neither the Unicode character nor LaTeX `---`.
 
@@ -11,9 +11,9 @@ Unmatched numbers are printed with their line so each can be traced or fixed; th
 script exits non-zero if anything fails.
 
 Usage:
-    python scripts/check_manuscript.py paper/frontiers/revision2/main_body.tex \\
-        paper/frontiers/revision2/supplementary.tex \\
-        paper/frontiers/revision2/response_to_reviewers.md
+    python scripts/check_manuscript.py paper/main_body.tex \\
+        paper/supplementary.tex \\
+        paper/response_to_reviewers.md
 """
 from __future__ import annotations
 
@@ -24,13 +24,17 @@ import re
 import sys
 from pathlib import Path
 
-ARTIFACTS = ["outputs/stats/revision2_numbers.json", "outputs/stats/stats_batch7.json",
-             "outputs/stats/tost_decoder_scale_batch7.json", "outputs/stats/leakage_v5.json",
-             "outputs/stats/leakage_v2_hash.json", "outputs/stats/leakage_v4g_hash.json",
-             "outputs/stats/extractor_validation_v5.json", "outputs/stats/modality_gap_batch7.json",
+ARTIFACTS = ["outputs/stats/article_numbers.json",
+             "outputs/stats/statistics.json",
+             "outputs/stats/decoder_scale.json",
+             "outputs/stats/leakage_audit.json",
+             "outputs/stats/leakage_submitted_split.json",
+             "outputs/stats/leakage_intermediate_split.json",
+             "outputs/stats/extractor_validation_templates.json",
+             "outputs/stats/modality_gap.json",
              "outputs/stats/config_table.json",
-             "outputs/annotation7/extractor_validation.json",
-             "outputs/annotation7b/extractor_validation.json"]
+             "outputs/extractor_validation/round1/extractor_validation.json",
+             "outputs/extractor_validation/round2/extractor_validation.json"]
 #: Design constants and settings quoted in the methods (not results).
 CONSTANTS = {"0.05", "0.1", "0.02", "0.07", "1.0", "0.50", "0.90", "0.01", "0.95", "2.7",
              "0.5", "1.5", "5.1", "0.0", "1.000"}

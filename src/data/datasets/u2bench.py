@@ -1,6 +1,6 @@
 """U2-BENCH dataset loader (evaluation only).
 
-Source: HuggingFace — "U2-BENCH: A Multi-task Benchmark for Ultrasound VLMs"
+Source: HuggingFace - "U2-BENCH: A Multi-task Benchmark for Ultrasound VLMs"
 Used exclusively for evaluation, not training.
 
 Usage:

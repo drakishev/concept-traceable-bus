@@ -19,9 +19,9 @@ CONTROL change-rate.
 
 Usage:
     python scripts/intervention_covariation.py \
-        --checkpoint checkpoints/weekend/dinov2_cb/final.ckpt \
-        --test_jsonl data/augmented_v2/test.jsonl --n 80 \
-        --train_config configs/train/finetune_jepa_v5.yaml \
+        --checkpoint checkpoints/runs/dinov2_cb/final.ckpt \
+        --test_jsonl data/split_augmented/test.jsonl --n 80 \
+        --train_config configs/train/stage2_generation.yaml \
         --output outputs/stats/intervention_covariation.json
 """
 from __future__ import annotations
@@ -38,10 +38,10 @@ from tqdm import tqdm
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from src.data.datasets.bus_cot_jepa import BUSCoTJEPADataset, preprocess_mode_of  # noqa: E402
+from src.data.datasets.bus_cot_reports import BUSCoTReportDataset, preprocess_mode_of  # noqa: E402
 from src.data.slot_labels import PATHOLOGY_CLASSES  # noqa: E402
 from src.evaluation.slots import DESCRIPTOR_SLOTS, extract_slots  # noqa: E402
-from src.model.vl_jepa import HistoVLJEPA  # noqa: E402
+from src.model.report_model import ConceptReportModel  # noqa: E402
 
 INV_PATH = {v: k for k, v in PATHOLOGY_CLASSES.items()}  # 0->benign, 1->malignant
 
@@ -62,7 +62,7 @@ def main() -> None:
                     help="the n images are a seeded random sample of the test set (the test "
                          "file is ordered by source collection, so its first n are not "
                          "representative)")
-    # Match scripts/evaluate_jepa.py so co-variation is measured under the SAME
+    # Match scripts/evaluate_reports.py so co-variation is measured under the SAME
     # generation process as every other slot metric in the paper. With greedy
     # decoding at 128 tokens the 9-head model emits a prose surface form that the
     # style-A slot regex cannot parse, which silently produced null descriptors
@@ -74,11 +74,11 @@ def main() -> None:
     ap.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
     args = ap.parse_args()
 
-    model = HistoVLJEPA.load_from_checkpoint(args.checkpoint, stage="finetune")
+    model = ConceptReportModel.load_from_checkpoint(args.checkpoint, stage="finetune")
     model.eval().to(args.device)
     assert model.concept_bottleneck_enabled, "checkpoint is not a concept-bottleneck model"
 
-    ds = BUSCoTJEPADataset(jsonl_path=args.test_jsonl, root_dir=Path("."),
+    ds = BUSCoTReportDataset(jsonl_path=args.test_jsonl, root_dir=Path("."),
                            image_size=224,
                            preprocess_mode=preprocess_mode_of(args.train_config))
     ids = sorted(random.Random(args.sample_seed).sample(range(len(ds)), min(args.n, len(ds))))

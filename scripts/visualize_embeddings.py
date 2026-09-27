@@ -1,13 +1,13 @@
-"""Extract image+text embeddings from a trained JEPA model and visualize with t-SNE/UMAP.
+"""Extract image+text embeddings from a trained report model and visualize with t-SNE/UMAP.
 
 Generates 2D scatter plots colored by:
     - BI-RADS category (extracted from reference text via regex)
     - Pathology (malignant / benign, from metadata)
-    - Modality (image vs text — both projected into shared embedding space)
+    - Modality (image vs text - both projected into shared embedding space)
 
 Output:
     outputs/viz/<run_name>/
-        embeddings.npz                  — raw embeddings + labels
+        embeddings.npz                  - raw embeddings + labels
         tsne_birads.png
         tsne_pathology.png
         tsne_modality.png
@@ -32,8 +32,8 @@ from tqdm import tqdm
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.data.datasets.bus_cot_jepa import BUSCoTJEPADataset, preprocess_mode_of
-from src.model.vl_jepa import HistoVLJEPA
+from src.data.datasets.bus_cot_reports import BUSCoTReportDataset, preprocess_mode_of
+from src.model.report_model import ConceptReportModel
 
 
 # ── Slot extraction (reuse from evaluate_slots.py) ─────────────────────────
@@ -152,12 +152,12 @@ def main() -> None:
 
     # ── Load model ─────────────────────────────────────────────────────────
     print(f"Loading checkpoint: {args.checkpoint}")
-    model = HistoVLJEPA.load_from_checkpoint(
+    model = ConceptReportModel.load_from_checkpoint(
         args.checkpoint, stage=args.stage, map_location=args.device
     ).eval()
 
     # ── Build dataset ──────────────────────────────────────────────────────
-    test_ds = BUSCoTJEPADataset(jsonl_path=args.test_jsonl, image_size=224,
+    test_ds = BUSCoTReportDataset(jsonl_path=args.test_jsonl, image_size=224,
                                 preprocess_mode=preprocess_mode_of(args.train_config))
     test_loader = DataLoader(test_ds, batch_size=args.batch_size, shuffle=False, num_workers=4)
 

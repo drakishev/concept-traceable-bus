@@ -1,0 +1,11 @@
+{
+  "checkpoint": "checkpoints/runs/enc_siglip_L_seed2/epoch=02-val/loss=0.0885.ckpt",
+  "test_jsonl": "data/split/test_buscot_only.jsonl",
+  "train_config": "configs/train/stage2_generation.yaml",
+  "preprocess_mode": "ultrasound",
+  "image_size": 224,
+  "max_new_tokens": 256,
+  "num_beams": 4,
+  "checkpoint_size": 33757138221,
+  "checkpoint_mtime_ns": 1790262518570719089
+}

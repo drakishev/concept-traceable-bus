@@ -11,5 +11,5 @@ checkpoints/*
 !checkpoints/SHA256SUMS
 # written by retraining (see README): the reported results stay in the tracked files
 outputs/published/
-outputs/analysis7/superseded/
-outputs/analysis7/u2bench_external.jsonl
+outputs/analyses/superseded/
+outputs/analyses/u2bench_external.jsonl

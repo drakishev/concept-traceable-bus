@@ -1,6 +1,6 @@
 """BUS-BRA dataset loader.
 
-Source: Zenodo — "BUS-BRA: A Breast Ultrasound Dataset for Assessing Computer-aided
+Source: Zenodo - "BUS-BRA: A Breast Ultrasound Dataset for Assessing Computer-aided
 Detection and Diagnosis Systems" (doi:10.5281/zenodo.8231412)
 ~1,875 images, biopsy-confirmed, with BI-RADS labels and clinical metadata.
 
